@@ -12,5 +12,8 @@ after_success:
 notifications:
   email:
     recipients:
-      - jbustamante@fi.uba.ar
+      - julianferres@gmail.com
+      - santiagomariani2@gmail.com
+      - franciscojnasif@gmail.com
+      - ema_brea@hotmail.com
     on_failure: always
