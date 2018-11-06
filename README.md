@@ -1,7 +1,7 @@
-﻿[75.07 / 95.02]
-Algoritmos y programación III
-Trabajo práctico 2
-Segundo cuatrimestre del año 2018
+  # ﻿[75.07 / 95.02] Algoritmos y programación III
+  
+  ## Trabajo práctico 2
+  ### Segundo cuatrimestre del año 2018
 
 Objetivo
 Desarrollar una aplicación de manera grupal aplicando todos los conceptos vistos en el curso, utilizando un lenguaje de tipado estático (Java) con un diseño del modelo orientado a objetos y trabajando con las técnicas de TDD e Integración Contínua.
