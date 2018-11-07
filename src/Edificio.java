@@ -1,5 +1,7 @@
-public class Edificio extends Objetivo{      
-    boolean siendoReparado =false ;      
+public interface Edificio implements Objetivo{      
+    boolean siendoReparado =false ;    
 
+    public void reparar() ;
+    public Unidad CrearUnidad(Unidad unidad);
     
 }

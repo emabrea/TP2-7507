@@ -4,7 +4,7 @@ public class Castillo implements NoConstruible{
     int vida = 1000 ;    
     
 
-    public Unidad CrearUnidad(){
+    public Unidad CrearUnidad(Unidad unidad){
         Unidad armaDeAsedio = new ArmaDeAsedio() ;
         return armaDeAsedio ;
     }

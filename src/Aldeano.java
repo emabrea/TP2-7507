@@ -3,21 +3,29 @@ public class Aldeano implements NoAtacante{
     int costo= 25;
     boolean estaOcupado = false; 
 
+    Aldeano(Posicion posicionIndicada){
+        mapa.OcuparPosicion(posicionIndicada , this);
+        posicion = posicionIndicada;        
+    }
+
     public void RecolectarOro(){
         Jugador.incrementarOro(20);
     }
 
-    public void RepararEdificios(Edificio edificio) throws Exception{              
+    public void RepararEdificios(Edificio edificio){              
         edificio.Reparar();
         estaOcupado = true; 
     }
 
-    public Estructura ConstruirEdificio(String tipoEdificio){
+    public Edificio ConstruirEdificio(Edificio tipoEdificio){
             estaOcupado = true; 
-            Estructura edificio= new tipoEdificio;
+            Edificio edificio= new tipoEdificio;
             return edificio;
     }
 
+    public boolean AldeanoOcupado(){
+        return estaOcupado;
+    }
     
 }
 

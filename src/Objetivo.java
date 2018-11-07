@@ -1,4 +1,4 @@
-public class Objetivo {
+public interface Objetivo {
 	int vida ;	
 	int costo ;
     Posicion Posicion ;
@@ -11,13 +11,16 @@ public class Objetivo {
     }
 
     public void DestruirObjeto(Objetivo objetivo){
-    	if(objetivo instanceof Edificio){
+    	if(objetivo instanceof Castillo){
     		System.out.println("Felicidades! Ha ganado")
     	}
-   		mapa.EliminarObjeto(Posicion posicion);
+   		mapa.EliminarObjetivo(Posicion posicion);
    		posicion = null;
         objetivo = null;
     }
+    public Posicion ObtenerPosicion(){
+        return posicion;
+    } 
 
 
 }

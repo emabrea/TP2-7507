@@ -3,8 +3,8 @@ public class Cuartel implements Construible{
     int costo = 50 ;
     int turnosEnConstruirse=3;       
 
-    public Unidad CrearUnidad(String tipoUnidad){        
-        Unidad unidadNueva = new tipoUnidad ;
+    public Unidad CrearUnidad(Unidad unidad){        
+        Unidad unidadNueva = new unidad ;
         return unidadNueva ;
     }
 

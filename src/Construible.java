@@ -1,4 +1,4 @@
-public interface Construible extends Edificio {   
+public interface Construible implements Edificio {   
 
     int turnosEnConstruirse;  
     int costo;

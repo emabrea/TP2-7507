@@ -3,11 +3,12 @@ public class Espadachin implements Atacante{
     int costo = 50 ;
 
 
-    public static void Atacar(objetivo) throws Exception{
-        if(DistanciaEntreUnidades(this,objetivo) > 1 ){
-            throw new Exception("El objetivo esta a distancia mayor a 1.") ;
+    public static void Atacar(objetivo) throws Exception{        
+        int[] distancia = posicion.DistanciaEntreUnidades(objetivo.ObtenerPosicion());
+        if( distancia[0]> 1 || distancia[1] > 1 ){
+            throw new Exception("El objetivo esta a distancia mayor a 1.");
         }
-        if (objetivo instanceof Estructura) {
+        if (objetivo instanceof Edificio) {
             daño = 15 ;
         }
         else{
@@ -15,16 +16,7 @@ public class Espadachin implements Atacante{
         }
         objetivo.reducirVida(daño) ;
     }
-
-    public void Mover(Posicion posicionNueva) throws Exception{
-
-        if(posicionNuevaEsValida(posicion,posicionNueva) ){
-            posicion = posicionNueva ;
-        }
-        else{
-            throw new Exception("Movimiento invalido");
-        }
-    }
+    
 
 }
 

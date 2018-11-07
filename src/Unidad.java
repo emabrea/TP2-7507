@@ -1,4 +1,4 @@
-public class Unidad extends Objetivo{
+public interface Unidad implements Objetivo{
 
 	Movimiento movimiento;
    

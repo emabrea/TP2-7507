@@ -1,7 +1,7 @@
-public interface NoAtacante extends Unidad{   
+public interface NoAtacante implements Unidad{   
 
-    public Edificio Construir(); 
-    public void Reparar();    
+    public Edificio ConstruirEdificio(Edificio tipoEdificio); 
+    public void RepararEdificios(Edificio edificio);    
 
 
 }

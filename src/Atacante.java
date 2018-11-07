@@ -1,4 +1,4 @@
-public interface Atacante extends Unidad {   
+public interface Atacante implements Unidad {   
 
     public void Atacar();   
 

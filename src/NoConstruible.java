@@ -1,4 +1,4 @@
-public interface NoConstruible extends Edificio {   
+public interface NoConstruible implements Edificio {   
 
     public void Atacar();   
 

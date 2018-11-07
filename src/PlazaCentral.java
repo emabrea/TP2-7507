@@ -3,7 +3,7 @@ public class PlazaCentral implements Construible{
     int costo = 100 ;
     int turnosEnConstruirse=3;    
 
-    public Unidad CrearUnidad(){
+    public Unidad CrearUnidad(Unidad unidad){
         Unidad aldeano = new Aldeano ;
         return aldeano ;
     }    

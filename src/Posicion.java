@@ -3,11 +3,11 @@ public class Posicion {
 	int x;
 	int y;
 
-	private int coordenadaX(){
+	public int coordenadaX(){
 		return x;
 	}
 
-	private int coordenadaY(){
+	public int coordenadaY(){
 		return y;
 	}
 
