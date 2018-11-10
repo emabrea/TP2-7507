@@ -10,7 +10,7 @@ public class Celda{
 		this.posicion = posicion;
 	}
 
-	public boolean equals(Posicion unaPosicion) {
+	public boolean equals(PosicionUnidad unaPosicion) {
 		return (this.posicion.igualA(unaPosicion));
 	}
 

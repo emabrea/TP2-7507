@@ -1,5 +1,5 @@
 package Modelo;
 
-public class ArmaDeAsedio {
+public class ArmaDeAsedio implements Unidad{
 
 }

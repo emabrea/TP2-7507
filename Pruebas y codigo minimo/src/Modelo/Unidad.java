@@ -1,5 +1,5 @@
 package Modelo;
 
-public class Unidad implements Insertable {
+public interface Unidad extends Insertable {
 
 }

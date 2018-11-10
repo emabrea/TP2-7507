@@ -1,5 +1,5 @@
 package Modelo;
 
-public class Edificio implements Insertable{
+public interface Edificio extends Insertable{
 
 }

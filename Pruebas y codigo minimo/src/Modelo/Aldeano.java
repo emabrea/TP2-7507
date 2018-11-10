@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Aldeano {
+public class Aldeano implements Unidad{
 	
 	Edificio ocupadoCon;
 	
