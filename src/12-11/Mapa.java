@@ -15,8 +15,9 @@ public class Mapa {
 
 	public boolean casillaFueraDeRango(int x,int y) throws Exception{
 		if(x > ancho || x < 1 || y > alto || y < 1){
-			throw new Exception("Fuera de rango!");
+			return true;
 		}
+		return false;
 	}
 
 
