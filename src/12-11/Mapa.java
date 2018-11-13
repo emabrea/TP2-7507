@@ -25,7 +25,7 @@ public class Mapa {
 		for(Objetivo objetivo : objetivos){
 			if (objetivo.ocupa(posicion)) return true;
 		}
-		return false
+		return false;
 	}
 
 	public void ocuparPosicion(Posicion posicion, Objetivo objetivo) throws Exception{

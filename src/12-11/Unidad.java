@@ -2,7 +2,7 @@ public interface Unidad implements Objetivo{
 
 	Movimiento movimiento;
 
-    public void Mover(Posicion posicionNueva) throws Exception{
+    public void mover(Posicion posicionNueva) throws Exception{
 
         if(mapa.posicionOcupada(posicionNueva) || !movimiento.movimientoEsValido(posicion,posicionNueva)  ){
             throw new Exception("Movimiento invalido");

@@ -3,10 +3,11 @@ public class Aldeano extends unidad{
     private EstadoAldeano estado;
     // patron state para estado del aldeano.
 
-    public Aldeano(){
+    public Aldeano(Posicion posicion){
         vida = 50;
         costo = 25;
         estado = new AldeanoLibre();
+        this.posicion = posicion ;
     }
 
     public void recolectarOro(){
