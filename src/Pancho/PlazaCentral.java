@@ -1,17 +1,20 @@
 package Modelo;
 
-import Modelo.Aldeano;
+public class PlazaCentral extends Edificio {
 
-public class PlazaCentral implements Edificio {
-
-	int tamanio = 4;
-	
-	public Aldeano crearAldeano() {
-		return (new Aldeano());
+	public PlazaCentral(Zona zona) {
+		super(zona, 400, 100, 25, 3);
 	}
 
-	public int getTamanio() {
-		return tamanio;
+	int base = 2;
+	int altura = 2;
+
+	public int getTamanioBase() {
+		return base;
+	}
+	
+	public int getTamanioAltura() {
+		return altura;
 	}
 
 }

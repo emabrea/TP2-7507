@@ -4,32 +4,52 @@ import java.util.ArrayList;
 
 public class Mapa {
 	
-	int altura = 25s;
-	int base = 50;
-	ArrayList<Celda> celdas;
+	int altura;
+	int base;
+	ArrayList<Posicion> posiciones;
 	
 	public Mapa(){
-		celdas = new ArrayList<Celda>();
+		this.altura = 25;
+		this.base = 50;
+		this.posiciones = new ArrayList<Posicion>();
 		
 	}
+	
+	public void mover(Celda celdaNueva){
+		this.posicionEsValida(celdaNueva);
+	}
 
-	public void insertar(Insertable unObjeto, Posicion unaPosicion) {
-		if(this.posicionOcupada(unaPosicion)){
-			throw new PosicionOcupadaException();
+	public void insertar(Posicion unaPosicion) {
+		this.posicionEsValida(unaPosicion);
+		this.posiciones.add(unaPosicion);
+	}
+
+	private void posicionEsValida(Posicion posicion) {
+		if(! posicion.enRango(this.altura, this.base)){
+			throw new CeldaInvalidaException();
 		}
-		celdas.add(new Celda(unObjeto, unaPosicion));
-		
-	}
-
-	private boolean posicionNoEsValida(Posicion posicion) {
-		return (! posicion.enRango(this.altura, this.base));
+		if(this.posicionOcupada(posicion)){
+			throw new CeldaOcupadaException();
+		}
 	}
 
 	public boolean posicionOcupada(Posicion unaPosicion) {
-		if(this.posicionNoEsValida(unaPosicion)){
-			throw new PosicionInvalidaException();
+		for(Posicion posicion: this.posiciones){
+			if(unaPosicion.igualA(posicion)) return true;
 		}
-		return (celdas.contains(unaPosicion));
+		return false;
+	}
+
+	public int getTamanioBase() {
+		return base;
+	}
+
+	public int getTamanioAltura() {
+		return altura;
+	}
+
+	public boolean enRango(Posicion unaPosicion) {
+		return unaPosicion.enRango(this.altura, this.base);
 	}
 	
 }

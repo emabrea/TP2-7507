@@ -1,32 +1,29 @@
 package Modelo;
 
-public class Aldeano implements Unidad{
+public class Aldeano extends Unidad{
 	
-	Edificio ocupadoCon;
+	EstadoAldeano estado;
 	
-	public Aldeano(){
-		
-		ocupadoCon = null;
-	}
-
-	public boolean estaOcupado() {
-		return (ocupadoCon != null);
+	public Aldeano(Celda celda){
+		super(celda, 50, 25);
+		estado = new AldeanoLibre();
 	}
 	
-	public void construirPlazaCentral() {
-		
-		if(this.estaOcupado()){
-			throw new AldeanoEstaOcupadoException();
-		}
-		ocupadoCon = new PlazaCentral();
+	public void repararEdificio(Mapa mapa, Edificio edificio){
+		this.estado.repararEdificio(mapa, (Celda)this.posicion, edificio, this.estado);
 	}
-
-	public void construirCuartel() {
-		if(this.estaOcupado()){
-			throw new AldeanoEstaOcupadoException();
-		}
-		ocupadoCon = new Cuartel();
-		
+	
+	public void construirCuartel(Mapa mapa){
+		this.estado.construirCuartel(mapa, (Celda)this.posicion, this.estado);
 	}
-
+	
+	public void construirPlazaCentral(Mapa mapa){
+		this.estado.construirPlazaCentral(mapa, (Celda)this.posicion, this.estado);
+	}
+	
+	public int recolectarOro(){
+		int cantidadRecolectada = this.estado.recolectarOro(this.estado);
+		return cantidadRecolectada;
+	}
+	
 }

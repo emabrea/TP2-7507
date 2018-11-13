@@ -1,20 +1,20 @@
 package Modelo;
 
-public class Cuartel implements Edificio {
+public class Cuartel extends Edificio {
 
-	int tamanio = 4;
+	public Cuartel(Zona zona) {
+		super(zona, 250, 50, 50, 3);
+	}
+
+	int base = 2;
+	int altura = 2;
+
+	public int getTamanioBase() {
+		return base;
+	}
 	
-	public Arquero crearArquero() {
-		return (new Arquero());
-	}
-
-	public Espadachin crearEspadachin() {
-		
-		return (new Espadachin());
-	}
-
-	public int getTamanio() {
-		return tamanio;
+	public int getTamanioAltura() {
+		return altura;
 	}
 
 }

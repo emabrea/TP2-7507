@@ -1,14 +1,12 @@
 package Modelo;
 
-public class Castillo implements Edificio{
+public class Castillo extends Edificio{
 	
-	int tamanio = 8;
-
-	public ArmaDeAsedio crearArmaDeAsedio() {
-	
-		return (new ArmaDeAsedio());
-		
+	public Castillo(Zona zona) {
+		super(zona, 1000, 0, 15, 0);
 	}
+
+	int tamanio = 8;
 
 	public int getTamanio() {
 		return tamanio;
