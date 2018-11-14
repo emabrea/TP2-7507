@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Castillo extends Edificio{
 	
-	public Castillo(Zona zona) {
-		super(zona, 1000, 0, 15, 0);
+	public Castillo(Celda celdaInicial) {
+		super(new Zona(celdaInicial, base, altura), 1000, 0, 15, 0);
 	}
 
 	static int base = 4;
@@ -32,6 +32,10 @@ public class Castillo extends Edificio{
 
 	public void crearArmaDeAsedio(Mapa mapa, Celda celda) {
 		mapa.insertar(celda);
+	}
+
+	public boolean derrumbado() {
+		return (this.vida == 0);
 	}
 
 }

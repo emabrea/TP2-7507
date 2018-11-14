@@ -26,7 +26,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(zona);
+		PlazaCentral plazaCentral = new PlazaCentral(celda);
 		
 		mapa.insertar(zona);
 		
@@ -72,7 +72,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(zona);
+		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona de la plaza central una vez insertada
@@ -127,7 +127,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(zona);
+		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona de la plaza central una vez insertada

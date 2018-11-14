@@ -94,4 +94,50 @@ public class DesplazamientosDeCelda {
 		
 		Assert.assertTrue(posicion.igualA(posicionDesplazada));
 	}
+	
+	@Test
+	public void test09DesplazamientoHorizontalmenteUnNumeroDeCasillerosPositivos(){
+		
+		Celda posicion = new Celda(0, 0);
+		Celda posicionDesplazada = new Celda(7, 0);
+		
+		posicion.desplazarHorizontalmente(7);
+		
+		Assert.assertTrue(posicion.igualA(posicionDesplazada));
+	}
+	
+	@Test
+	public void test10DesplazamientoHorizontalmenteUnNumeroDeCasillerosNegativos(){
+		
+		Celda posicion = new Celda(0, 0);
+		Celda posicionDesplazada = new Celda(-7, 0);
+		
+		posicion.desplazarHorizontalmente(-7);
+		
+		Assert.assertTrue(posicion.igualA(posicionDesplazada));
+	}
+	
+	@Test
+	public void test11DesplazamientoVerticalmenteUnNumeroDeCasilleros(){
+		
+		Celda posicion = new Celda(0, 0);
+		Celda posicionDesplazada = new Celda(0, 7);
+		
+		posicion.desplazarVerticalmente(7);
+		
+		Assert.assertTrue(posicion.igualA(posicionDesplazada));
+	}
+	
+	@Test
+	public void test12DesplazamientoVertialmenteUnNumeroDeCasilleros(){
+		
+		Celda posicion = new Celda(0, 0);
+		Celda posicionDesplazada = new Celda(0, -7);
+		
+		posicion.desplazarVerticalmente(-7);
+		
+		Assert.assertTrue(posicion.igualA(posicionDesplazada));
+	}
+	
+	
 }

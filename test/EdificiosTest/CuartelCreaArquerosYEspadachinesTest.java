@@ -25,7 +25,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Cuartel cuartel = new Cuartel(zona);
+		Cuartel cuartel = new Cuartel(celda);
 		
 		mapa.insertar(zona);
 		
@@ -69,7 +69,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(zona);
+		Cuartel cuartel = new Cuartel(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
@@ -122,7 +122,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(zona);
+		Cuartel cuartel = new Cuartel(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
@@ -157,7 +157,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Cuartel cuartel = new Cuartel(zona);
+		Cuartel cuartel = new Cuartel(celda);
 		
 		mapa.insertar(zona);
 		
@@ -210,7 +210,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(zona);
+		Cuartel cuartel = new Cuartel(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
@@ -269,7 +269,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel castillo = new Cuartel(zona);
+		Cuartel castillo = new Cuartel(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada

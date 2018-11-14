@@ -24,7 +24,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Castillo castillo = new Castillo(zona);
+		Castillo castillo = new Castillo(celda);
 		
 		mapa.insertar(zona);
 		
@@ -76,7 +76,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Castillo castillo = new Castillo(zona);
+		Castillo castillo = new Castillo(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del castillo una vez insertada
@@ -135,7 +135,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Castillo castillo = new Castillo(zona);
+		Castillo castillo = new Castillo(celdaInicial);
 		
 		mapa.insertar(zona);
 		// Ocupada la zona del castillo una vez insertada

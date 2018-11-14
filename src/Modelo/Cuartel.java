@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Cuartel extends Edificio {
 
-	public Cuartel(Zona zona) {
-		super(zona, 250, 50, 50, 3);
+	public Cuartel(Celda celdaInicial) {
+		super(new Zona(celdaInicial, base, altura), 250, 50, 50, 3);
 	}
 
 	static int base = 2;
