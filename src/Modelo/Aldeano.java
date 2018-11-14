@@ -11,7 +11,6 @@ public class Aldeano extends Unidad{
 		this.estado = new AldeanoLibre();
 	}
 	
-	
 	private void actualizarEstado(EstadoAldeano estadoNuevo) {
 		this.estado = estadoNuevo;
 	}

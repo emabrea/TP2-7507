@@ -62,5 +62,9 @@ public class Zona implements Posicion{
 		}
 		return true;
 	}
+	
+	public Celda getCeldaArribaIzquierda(){
+		return celdas.get(0);
+	}
 
 }

@@ -70,5 +70,21 @@ public class Mapa {
 		}
 		return zonasPosibles;
 	}
+
+	public ArrayList<Celda> buscarPosiblesCeldas(Celda celdaInicialDeBusqueda, Zona zonaDeBusqueda, int base, int altura) {
+		ArrayList<Celda> celdasPosibles = new ArrayList<Celda>();
+		
+		for(int i = 0 ; i < altura ; i++){
+			for(int j = 0 ; j < base ; j++){
+				Celda posibleCelda = celdaInicialDeBusqueda.crearCeldaIgual();
+				posibleCelda.desplazarHorizontalmente(j);
+				posibleCelda.desplazarVerticalmente(-i);
+				if(posibleCelda.igualA(zonaDeBusqueda) && ! this.posicionOcupada(posibleCelda) && this.enRango(posibleCelda)){
+					celdasPosibles.add(posibleCelda);
+				}
+			}
+		}
+		return celdasPosibles;
+	}
 	
 }
