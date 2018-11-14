@@ -20,7 +20,7 @@ public class Zona implements Posicion{
 			for(int j = 0 ; j < this.base ; j++){
 				Celda nuevaCelda = celdaInicial.crearCeldaIgual();
 				nuevaCelda.desplazarHorizontalmente(j);
-				nuevaCelda.desplazarVerticalmente(i);
+				nuevaCelda.desplazarVerticalmente(-i);
 				this.celdas.add(nuevaCelda);
 			}
 		}
@@ -54,6 +54,13 @@ public class Zona implements Posicion{
 	@Override
 	public boolean igualA(Posicion unaPosicion) {
 		return unaPosicion.igualA(this);
+	}
+
+	public boolean dentroDe(Zona unaZona) {
+		for(Celda celda: celdas){
+			if(! unaZona.igualA(celda)) return false;
+		}
+		return true;
 	}
 
 }

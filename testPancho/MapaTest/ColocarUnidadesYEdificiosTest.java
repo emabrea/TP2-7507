@@ -30,9 +30,9 @@ public class ColocarUnidadesYEdificiosTest {
 		Celda celdaInicial= new Celda(5, 6);
 		Zona zona = new Zona(celdaInicial, 2, 2);
 		
-		Celda celda2= new Celda(5, 7);
-		Celda celda3= new Celda(6, 6);
-		Celda celda4= new Celda(6, 7);
+		Celda celda2= new Celda(6, 6);
+		Celda celda3= new Celda(5, 5);
+		Celda celda4= new Celda(6, 5);
 		
 		mapa.insertar(zona);
 		
@@ -52,9 +52,9 @@ public class ColocarUnidadesYEdificiosTest {
 		Zona zona = new Zona(celdaInicial, 2, 2);
 		
 		
-		Celda celda2= new Celda(5, 7);
-		Celda celda3= new Celda(6, 6);
-		Celda celda4= new Celda(6, 7);
+		Celda celda2= new Celda(6, 6);
+		Celda celda3= new Celda(5, 5);
+		Celda celda4= new Celda(6, 5);
 		
 		mapa.insertar(zona);
 		
@@ -70,7 +70,7 @@ public class ColocarUnidadesYEdificiosTest {
 	public void test04ColocarCastilloEnMapaVacioEnPosicionValida(){
 		Mapa mapa = new Mapa();
 		
-		Celda celdaInicial= new Celda(0, 0);
+		Celda celdaInicial= new Celda(0, 3);
 		Zona zona = new Zona(celdaInicial, 4, 4);
 		
 		mapa.insertar(zona);
@@ -127,7 +127,7 @@ public class ColocarUnidadesYEdificiosTest {
 	public void test08ColocarEdificioEnMapaConAlgunaPosicionOcupada(){
 		Mapa mapa = new Mapa();
 		
-		Celda celda = new Celda(0, 0);
+		Celda celda = new Celda(3, 3);
 		Zona zona = new Zona(celda, 2, 2);
 		mapa.insertar(celda);
 		

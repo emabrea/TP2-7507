@@ -30,9 +30,9 @@ public class IgualacionEntrePosiciones {
 	public void test03IgualacionEntreZonaYCeldaYSonIgualesEsTrue(){
 		
 		Celda celda1 = new Celda(1, 2);
-		Celda celda2 = new Celda(1, 3);
-		Celda celda3 = new Celda(2, 2);
-		Celda celda4 = new Celda(2, 3);
+		Celda celda2 = new Celda(2, 2);
+		Celda celda3 = new Celda(1, 1);
+		Celda celda4 = new Celda(2, 1);
 		Zona zona = new Zona(celda1, 2, 2);
 		
 		Assert.assertTrue(zona.igualA(celda1));
@@ -87,8 +87,8 @@ public class IgualacionEntrePosiciones {
 	@Test
 	public void test08IgualacionEntreZonasCuandoSoloUnaCeldaEstaDentroDeLaOtraEsTrue(){
 		
-		Celda celdaInicial1 = new Celda(0, 0);
-		Celda celdaInicial2 = new Celda(1, 1);
+		Celda celdaInicial1 = new Celda(1, 3);
+		Celda celdaInicial2 = new Celda(2, 4);
 		
 		Zona zona1 = new Zona(celdaInicial1, 2, 2);
 		Zona zona2 = new Zona(celdaInicial2, 2, 2);

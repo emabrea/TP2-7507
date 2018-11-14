@@ -12,7 +12,7 @@ public class InicializacionDeUnaZona {
 	public void test01InicializarUnaZonaCuadrada(){
 		
 		// Tiene que ser la celda de arriba izquierda de la zona a inicializar
-		Celda celdaInicial = new Celda(0, 0);
+		Celda celdaInicial = new Celda(0, 1);
 		
 		// Celdas hacia la derecha que se quieren contando la inicial (cantidad mayor que 0)
 		int base = 2;
@@ -23,8 +23,8 @@ public class InicializacionDeUnaZona {
 		Zona zona1 = new Zona(celdaInicial, base, altura);
 		Zona zona2 = new Zona(celdaInicial, base, altura);
 		
-		Celda celda1 = new Celda(0, 1);
-		Celda celda2 = new Celda(1, 1);
+		Celda celda1 = new Celda(1, 1);
+		Celda celda2 = new Celda(0, 0);
 		Celda celda3 = new Celda(1, 0);
 		
 		Assert.assertTrue(zona1.igualA(zona2));
@@ -39,7 +39,7 @@ public class InicializacionDeUnaZona {
 	public void test02InicializarUnaZonaRectangular1(){
 		
 		// Tiene que ser la celda de arriba izquierda de la zona a inicializar
-		Celda celdaInicial = new Celda(0, 0);
+		Celda celdaInicial = new Celda(0, 4);
 		
 		// Celdas hacia la derecha que se quieren contando la inicial (cantidad mayor que 0)
 		int base = 1;
@@ -62,7 +62,7 @@ public class InicializacionDeUnaZona {
 		Assert.assertTrue(zona1.igualA(celda3));
 		
 		//La proxima celda no esta en la zona
-		Celda celda4 = new Celda(0, 4);
+		Celda celda4 = new Celda(0, 0);
 		
 		Assert.assertFalse(zona1.igualA(celda4));
 	}

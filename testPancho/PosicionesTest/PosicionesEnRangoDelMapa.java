@@ -63,10 +63,10 @@ public class PosicionesEnRangoDelMapa {
 		int altura = mapa.getTamanioAltura();
 		
 		Celda celda1 = new Celda(0, 0);
-		Zona zona1 = new Zona(celda1, 2, 2);
+		Zona zona1 = new Zona(celda1, 2, 1);
 		
 		Celda celda2 = new Celda(base - 1, altura - 1);
-		Zona zona2 = new Zona(celda2, 2, 2);
+		Zona zona2 = new Zona(celda2, 1, 2);
 		
 		Assert.assertTrue(mapa.enRango(zona1));
 		Assert.assertTrue(mapa.enRango(zona2));
@@ -101,7 +101,7 @@ public class PosicionesEnRangoDelMapa {
 		int base = mapa.getTamanioBase();
 		int altura = mapa.getTamanioAltura();
 		
-		Celda celdaInicial = new Celda(base - 1, altura);
+		Celda celdaInicial = new Celda(base, altura);
 		Zona zona = new Zona(celdaInicial, 2, 2);		
 		
 		Assert.assertFalse(mapa.enRango(zona));

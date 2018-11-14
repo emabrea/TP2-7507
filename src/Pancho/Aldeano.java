@@ -1,28 +1,51 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class Aldeano extends Unidad{
 	
 	EstadoAldeano estado;
 	
 	public Aldeano(Celda celda){
 		super(celda, 50, 25);
-		estado = new AldeanoLibre();
+		this.estado = new AldeanoLibre();
+	}
+	
+	
+	private void actualizarEstado(EstadoAldeano estadoNuevo) {
+		this.estado = estadoNuevo;
 	}
 	
 	public void repararEdificio(Mapa mapa, Edificio edificio){
-		this.estado.repararEdificio(mapa, (Celda)this.posicion, edificio, this.estado);
+		this.actualizarEstado(new AldeanoReparando());
+		this.estado.repararEdificio(mapa, (Celda)this.posicion, edificio);
+	}
+
+	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa){
+		this.actualizarEstado(new AldeanoConstruyendoCuartel());
+		ArrayList<Zona> posiblesZonas = this.estado.posiblesZonasAConstruirCuartel(mapa, (Celda)this.posicion);
+		return posiblesZonas;
 	}
 	
-	public void construirCuartel(Mapa mapa){
-		this.estado.construirCuartel(mapa, (Celda)this.posicion, this.estado);
+	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa){
+		this.actualizarEstado(new AldeanoConstruyendoPlazaCentral());
+		ArrayList<Zona> posiblesZonas = this.estado.posiblesZonasAConstruirPlazaCentral(mapa, (Celda)this.posicion);
+		return posiblesZonas;
 	}
 	
-	public void construirPlazaCentral(Mapa mapa){
-		this.estado.construirPlazaCentral(mapa, (Celda)this.posicion, this.estado);
+	public void construirCuartelEnZona(Zona unaZona, Mapa mapa){
+		this.actualizarEstado(new AldeanoConstruyendoCuartel());
+		this.estado.construirCuartel(unaZona, mapa);
+	}
+	
+	public void construirPlazaCentralEnZona(Zona unaZona, Mapa mapa){
+		this.actualizarEstado(new AldeanoConstruyendoPlazaCentral());
+		this.estado.construirPlazaCentral(unaZona, mapa);
 	}
 	
 	public int recolectarOro(){
-		int cantidadRecolectada = this.estado.recolectarOro(this.estado);
+		this.actualizarEstado(new AldeanoReparando());
+		int cantidadRecolectada = this.estado.recolectarOro();
 		return cantidadRecolectada;
 	}
 	

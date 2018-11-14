@@ -9,7 +9,6 @@ public class Unidad extends Objetivo {
 		this.movimiento = new Movimiento();
 	}
 	
-
 	public boolean estaEnPosicion(Celda celda) {
 		return celda.igualA(this.posicion);
 	}

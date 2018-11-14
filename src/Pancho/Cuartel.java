@@ -6,14 +6,14 @@ public class Cuartel extends Edificio {
 		super(zona, 250, 50, 50, 3);
 	}
 
-	int base = 2;
-	int altura = 2;
+	static int base = 2;
+	static int altura = 2;
 
-	public int getTamanioBase() {
+	static int getTamanioBase() {
 		return base;
 	}
 	
-	public int getTamanioAltura() {
+	static int getTamanioAltura() {
 		return altura;
 	}
 

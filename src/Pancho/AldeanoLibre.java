@@ -1,27 +1,35 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class AldeanoLibre implements EstadoAldeano{
 	
 
 	@Override
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio, EstadoAldeano estadoActual) {
-		estadoActual = new AldeanoReparando();
+	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
 	}
 
 	@Override
-	public void construirPlazaCentral(Mapa mapa, Celda celda, EstadoAldeano estadoActual) {
-		estadoActual = new AldeanoConstruyendoPlazaCentral();
+	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
+		return null;
 	}
 	
 	@Override
-	public void construirCuartel(Mapa mapa, Celda celda, EstadoAldeano estadoActual) {
-		estadoActual = new AldeanoConstruyendoCuartel();
+	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
+		return null;
 	}
 
 	@Override
-	public int recolectarOro(EstadoAldeano estadoActual) {
-		estadoActual = new AldeanoRecolectandoOro();
+	public int recolectarOro() {
 		return 0;
+	}
+
+	@Override
+	public void construirCuartel(Zona zona, Mapa mapa) {
+	}
+
+	@Override
+	public void construirPlazaCentral(Zona zona, Mapa mapa) {
 	}
 
 }
