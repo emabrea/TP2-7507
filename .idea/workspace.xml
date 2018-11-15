@@ -2,57 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8a2428a-45d9-4096-b3ea-c5ece5da8de8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Aldeano.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoConstruyendoCuartel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoConstruyendoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoConstruyendoPlazaCentral.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoLibre.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoRecolectandoOro.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoRecolectandoOroException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoReparando.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/AldeanoReparandoException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/ArmaDeAsedio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/ArmaDeAsedioDesmontada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/ArmaDeAsedioMontada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Arquero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Castillo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Celda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/CeldaInvalidaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/CeldaOcupadaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Cuartel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Edificio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Espadachin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/EstadoAldeano.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/EstadoArmaDeAsedio.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Mapa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Movimiento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/NoEsPosibleConstruirException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Objetivo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/PlazaCentral.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Posicion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Unidad.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Modelo/Zona.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/MapaTest/ColocarUnidadesYEdificiosTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/MapaTest/TamanioTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/PosicionesTest/DesplazamientosDeCelda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/PosicionesTest/IgualacionEntrePosiciones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/PosicionesTest/InicializacionDeUnaCelda.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/PosicionesTest/InicializacionDeUnaZona.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/PosicionesTest/PosicionesEnRangoDelMapa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/UnidadesTest/AldeanoConstruyeTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tests/UnidadesTest/MovimientoYDireccionTest.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TP2-7507.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TP2-7507.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Aldeano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Aldeano.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoLibre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/AldeanoLibre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOroException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/AldeanoReparando.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/AldeanoReparando.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/ArmaDeAsedio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/ArmaDeAsedio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Arquero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Arquero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Castillo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Castillo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Celda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Celda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Cuartel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Cuartel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Edificio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Edificio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Espadachin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Espadachin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/EstadoAldeano.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/EstadoAldeano.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Objetivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Objetivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/PlazaCentral.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/PlazaCentral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Modelo/Unidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Unidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Modelo/Zona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modelo/Zona.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/EdificiosTest/CastilloCreaArmaDeAsedioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/EdificiosTest/CastilloCreaArmaDeAsedioTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,24 +44,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="105" />
+          <entry key="java" value="210" />
+          <entry key="md" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="105" />
+          <entry key="JAVA" value="210" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2360" />
-          <entry key="txt" value="7" />
+          <entry key="java" value="7059" />
+          <entry key="txt" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2360" />
-          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="JAVA" value="7059" />
+          <entry key="PLAIN_TEXT" value="29" />
         </counts>
       </usages-collector>
     </session>
@@ -95,17 +73,15 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Aldeano.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+            <state relative-caret-position="100">
+              <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="61" />
               <folding>
-                <element signature="e#263#264#0" expanded="true" />
-                <element signature="e#295#296#0" expanded="true" />
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#1751#1752#0" expanded="true" />
-                <element signature="e#1781#1782#0" expanded="true" />
+                <element signature="e#210#211#0" expanded="true" />
+                <element signature="e#257#258#0" expanded="true" />
+                <element signature="e#299#300#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,98 +90,98 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoReparando.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            <state relative-caret-position="90">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoLibre.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
               <folding>
-                <element signature="e#732#733#0" expanded="true" />
-                <element signature="e#778#779#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#889#890#0" expanded="true" />
-                <element signature="e#960#961#0" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
+                <element signature="e#916#917#0" expanded="true" />
+                <element signature="e#934#935#0" expanded="true" />
+                <element signature="e#1008#1009#0" expanded="true" />
+                <element signature="e#1059#1060#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/Edificio.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+            <state relative-caret-position="45">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-35">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
-                <element signature="e#1044#1045#0" expanded="true" />
-                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#215#216#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#304#305#0" expanded="true" />
+                <element signature="e#351#352#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioARepararException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoConstruyeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/PosicionesTest/InicializacionDeUnaCelda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/PosicionesTest/DesplazamientosDeCelda.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/MapaTest/ColocarUnidadesYEdificiosTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/EdificiosTest/CastilloCreaArmaDeAsedioTest.java">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="525">
+              <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="97" column="27" lean-forward="true" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/Aldeano.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="100" column="73" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
+              <folding>
+                <element signature="e#1738#1739#0" expanded="true" />
+                <element signature="e#1794#1795#0" expanded="true" />
+                <element signature="e#2165#2166#0" expanded="true" />
+                <element signature="e#2225#2226#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoAldeano.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -219,34 +195,55 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>central</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Modelo/EstadoAldeano.java" />
         <option value="$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioAReparar.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/AldeanoLibre.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Posicion.java" />
         <option value="$PROJECT_DIR$/src/Modelo/Movimiento.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Unidad.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Zona.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Celda.java" />
         <option value="$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioARepararException.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Objetivo.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Aldeano.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/AldeanoReparando.java" />
-        <option value="$PROJECT_DIR$/src/Modelo/Edificio.java" />
         <option value="$PROJECT_DIR$/test/EdificiosTest/CastilloCreaArmaDeAsedioTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Celda.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Zona.java" />
+        <option value="$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoReparando.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoEstaReparandoOtroEdificio.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoEstaReparandoOtroEdificioException.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Unidad.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Edificio.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Objetivo.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Espadachin.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Arquero.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/ArmaDeAsedio.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Cuartel.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Castillo.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/PlazaCentral.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Jugador.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Juego.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/EstadoAldeano.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/Aldeano.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificio.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoLibre.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java" />
+        <option value="$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="67" />
-    <option name="y" value="25" />
-    <option name="width" value="1299" />
-    <option name="height" value="743" />
+    <option name="x" value="180" />
+    <option name="y" value="27" />
+    <option name="width" value="1279" />
+    <option name="height" value="555" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -260,11 +257,6 @@
             <path>
               <item name="TP2-7507" type="b2602c69:ProjectViewProjectNode" />
               <item name="TP2-7507" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TP2-7507" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TP2-7507" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TP2-7507" type="b2602c69:ProjectViewProjectNode" />
@@ -314,9 +306,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542254869034" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542314855126" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.xml" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
@@ -337,6 +329,29 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AldeanoConstruyeTest.test02AldeanoConstruyePlazaCentralLoConstruyeEnZonaASuLado" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TP2-7507" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UnidadesTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="UnidadesTest" />
+      <option name="MAIN_CLASS_NAME" value="UnidadesTest.AldeanoConstruyeTest" />
+      <option name="METHOD_NAME" value="test02AldeanoConstruyePlazaCentralLoConstruyeEnZonaASuLado" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.AldeanoConstruyeTest.test02AldeanoConstruyePlazaCentralLoConstruyeEnZonaASuLado" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -360,13 +375,14 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.37031126" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.38707104" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" weight="0.39151713" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.32952693" />
+      <window_info anchor="bottom" id="Find" order="4" visible="true" weight="0.19086461" />
       <window_info anchor="bottom" id="Run" order="5" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
@@ -378,140 +394,21 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.11173184" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.14365523" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+    <buildFile url="file://$PROJECT_DIR$/build.xml">
+      <expanded value="true" />
+    </buildFile>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoArmaDeAsedio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/EdificiosTest/CuartelCreaArquerosYEspadachinesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1869">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/EdificiosTest/PlazaCentralCreaAldeanoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoAldeano.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="54" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioAReparar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Espadachin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/CeldaInvalidaException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoReparandoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/ArmaDeAsedioMontada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/CeldaOcupadaException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Arquero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" column="40" lean-forward="true" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -523,13 +420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/PlazaCentral.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -547,165 +437,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Castillo.java">
+    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/DesplazamientosDeCelda.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Cuartel.java">
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ivy.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="45">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Zona.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOroException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="2" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoException.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/CeldaInvalidaException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoLibre.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Zona.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="441">
+          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOroException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoRecolectandoOro.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoReparandoException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Posicion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Objetivo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="15" column="20" lean-forward="true" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Celda.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Unidad.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="104" column="36" selection-start-line="104" selection-start-column="36" selection-end-line="104" selection-end-column="36" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Espadachin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="e#1869#1870#0" expanded="true" />
-            <element signature="e#1946#1947#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
-            <element signature="e#2019#2020#0" expanded="true" />
+            <element signature="e#90#91#0" expanded="true" />
+            <element signature="e#118#119#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/Aldeano.java">
+    <entry file="file://$PROJECT_DIR$/src/Modelo/ArmaDeAsedio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#263#264#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#141#142#0" expanded="true" />
+            <element signature="e#179#180#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Modelo/Edificio.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1084#1085#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoReparando.java">
+    <entry file="file://$PROJECT_DIR$/test/EdificiosTest/CuartelCreaArquerosYEspadachinesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding>
-            <element signature="e#732#733#0" expanded="true" />
-            <element signature="e#778#779#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#1005#1006#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioARepararException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoConstruyeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="196">
+          <caret line="184" column="16" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/InicializacionDeUnaCelda.java">
+    <entry file="file://$PROJECT_DIR$/test/EdificiosTest/PlazaCentralCreaAldeanoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/DesplazamientosDeCelda.java">
+    <entry file="file://$PROJECT_DIR$/test/MapaTest/TamanioTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
@@ -719,10 +569,238 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/IgualacionEntrePosiciones.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/InicializacionDeUnaCelda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/PosicionesEnRangoDelMapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/UnidadesTest/MovimientoYDireccionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoReparaTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/PlazaCentral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/UnidadesTest/AldeanoConstruyeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/PosicionesTest/InicializacionDeUnaZona.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Celda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Cuartel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/EdificiosTest/CastilloCreaArmaDeAsedioTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        <state relative-caret-position="390">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoArmaDeAsedio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Arquero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Castillo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDelEdificioARepararException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoEstaReparandoOtroEdificioException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/EstadoAldeano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoReparando.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Aldeano.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="100" column="73" selection-start-line="100" selection-start-column="73" selection-end-line="100" selection-end-column="73" />
+          <folding>
+            <element signature="e#1738#1739#0" expanded="true" />
+            <element signature="e#1794#1795#0" expanded="true" />
+            <element signature="e#2165#2166#0" expanded="true" />
+            <element signature="e#2225#2226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoLibre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
+          <folding>
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#934#935#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoCuartel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="61" />
+          <folding>
+            <element signature="e#210#211#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#299#300#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/AldeanoConstruyendoPlazaCentral.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Juego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="97" column="27" lean-forward="true" selection-start-line="97" selection-start-column="27" selection-end-line="97" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Modelo/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -803,6 +881,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>libs</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

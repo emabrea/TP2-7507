@@ -1,38 +1,16 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 
 	int turnosConstruyendo ;
 	Zona zonaAconstruir ;
 
-	@Override
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
-		throw new AldeanoConstruyendoException();
+	public AldeanoConstruyendoCuartel(Zona zona) {
+		this.zonaAconstruir = zona;
 	}
 
 	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
-		int base = Cuartel.getTamanioBase();
-		int altura = Cuartel.getTamanioAltura();
-		
-		Celda celdaDeBusqueda = celda.crearCeldaIgual();
-		celdaDeBusqueda.desplazarVerticalmente(altura);
-		celdaDeBusqueda.desplazarHorizontalmente(-base);
-		
-		Zona zonaDeBusqueda = new Zona(celdaDeBusqueda, 2 * base + 1, 2* altura + 1);
-		
-		ArrayList<Zona> zonasPosibles = mapa.buscarZonasPosibles(celdaDeBusqueda, zonaDeBusqueda, base, altura);
-		
-		if(zonasPosibles.isEmpty()){
-			throw new NoEsPosibleConstruirException();
-		}
-		return zonasPosibles;
-	}
-
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
+	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
 		throw new AldeanoConstruyendoException();
 	}
 
@@ -40,7 +18,7 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 	public int recolectarOro() {
 		throw new AldeanoConstruyendoException();
 	}
-
+	// FALTA IMPLEMENTAR CONSTRUIR SIMILAR A REPARAR EDIFICIO
 	@Override
 	public void construirCuartel(Zona zona, Mapa mapa) {
 		this.zonaAconstruir = zona;
@@ -65,8 +43,4 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 		}
 
 	}
-
-
-
-
 }

@@ -1,45 +1,50 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public class AldeanoLibre implements EstadoAldeano{
-	
+
+	int cantidadDeOroRecolectado = 20;
 
 	@Override
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
+	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
 		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
 			throw new AldeanoDebeEstarAlLadoDelEdificioARepararException();
 		}
 		aldeano.comienzaAReparar(edificio);
+		aldeano.repararEdificio(edificio);
 	}
 
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
-		return null;
-	}
-
+	// No tiene sentido que exista un estado aldeano recolectando oro, este lo hace cuando esta libre.
 	@Override
 	public int recolectarOro() {
-		return 0;
+		return cantidadDeOroRecolectado;
+	}
+
+
+	// Terminar construirCuartel y contruirPlazaCentral -> similar a repararEdificio.
+	@Override
+	public void construirCuartel(Aldeano aldeano, Zona zona, Mapa mapa) {
+		if(!aldeano.posicionValidaParaConstruirEdificioEnZona(zona)){
+			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
+		}
+		aldeano.comienzaAConstruirUnCuartelEnZona(zona);
+		aldeano.construirCuartelEnZona(zona);
 	}
 
 	@Override
-	public void construirCuartel(Zona zona, Mapa mapa) {
+	public void construirPlazaCentral(Aldeano aldeano,Zona zona, Mapa mapa) {
+		if(!aldeano.posicionValidaParaConstruirEdificioEnZona(zona)){
+			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
+		}
+		aldeano.comienzaAConstruirUnaPlazaCentralEnZona(zona);
+		aldeano.construirPlazaCentralEnZona(zona);
 	}
 
 	@Override
-	public void construirPlazaCentral(Zona zona, Mapa mapa) {
-	}
-
 	public boolean aldeanoLibre(){
 		return true;
 	}
 
+	@Override
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){
 		jugador.aumentarOro(aldeano.recolectarOro());
 	}

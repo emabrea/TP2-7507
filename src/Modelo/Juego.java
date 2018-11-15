@@ -55,16 +55,22 @@ public class Juego {
 		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
 		this.insertarPosicionesEnMapa(zona, celdas);
 	}
-
+	// Hay que modificar esto en base a lo que hice.
 	private void inicializarJugador1() {
 		
 		int baseCastillo = Castillo.getTamanioBase();
 		int alturaCastillo = Castillo.getTamanioAltura();
+
 		int baseMapa = this.mapa.getTamanioBase();
 		
 		Celda celdaInicial = new Celda(baseMapa - baseCastillo + 1, alturaCastillo - 1);
-		Castillo castillo = new Castillo(celdaInicial);
-		
+
+		Jugador jugador1 = new Jugador(this.cantidadDeOroInicial);
+		this.jugador1 = jugador1;
+
+		Castillo castillo = new Castillo(celdaInicial,jugador1);
+		jugador1.agregarObjetivo(castillo);
+
 		ArrayList<Aldeano> aldeanos = new ArrayList<Aldeano>();
 		ArrayList<Celda> celdas = new ArrayList<Celda>();
 		
@@ -73,22 +79,20 @@ public class Juego {
 		celdaInicial.desplazarVerticalmente(2);
 		
 		Celda celda1 = celdaInicial.crearCeldaIgual();
-		aldeanos.add(new Aldeano(celda1));
+		aldeanos.add(new Aldeano(celda1,jugador1));
 		celdas.add(celda1);
 		
 		// Segundo aldeano
 		celdaInicial.desplazarHorizontalmente(-baseCastillo);
 		Celda celda2 = celdaInicial.crearCeldaIgual();
-		aldeanos.add(new Aldeano(celda2));
+		aldeanos.add(new Aldeano(celda2,jugador1));
 		celdas.add(celda2);
 		
 		// Tercer aldeano
 		celdaInicial.desplazarVerticalmente(-alturaCastillo);
 		Celda celda3 = celdaInicial.crearCeldaIgual();
-		aldeanos.add(new Aldeano(celda3));
+		aldeanos.add(new Aldeano(celda3,jugador1));
 		celdas.add(celda3);
-		
-		this.jugador2 = new Jugador(castillo, aldeanos, this.cantidadDeOroInicial);
 		
 		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
 		this.insertarPosicionesEnMapa(zona, celdas);

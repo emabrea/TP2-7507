@@ -1,15 +1,11 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public interface EstadoAldeano {
 	
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio);
+	public void repararEdificio(Aldeano aldeano, Edificio edificio);
 	public int recolectarOro();
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda);
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda);
-	public void construirCuartel(Zona zona, Mapa mapa);
-	public void construirPlazaCentral(Zona zona, Mapa mapa);
+	public void construirCuartel(Aldeano aldeano,Zona zona, Mapa mapa);
+	public void construirPlazaCentral(Aldeano aldeano, Zona zona, Mapa mapa);
 	public void realizarTareas(Aldeano aldeano,Jugador jugador);
 	public boolean aldeanoLibre();
 }

@@ -7,8 +7,8 @@ public class Edificio extends Objetivo{
 	private int velocidadDeReparacion;
 	private int turnosEnConstruirse;
 	
-	public Edificio(Zona zona, int vida, int costo, int velocidadDeReparacion, int turnosEnConstruirse){
-		super(zona, vida, costo);
+	public Edificio(Zona zona, int vida, int costo, Jugador jugador,int velocidadDeReparacion, int turnosEnConstruirse){
+		super(zona, vida, costo, jugador);
 		this.velocidadDeReparacion = velocidadDeReparacion;
 		this.turnosEnConstruirse = turnosEnConstruirse;
 	}

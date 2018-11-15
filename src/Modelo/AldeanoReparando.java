@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.ArrayList;
-
 public class AldeanoReparando implements EstadoAldeano{
 
 	private Edificio edificio;
@@ -11,22 +9,17 @@ public class AldeanoReparando implements EstadoAldeano{
 	}
 
 	@Override
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
-	if(!edificio.esPosibleAumentarVida()){
-		aldeano.desocuparse();
-	}else{
-		edificio.aumentarVida();
-	}
-	}
+	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
 
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
-		throw new AldeanoReparandoException();
-	}
-	
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
-		throw new AldeanoReparandoException();
+		if(edificio != this.edificio){
+			throw new AldeanoEstaReparandoOtroEdificioException();
+		}
+
+		if(!edificio.esPosibleAumentarVida()){
+			aldeano.desocuparse();
+		}else{
+			edificio.aumentarVida();
+		}
 	}
 	
 	@Override
@@ -44,12 +37,14 @@ public class AldeanoReparando implements EstadoAldeano{
 		throw new AldeanoReparandoException();	
 	}
 
+	@Override
 	public boolean aldeanoLibre(){
 		return false;
 	}
 
-	public void realizarTareas(Aldeano aldeano,Jugador jugador){//implementar
-		return;
+	@Override
+	public void realizarTareas(Aldeano aldeano,Jugador jugador){
+		this.repararEdificio(aldeano,this.edificio);
 	}
 
 }
