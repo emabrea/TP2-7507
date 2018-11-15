@@ -37,7 +37,7 @@ public class AldeanoReparando implements EstadoAldeano{
 		return false;
 	}
 
-	public void realizarTareas(Aldeano aldeano){//implementar
+	public void realizarTareas(Aldeano aldeano,Jugador jugador){//implementar
 		return;
 	}
 

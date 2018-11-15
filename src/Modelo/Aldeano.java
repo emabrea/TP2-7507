@@ -48,8 +48,8 @@ public class Aldeano extends Unidad{
 		return cantidadRecolectada;
 	}
 
-	public void realizarTareas(){
-		this.estado.realizarTareas(this);
+	public void realizarTareas(Jugador jugador){
+		this.estado.realizarTareas(this,jugador);
 	}
 
 	public boolean Libre(){

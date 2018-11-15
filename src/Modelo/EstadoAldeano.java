@@ -10,6 +10,6 @@ public interface EstadoAldeano {
 	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda);
 	public void construirCuartel(Zona zona, Mapa mapa);
 	public void construirPlazaCentral(Zona zona, Mapa mapa);
-	public void realizarTareas(Aldeano aldeano);
+	public void realizarTareas(Aldeano aldeano,Jugador jugador);
 	public boolean aldeanoLibre();
 }

@@ -36,8 +36,8 @@ public class AldeanoLibre implements EstadoAldeano{
 		return true;
 	}
 
-	public void realizarTareas(Aldeano aldeano){
-		aldeano.recolectarOro();
+	public void realizarTareas(Aldeano aldeano,Jugador jugador){
+		jugador.aumentarOro(aldeano.recolectarOro());
 	}
 
 }

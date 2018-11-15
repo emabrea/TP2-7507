@@ -40,8 +40,8 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 		return false;
 	}
 
-	public void realizarTareas(Aldeano aldeano){//implementar
-		return;
+	public void realizarTareas(Aldeano aldeano,Jugador jugador){
+		jugador.aumentarOro(this.recolectarOro());		
 	}
 
 }
