@@ -33,4 +33,12 @@ public class AldeanoReparando implements EstadoAldeano{
 		throw new AldeanoReparandoException();	
 	}
 
+	public boolean aldeanoLibre(){
+		return false;
+	}
+
+	public void realizarTareas(Aldeano aldeano){//implementar
+		return;
+	}
+
 }

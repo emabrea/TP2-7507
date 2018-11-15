@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PlazaCentral extends Edificio {
 
 	public PlazaCentral(Celda celdaInicial) {
-		super(new Zona(celdaInicial, base, altura), 400, 100, 25, 3);
+		super(new Zona(celdaInicial, base, altura), 450, 100, 25, 3);
 	}
 
 	static int base = 2;

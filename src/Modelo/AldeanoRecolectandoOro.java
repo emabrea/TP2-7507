@@ -36,4 +36,12 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 		throw new AldeanoRecolectandoOroException();
 	}
 
+	public boolean aldeanoLibre(){
+		return false;
+	}
+
+	public void realizarTareas(Aldeano aldeano){//implementar
+		return;
+	}
+
 }

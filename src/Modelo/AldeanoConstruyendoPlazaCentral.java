@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 
+	int turnosConstruyendo ;
+	Zona zonaAconstruir ;
+
 	@Override
 	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
 		throw new AldeanoConstruyendoException();
@@ -45,7 +48,22 @@ public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 
 	@Override
 	public void construirPlazaCentral(Zona zona, Mapa mapa) {
+		this.zonaAconstruir = zona;
+		this.turnosConstruyendo = 0;
 		mapa.insertar(zona);
+	}
+
+	public boolean aldeanoLibre(){
+		return false;
+	}
+
+	public void realizarTareas(Aldeano aldeano){
+		this.turnosConstruyendo += 1;
+		if(this.turnosConstruyendo == 3 ){
+			new PlazaCentral(this.zonaAconstruir.getCeldaArribaIzquierda());//pasar a jugador
+			aldeano.actualizarEstado(new AldeanoLibre());
+		}
+
 	}
 
 }

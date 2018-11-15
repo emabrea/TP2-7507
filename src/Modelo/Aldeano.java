@@ -11,7 +11,7 @@ public class Aldeano extends Unidad{
 		this.estado = new AldeanoLibre();
 	}
 	
-	private void actualizarEstado(EstadoAldeano estadoNuevo) {
+	public void actualizarEstado(EstadoAldeano estadoNuevo) {
 		this.estado = estadoNuevo;
 	}
 	
@@ -43,9 +43,18 @@ public class Aldeano extends Unidad{
 	}
 	
 	public int recolectarOro(){
-		this.actualizarEstado(new AldeanoReparando());
+		this.actualizarEstado(new AldeanoRecolectandoOro());
 		int cantidadRecolectada = this.estado.recolectarOro();
 		return cantidadRecolectada;
+	}
+
+	public void realizarTareas(){
+		this.estado.realizarTareas(this);
+	}
+
+	public boolean Libre(){
+		return this.estado.aldeanoLibre();
+
 	}
 	
 }

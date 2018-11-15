@@ -32,4 +32,12 @@ public class AldeanoLibre implements EstadoAldeano{
 	public void construirPlazaCentral(Zona zona, Mapa mapa) {
 	}
 
+	public boolean aldeanoLibre(){
+		return true;
+	}
+
+	public void realizarTareas(Aldeano aldeano){
+		aldeano.recolectarOro();
+	}
+
 }
