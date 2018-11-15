@@ -1,4 +1,5 @@
 package Modelo;
+import java.lang.Math
 
 public class Celda implements Posicion{
 	
@@ -91,4 +92,22 @@ public class Celda implements Posicion{
 	public void desplazarVerticalmente(int desplazamiento){
 		this.y = this.y + desplazamiento;
 	}
+
+	public boolean estaAlLadoDe(Celda otraCelda) {
+		return otraCelda.estaAlLadoDe(this.x,this.y);
+	}
+
+	private boolean estaAlLadoDe(int x, int y) {
+		return distanciaEntreX(x) < 2 && distanciaEntreY(y) < 2 && !mismo(x,y);
+	}
+
+	private int distanciaEntreY(int y) {
+		return Math.abs(y - this.y);
+	}
+
+	private int distanciaEntreX(int x) {
+		return Math.abs(x - this.x);
+	}
+
+
 }

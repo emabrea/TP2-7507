@@ -6,7 +6,11 @@ public class AldeanoLibre implements EstadoAldeano{
 	
 
 	@Override
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
+	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
+		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
+			throw new AldeanoDebeEstarAlLadoDelEdificioARepararException();
+		}
+		aldeano.comienzaAReparar(edificio);
 	}
 
 	@Override

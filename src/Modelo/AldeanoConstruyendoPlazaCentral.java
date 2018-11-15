@@ -8,7 +8,7 @@ public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 	Zona zonaAconstruir ;
 
 	@Override
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
+	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
 		throw new AldeanoConstruyendoException();
 	}
 

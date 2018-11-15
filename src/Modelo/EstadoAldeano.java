@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface EstadoAldeano {
 	
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio);
+	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio);
 	public int recolectarOro();
 	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda);
 	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda);

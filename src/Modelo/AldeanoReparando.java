@@ -4,8 +4,19 @@ import java.util.ArrayList;
 
 public class AldeanoReparando implements EstadoAldeano{
 
+	private Edificio edificio;
+
+	public AldeanoReparando(Edificio unEdificio) {
+		this.edificio = unEdificio;
+	}
+
 	@Override
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
+	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
+	if(!edificio.esPosibleAumentarVida()){
+		aldeano.desocuparse();
+	}else{
+		edificio.aumentarVida();
+	}
 	}
 
 	@Override

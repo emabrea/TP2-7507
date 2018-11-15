@@ -16,8 +16,7 @@ public class Aldeano extends Unidad{
 	}
 	
 	public void repararEdificio(Mapa mapa, Edificio edificio){
-		this.actualizarEstado(new AldeanoReparando());
-		this.estado.repararEdificio(mapa, (Celda)this.posicion, edificio);
+		this.estado.repararEdificio(mapa, this, edificio);
 	}
 
 	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa){
@@ -46,6 +45,18 @@ public class Aldeano extends Unidad{
 		this.actualizarEstado(new AldeanoRecolectandoOro());
 		int cantidadRecolectada = this.estado.recolectarOro();
 		return cantidadRecolectada;
+	}
+
+	public boolean posicionValidaParaRepararEdificio(Edificio edificio) {
+		return edificio.estaAlLadoDe((Celda)this.posicion);
+	}
+
+	public void comienzaAReparar(Edificio edificio) {
+		this.actualizarEstado(new AldeanoReparando(edificio));
+	}
+
+	public void desocuparse() {
+		this.actualizarEstado(new AldeanoLibre());
 	}
 
 	public void realizarTareas(Jugador jugador){

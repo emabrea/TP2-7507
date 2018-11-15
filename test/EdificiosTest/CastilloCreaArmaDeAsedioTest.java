@@ -78,7 +78,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		
 		Castillo castillo = new Castillo(celdaInicial);
 		
-		mapa.insertar(zona);
+		mapa.insertaorgr(zona);
 		// Ocupada la zona del castillo una vez insertada
 		Assert.assertTrue(mapa.posicionOcupada(zona));
 		

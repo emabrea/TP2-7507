@@ -7,7 +7,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	int cantidadDeOroRecolectado = 20;
 	
 	@Override
-	public void repararEdificio(Mapa mapa, Celda celda, Edificio edificio) {
+	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
 		throw new AldeanoRecolectandoOroException();
 	}
 
