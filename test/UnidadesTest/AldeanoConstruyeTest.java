@@ -17,18 +17,33 @@ public class AldeanoConstruyeTest {
 		
 		Mapa mapa = new Mapa();
 		Celda celda = new Celda(0, 0);
+
 		Aldeano aldeano = new Aldeano(celda);
+		Assert.assertTrue(aldeano.Libre());
 		
-		mapa.insertar(celda);
-	
+		mapa.insertar(celda);	
 		Assert.assertTrue(mapa.posicionOcupada(celda));
 		
 		// Retorna una zona de posibles posiciones para construir
 		ArrayList<Zona> zonasPosibles = aldeano.posiblesZonasAConstruirCuartel(mapa);
+		Assert.assertFalse(aldeano.Libre());
 		
 		Zona zonaAConstruir = zonasPosibles.get(0);
-
 		aldeano.construirCuartelEnZona(zonaAConstruir, mapa);
+		Assert.assertFalse(aldeano.Libre());
+
+		//turno 1
+		aldeano.realizarTareas();
+		Assert.assertFalse(aldeano.Libre());
+
+		//turno 2
+		aldeano.realizarTareas();
+		Assert.assertFalse(aldeano.Libre());
+
+		//turno 3
+		aldeano.realizarTareas();
+		Assert.assertTrue(aldeano.Libre());
+
 		
 		Assert.assertTrue(mapa.posicionOcupada(celda));
 		Assert.assertTrue(mapa.posicionOcupada(zonaAConstruir));
@@ -40,6 +55,7 @@ public class AldeanoConstruyeTest {
 		Mapa mapa = new Mapa();
 		Celda celda = new Celda(0, 0);
 		Aldeano aldeano = new Aldeano(celda);
+		Assert.assertTrue(aldeano.Libre());
 		
 		mapa.insertar(celda);
 	
@@ -51,6 +67,20 @@ public class AldeanoConstruyeTest {
 		Zona zonaAConstruir = zonasPosibles.get(0);
 
 		aldeano.construirPlazaCentralEnZona(zonaAConstruir, mapa);
+		Assert.assertFalse(aldeano.Libre());
+
+
+		//turno 1
+		aldeano.realizarTareas();
+		Assert.assertFalse(aldeano.Libre());
+
+		//turno 2
+		aldeano.realizarTareas();
+		Assert.assertFalse(aldeano.Libre());
+
+		//turno 3
+		aldeano.realizarTareas();
+		Assert.assertTrue(aldeano.Libre());
 		
 		Assert.assertTrue(mapa.posicionOcupada(celda));
 		Assert.assertTrue(mapa.posicionOcupada(zonaAConstruir));
