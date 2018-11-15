@@ -61,7 +61,7 @@ public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 		this.turnosConstruyendo += 1;
 		if(this.turnosConstruyendo == 3 ){
 			jugador.agregarObjetivo(new PlazaCentral(this.zonaAconstruir.getCeldaArribaIzquierda())) ;
-			aldeano.actualizarEstado(new AldeanoLibre());
+			aldeano.desocuparse();
 		}
 
 	}
