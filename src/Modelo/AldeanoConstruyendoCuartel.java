@@ -61,7 +61,7 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 		this.turnosConstruyendo += 1;
 		if(this.turnosConstruyendo == 3 ){
 			jugador.agregarObjetivo(new Cuartel(this.zonaAconstruir.getCeldaArribaIzquierda())) ;
-			aldeano.actualizarEstado(new AldeanoLibre());
+			aldeano.desocuparse();
 		}
 
 	}
