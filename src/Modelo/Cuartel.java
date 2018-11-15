@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Cuartel extends Edificio {
 
-	public Cuartel(Celda celdaInicial) {
-		super(new Zona(celdaInicial, base, altura), 250, 50, 50, 3);
+	public Cuartel(Celda celdaInicial, Jugador jugador) {
+		super(new Zona(celdaInicial, base, altura), 250, 50, jugador,50, 3);
 	}
 
 	static int base = 2;
@@ -42,10 +42,15 @@ public class Cuartel extends Edificio {
 	}
 	
 	public void crearArquero(Mapa mapa, Celda celda) {
+		Arquero arquero = new Arquero(celda,this.jugador);
+		this.jugador.agregarObjetivo(arquero);
 		mapa.insertar(celda);
 	}
 	
-	public void crearEspadachin(Mapa mapa, Celda celda) {
+	public void crearEspadachin(Mapa mapa, Celda celda)
+	{
+		Espadachin espadachin = new Espadachin(celda,this.jugador);
+		this.jugador.agregarObjetivo(espadachin);
 		mapa.insertar(celda);
 	}
 

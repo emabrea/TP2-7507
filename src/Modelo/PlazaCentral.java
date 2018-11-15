@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class PlazaCentral extends Edificio {
 
-	public PlazaCentral(Celda celdaInicial) {
-		super(new Zona(celdaInicial, base, altura), 450, 100, 25, 3);
+	public PlazaCentral(Celda celdaInicial, Jugador jugador) {
+		super(new Zona(celdaInicial, base, altura), 450, 100, jugador,25, 3);
 	}
 
 	static int base = 2;
@@ -31,7 +31,8 @@ public class PlazaCentral extends Edificio {
 	}
 
 	public void crearAldeano(Mapa mapa, Celda celda) {
+		Aldeano aldeano = new Aldeano(celda,this.jugador);
+		this.jugador.agregarObjetivo(aldeano);
 		mapa.insertar(celda);
 	}
-
 }

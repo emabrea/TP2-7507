@@ -68,11 +68,13 @@ public class Zona implements Posicion{
 	}
 
 	public boolean estaAlLadoDe(Celda celda) {
+
+		// Si la zona incluye la celda entonces no esta al lado.
+		if(this.igualA(celda)) return false;
+
 		for(Celda celdaZona: celdas){
-			if(!celda.estaAlLadoDe(celdaZona)){
-				return false;
-			}
+			if(celda.estaAlLadoDe(celdaZona)) return true;
 		}
-		return true;
+		return false;
 	}
 }
