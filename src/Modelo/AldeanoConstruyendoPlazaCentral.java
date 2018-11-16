@@ -7,12 +7,13 @@ public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 	Zona zonaEnQueSeConstruye;
 
 	public AldeanoConstruyendoPlazaCentral(Zona zona) {
-		this.zonaAconstruir = zona;
+		this.zonaEnQueSeConstruye = zona;
+		this.turnosConstruyendo = 0;
 	}
 
 	@Override
-	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
-		throw new AldeanoConstruyendoException();
+	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
+		throw new AldeanoEstaConstruyendoPlazaCentralException();
 	}
 
 	@Override

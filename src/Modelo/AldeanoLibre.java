@@ -5,38 +5,35 @@ public class AldeanoLibre implements EstadoAldeano{
 	int cantidadDeOroRecolectado = 20;
 
 	@Override
-	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
+	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
 			throw new AldeanoDebeEstarAlLadoDelEdificioARepararException();
 		}
 		aldeano.comienzaAReparar(edificio);
-		aldeano.repararEdificio(edificio);
+		aldeano.realizarTareas();
 	}
 
-	// No tiene sentido que exista un estado aldeano recolectando oro, este lo hace cuando esta libre.
 	@Override
 	public int recolectarOro() {
 		return cantidadDeOroRecolectado;
 	}
 
-
-	// Terminar construirCuartel y contruirPlazaCentral -> similar a repararEdificio.
 	@Override
-	public void construirCuartel(Aldeano aldeano, Zona zona, Mapa mapa) {
+	public void construirCuartel(Zona zona, Aldeano aldeano, Jugador jugador) {
 		if(!aldeano.posicionValidaParaConstruirEdificioEnZona(zona)){
 			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
 		}
 		aldeano.comienzaAConstruirUnCuartelEnZona(zona);
-		aldeano.construirCuartelEnZona(zona);
+		aldeano.realizarTareas();
 	}
 
 	@Override
-	public void construirPlazaCentral(Aldeano aldeano,Zona zona, Mapa mapa) {
+	public void construirPlazaCentral(Zona zona, Aldeano aldeano, Jugador jugador) {
 		if(!aldeano.posicionValidaParaConstruirEdificioEnZona(zona)){
 			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
 		}
 		aldeano.comienzaAConstruirUnaPlazaCentralEnZona(zona);
-		aldeano.construirPlazaCentralEnZona(zona);
+		aldeano.realizarTareas();
 	}
 
 	@Override

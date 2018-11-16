@@ -9,16 +9,12 @@ public class AldeanoReparando implements EstadoAldeano{
 	}
 
 	@Override
-	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
+	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
 
 		if(edificio != this.edificio){
 			throw new AldeanoEstaReparandoOtroEdificioException();
-		}
-
-		if(!edificio.esPosibleAumentarVida()){
-			aldeano.desocuparse();
 		}else{
-			edificio.aumentarVida();
+			throw new AldeanoYaEstaReparandoEseEdificioException();
 		}
 	}
 	
@@ -44,7 +40,11 @@ public class AldeanoReparando implements EstadoAldeano{
 
 	@Override
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){
-		this.repararEdificio(aldeano,this.edificio);
+		if(!this.edificio.esPosibleAumentarVida()){
+			aldeano.desocuparse();
+		}else{
+			this.edificio.aumentarVida();
+		}
 	}
 
 }
