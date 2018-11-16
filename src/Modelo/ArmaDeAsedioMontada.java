@@ -1,5 +1,5 @@
 package Modelo;
 
-public class ArmaDeAsedioMontada {
+public class ArmaDeAsedioMontada implements EstadoArmaDeAsedio {
 
 }

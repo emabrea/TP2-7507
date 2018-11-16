@@ -16,26 +16,6 @@ public class Jugador {
 		this.aldeanos = new ArrayList<Aldeano>();
 	}
 
-	/*
-	public boolean perdiste(){
-		return castillo.derrumbado();
-	}
-	
-	public void recolectarOro(){
-		for(Aldeano aldeano: aldeanos){
-			cantidadDeOro += aldeano.recolectarOro();
-		}
-	}
-	Ver si conviene que cada aldeano se encarga de hacer lo suyo con aldeano.realizarTareas
-	y alli es que termina agregandole el oro al jugador.
-	*/
-
-	/*
-	Ver, quizas sea algo similar a agregarObjetivo.
-	public boolean lePerteneceObjetivo(Objetivo objetivo){
-		return objetivos.contains(objetivo);
-	}
-	*/
 	public void agregarObjetivo(Aldeano aldeano){
 		aldeanos.add(aldeano);
 	}
@@ -61,5 +41,14 @@ public class Jugador {
 	public int cantidadDeOro(){
 		return this.cantidadDeOro;
 	}
-	
+
+	/*
+
+	Ver, quizas sea algo similar a agregarObjetivo.
+	public boolean lePerteneceObjetivo(Objetivo objetivo){
+		return objetivos.contains(objetivo);
+	}
+
+	*/
+
 }

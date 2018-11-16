@@ -1,5 +1,5 @@
 package Modelo;
 
-public class EstadoArmaDeAsedio {
+public interface EstadoArmaDeAsedio {
 
 }

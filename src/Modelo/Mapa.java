@@ -7,14 +7,20 @@ public class Mapa {
 	int altura;
 	int base;
 	ArrayList<Posicion> posiciones;
-	
-	public Mapa(){
+
+	private static final Mapa INSTANCIA = new Mapa();
+
+	private Mapa(){
 		this.altura = 25;
 		this.base = 50;
 		this.posiciones = new ArrayList<Posicion>();
-		
 	}
-	
+
+	public static Mapa obtenerInstancia() {
+		return INSTANCIA;
+	}
+
+	// Por que esta este metodo?
 	public void mover(Celda celdaNueva){
 		this.posicionEsValida(celdaNueva);
 	}
