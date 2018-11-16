@@ -6,6 +6,5 @@ public class ArmaDeAsedio extends Unidad{
 	
 	public ArmaDeAsedio(Celda celda, Jugador jugador) {
 		super(celda, 150, 200, jugador);
-		this.estado = new ArmaDeAsedioDesmontada();
 	}
 }

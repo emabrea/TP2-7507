@@ -7,20 +7,19 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 	Zona zonaEnQueSeConstruye;
 
 	public AldeanoConstruyendoCuartel(Zona zona) {
-		this.zonaEnQueSeConstruye = zona;
-		this.turnosConstruyendo = 0;
+		this.zonaAconstruir = zona;
 	}
 
 	@Override
-	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
-		throw new AldeanoEstaConstruyendoUnCuartelException();
+	public void repararEdificio(Aldeano aldeano, Edificio edificio) {
+		throw new AldeanoConstruyendoException();
 	}
 
 	@Override
 	public int recolectarOro() {
 		throw new AldeanoEstaConstruyendoUnCuartelException();
 	}
-
+	// FALTA IMPLEMENTAR CONSTRUIR SIMILAR A REPARAR EDIFICIO
 	@Override
 	public void construirCuartel(Zona zona, Aldeano aldeano, Jugador jugador) {
 		if(zona != this.zonaEnQueSeConstruye){

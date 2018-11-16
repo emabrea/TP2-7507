@@ -15,9 +15,12 @@ public class Aldeano extends Unidad{
 		this.estado = estadoNuevo;
 	}
 	
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(){
+	public void repararEdificio(Edificio edificio){
+		this.estado.repararEdificio(this, edificio);
+	}
 
-		Mapa mapa = Mapa.obtenerInstancia();
+	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa){
+
 		int base = Cuartel.getTamanioBase();
 		int altura = Cuartel.getTamanioAltura();
 
@@ -34,10 +37,9 @@ public class Aldeano extends Unidad{
 		}
 		return zonasPosibles;
 	}
+	
+	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa){
 
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(){
-
-		Mapa mapa = Mapa.obtenerInstancia();
 		int base = PlazaCentral.getTamanioBase();
 		int altura = PlazaCentral.getTamanioAltura();
 
@@ -54,17 +56,13 @@ public class Aldeano extends Unidad{
 		}
 		return zonasPosibles;
 	}
-
-	public void repararEdificio(Edificio edificio){
-		this.estado.repararEdificio(edificio, this);
-	}
-
-	public void construirCuartelEnZona(Zona zona){
-		this.estado.construirCuartel(zona, this, this.jugador);
+	
+	public void construirCuartelEnZona(Zona unaZona, Mapa mapa){
+		this.estado.construirCuartel(this, unaZona, mapa);
 	}
 	
-	public void construirPlazaCentralEnZona(Zona zona){
-		this.estado.construirPlazaCentral(zona, this, this.jugador);
+	public void construirPlazaCentralEnZona(Zona unaZona, Mapa mapa){
+		this.estado.construirPlazaCentral(this, unaZona, mapa);
 	}
 	
 	public int recolectarOro(){
@@ -99,7 +97,15 @@ public class Aldeano extends Unidad{
 		return this.estado.aldeanoLibre();
 	}
 
-	public void realizarTareas(){
-		this.estado.realizarTareas(this,this.jugador);
+	public boolean posicionValidaParaConstruirEdificioEnZona(Zona zona) {
+		return zona.estaAlLadoDe(((Celda)this.posicion));
+	}
+
+	public void comienzaAConstruirUnCuartelEnZona(Zona zona) {
+		this.actualizarEstado(new AldeanoConstruyendoCuartel(zona));
+	}
+
+	public void comienzaAConstruirUnaPlazaCentralEnZona(Zona zona) {
+		this.actualizarEstado(new AldeanoConstruyendoPlazaCentral(zona));
 	}
 }
