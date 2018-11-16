@@ -13,7 +13,7 @@ public class Edificio extends Objetivo{
 		this.turnosEnConstruirse = turnosEnConstruirse;
 	}
 	
-	public ArrayList<Celda> posiblesCeldasParaCrearUnidad(Zona zona, int base, int altura, Mapa mapa){
+	public ArrayList<Celda> posiblesCeldasParaCrearUnidad(Zona zona, int base, int altura){
 		
 		Celda celdaArribaIzquierda = zona.getCeldaArribaIzquierda();
 		Celda celdaInicialDeBusqueda = celdaArribaIzquierda.crearCeldaIgual();
@@ -21,7 +21,7 @@ public class Edificio extends Objetivo{
 		
 		Zona zonaDeBusqueda = new Zona(celdaInicialDeBusqueda, base ,  altura);
 		
-		return mapa.buscarPosiblesCeldas(celdaInicialDeBusqueda, zonaDeBusqueda, base, altura);
+		return Mapa.obtenerInstancia().buscarPosiblesCeldas(celdaInicialDeBusqueda, zonaDeBusqueda, base, altura);
 	}
 
 	public boolean estaAlLadoDe(Celda celda) {

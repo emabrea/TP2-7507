@@ -19,9 +19,9 @@ public class Castillo extends Edificio{
 		return altura;
 	}
 	
-	public ArrayList<Celda> posiblesCeldasParaCrearArmaDeAsedio(Mapa mapa){
+	public ArrayList<Celda> posiblesCeldasParaCrearArmaDeAsedio(){
 		
-		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2, mapa);
+		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		 
 		if(celdasPosibles.isEmpty()){
 			throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
@@ -30,10 +30,10 @@ public class Castillo extends Edificio{
 		return celdasPosibles;
 	}
 
-	public void crearArmaDeAsedio(Mapa mapa, Celda celda) {
+	public void crearArmaDeAsedio(Celda celda) {
 		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celda,this.jugador);
 		this.jugador.agregarObjetivo(armaDeAsedio);
-		mapa.insertar(celda);
+		Mapa.obtenerInstancia().insertar(celda);
 	}
 
 	public boolean derrumbado() {

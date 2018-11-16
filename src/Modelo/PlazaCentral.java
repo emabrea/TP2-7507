@@ -19,9 +19,9 @@ public class PlazaCentral extends Edificio {
 		return altura;
 	}
 
-	public ArrayList<Celda> posiblesCeldasParaCrearAldeano(Mapa mapa) {
+	public ArrayList<Celda> posiblesCeldasParaCrearAldeano() {
 		
-		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2, mapa);
+		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		
 		if(celdasPosibles.isEmpty()){
 			throw new NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException();
@@ -30,9 +30,9 @@ public class PlazaCentral extends Edificio {
 		return celdasPosibles;
 	}
 
-	public void crearAldeano(Mapa mapa, Celda celda) {
+	public void crearAldeano(Celda celda) {
 		Aldeano aldeano = new Aldeano(celda,this.jugador);
 		this.jugador.agregarObjetivo(aldeano);
-		mapa.insertar(celda);
+		Mapa.obtenerInstancia().insertar(celda);
 	}
 }

@@ -20,9 +20,9 @@ public class Jugador {
 		aldeanos.add(aldeano);
 	}
 
-	public void agregarObjetivo(Unidad unidad) { unidades.add(unidad)};
+	public void agregarObjetivo(Unidad unidad) { unidades.add(unidad);}
 
-	public void agregarObjetivo(Edificio edificio){edificios.add(edificio)};
+	public void agregarObjetivo(Edificio edificio){edificios.add(edificio);}
 
 	public void eliminarObjetivo(Aldeano aldeano){
 		aldeanos.remove(aldeano);
