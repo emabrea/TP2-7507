@@ -1,47 +1,35 @@
 package Modelo;
 
+
 import java.util.ArrayList;
 
 public class AldeanoReparando implements EstadoAldeano{
 
-	private Edificio edificio;
+	private Edificio edificio ;
 
-	public AldeanoReparando(Edificio unEdificio) {
+	public AldeanoReparando(Edificio unEdificio){
 		this.edificio = unEdificio;
 	}
 
 	@Override
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
-	if(!edificio.esPosibleAumentarVida()){
-		aldeano.desocuparse();
-	}else{
-		edificio.aumentarVida();
-	}
-	}
-
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
-		throw new AldeanoReparandoException();
-	}
-	
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
-		throw new AldeanoReparandoException();
-	}
+	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
+		//repararlo
+	}	
 	
 	@Override
 	public int recolectarOro() {
-		throw new AldeanoReparandoException();		
+		//recolectar
+		return 0;	
 	}
 
 	@Override
-	public void construirCuartel(Zona zona, Mapa mapa) {
-		throw new AldeanoReparandoException();	
+	public void construirCuartel(Zona zona, Aldeano aldeano, Jugador jugador) {
+		//construir
 	}
 
 	@Override
-	public void construirPlazaCentral(Zona zona, Mapa mapa) {
-		throw new AldeanoReparandoException();	
+	public void construirPlazaCentral(Zona zona, Aldeano aldeano, Jugador jugador) {
+		//construir
 	}
 
 	public boolean aldeanoLibre(){
@@ -49,7 +37,12 @@ public class AldeanoReparando implements EstadoAldeano{
 	}
 
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){//implementar
-		return;
+		if(!this.edificio.esPosibleAumentarVida()){
+			aldeano.desocuparse();
+		}
+		else{
+			this.edificio.aumentarVida();
+		}
 	}
 
 }

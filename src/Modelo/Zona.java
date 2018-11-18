@@ -67,12 +67,16 @@ public class Zona implements Posicion{
 		return celdas.get(0);
 	}
 
-	public boolean estaAlLadoDe(Celda celda) {
+	public boolean estaAlLadoDe(Celda celda){
+		if(this.igualA(celda)){
+			return false;
+		}
 		for(Celda celdaZona: celdas){
-			if(!celda.estaAlLadoDe(celdaZona)){
-				return false;
+			if(celda.estaAlLadoDe(celdaZona)){
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
+
 }

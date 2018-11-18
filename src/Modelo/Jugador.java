@@ -4,18 +4,22 @@ import java.util.ArrayList;
 
 public class Jugador {
 
-	//Castillo castillo;
-	//ArrayList<Aldeano> aldeanos;
-	ArrayList<Objetivo> objetivos;
+	
+	ArrayList<Aldeano> aldeanos;
+	ArrayList<Edificio> edificios;
+	ArrayList<Unidad> unidades;
 	int cantidadDeOro;
 	//int poblacion ; 
+	//Castillo castillo;
 	
-	public Jugador(/*Castillo castillo, ArrayList<Aldeano> aldeanos,*/ int cantidadDeOro){
+	public Jugador(/*Castillo castillo, */ int cantidadDeOro){
 		//this.castillo = castillo;
-		//this.aldeanos = aldeanos;
-		this.cantidadDeOro = cantidadDeOro;
 		//this.poblacion = aldeanos.size();
-		this.objetivos = new ArrayList<Objetivo>();
+		this.aldeanos = new ArrayList<Aldeano>();
+		this.unidades= new ArrayList<Unidad>();
+		this.edificios= new ArrayList<Edificio>();
+		this.cantidadDeOro = cantidadDeOro;	
+		
 	}
 /*
 	public boolean perdiste(){
@@ -28,9 +32,34 @@ public class Jugador {
 		}
 	}*/
 
-	public void agregarObjetivo(Objetivo objetivo){
-		objetivos.add(objetivo);
+	public void agregarObjetivo(Aldeano aldeano){
+		aldeanos.add(aldeano);
 		//this.poblacion +=1;
+	}
+
+	public void agregarObjetivo(Unidad unidad){
+		unidades.add(unidad);
+		//this.poblacion +=1;
+	}
+
+	public void agregarObjetivo(Edificio edificio){
+		edificios.add(edificio);
+		//this.poblacion +=1;
+	}
+
+	public void eliminarObjetivo(Aldeano aldeano){
+		aldeanos.remove(aldeano);
+		//this.poblacion -=1;
+	}
+
+	public void eliminarObjetivo(Unidad unidad){
+		unidades.remove(unidad);
+		//this.poblacion -=1;
+	}
+
+	public void eliminarObjetivo(Edificio edificio){
+		edificios.remove(edificio);
+		//this.poblacion -=1;
 	}
 
 	public void aumentarOro(int monto){

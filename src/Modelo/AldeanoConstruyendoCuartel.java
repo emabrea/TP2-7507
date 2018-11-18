@@ -1,56 +1,42 @@
 package Modelo;
 
-import java.util.ArrayList;
 
 public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 
+	final int turnosNecesarios = 3;
 	int turnosConstruyendo ;
-	Zona zonaAconstruir ;
+	Zona zonaEnQueSeConstruye ;
 
-	@Override
-	public void repararEdificio(Mapa mapa, Aldeano aldeano, Edificio edificio) {
-		throw new AldeanoConstruyendoException();
+	public AldeanoConstruyendoCuartel(Zona zona){
+		this.zonaEnQueSeConstruye = zona;
+		this.turnosConstruyendo = 0;
+		Mapa.obtenerInstancia().insertar(this.zonaEnQueSeConstruye);		
 	}
 
 	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirCuartel(Mapa mapa, Celda celda) {
-		int base = Cuartel.getTamanioBase();
-		int altura = Cuartel.getTamanioAltura();
-		
-		Celda celdaDeBusqueda = celda.crearCeldaIgual();
-		celdaDeBusqueda.desplazarVerticalmente(altura);
-		celdaDeBusqueda.desplazarHorizontalmente(-base);
-		
-		Zona zonaDeBusqueda = new Zona(celdaDeBusqueda, 2 * base + 1, 2* altura + 1);
-		
-		ArrayList<Zona> zonasPosibles = mapa.buscarZonasPosibles(celdaDeBusqueda, zonaDeBusqueda, base, altura);
-		
-		if(zonasPosibles.isEmpty()){
-			throw new NoEsPosibleConstruirException();
-		}
-		return zonasPosibles;
-	}
-
-	@Override
-	public ArrayList<Zona> posiblesZonasAConstruirPlazaCentral(Mapa mapa, Celda celda) {
-		throw new AldeanoConstruyendoException();
-	}
+	public void repararEdificio(Edificio edificio , Aldeano aldeano) {
+		throw new AldeanoEstaConstruyendoUnCuartelException();
+	}		
 
 	@Override
 	public int recolectarOro() {
-		throw new AldeanoConstruyendoException();
+		throw new AldeanoEstaConstruyendoUnCuartelException();
 	}
 
 	@Override
-	public void construirCuartel(Zona zona, Mapa mapa) {
-		this.zonaAconstruir = zona;
-		this.turnosConstruyendo = 0;
-		mapa.insertar(zona);
+	public void construirCuartel(Zona zona,Aldeano aldeano, Jugador jugador) {
+		if(zona != this.zonaEnQueSeConstruye){
+			throw new AldeanoEstaConstruyendoUnCuartelEnOtraZonaException();
+		}
+		else{
+			throw new AldeanoYaEstaConstruyendoUnCuartelEnEsaZonaException();	
+		}			
 	}
 
+
 	@Override
-	public void construirPlazaCentral(Zona zona, Mapa mapa) {
-		throw new AldeanoConstruyendoException();
+	public void construirPlazaCentral(Zona zona,Aldeano aldeano, Jugador jugador) {
+		throw new AldeanoEstaConstruyendoUnCuartelException();
 	}
 
 	public boolean aldeanoLibre(){
@@ -59,14 +45,10 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){
 		this.turnosConstruyendo += 1;
-		if(this.turnosConstruyendo == 3 ){
-			jugador.agregarObjetivo(new Cuartel(this.zonaAconstruir.getCeldaArribaIzquierda())) ;
-			aldeano.desocuparse();
+		if(this.turnosConstruyendo == this.turnosNecesarios ){			
+			Cuartel cuartel = new Cuartel(this.zonaEnQueSeConstruye.getCeldaArribaIzquierda(),jugador);
+			jugador.agregarObjetivo(cuartel) ;
+			aldeano.actualizarEstado(new AldeanoRecolectandoOro());
 		}
-
 	}
-
-
-
-
 }

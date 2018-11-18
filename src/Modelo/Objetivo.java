@@ -4,14 +4,16 @@ public class Objetivo {
 	
 	Posicion posicion;
 	int vida;
-	int vidaMaxima;
 	int costo;
+	int vidaMaxima;
+	Jugador jugador;
 	
-	public Objetivo(Posicion posicion, int vida, int costo){
+	public Objetivo(Posicion posicion, int vida, int costo, Jugador jugador){
 		this.vida = vida;
-		this.vidaMaxima = vida;
 		this.costo = costo;
 		this.posicion = posicion;
+		this.vidaMaxima = vida;
+		this.jugador = jugador;
 	}
 	
 	

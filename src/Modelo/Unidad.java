@@ -4,8 +4,8 @@ public class Unidad extends Objetivo {
 	
 	Movimiento movimiento;
 	
-	public Unidad(Celda celda, int vida, int costo){
-		super(celda, vida, costo);
+	public Unidad(Celda celda, int vida, int costo,Jugador jugador){
+		super(celda, vida, costo,jugador);
 		this.movimiento = new Movimiento();
 	}
 	

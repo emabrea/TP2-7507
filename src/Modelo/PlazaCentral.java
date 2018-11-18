@@ -1,11 +1,12 @@
 package Modelo;
 
+
 import java.util.ArrayList;
 
 public class PlazaCentral extends Edificio {
 
-	public PlazaCentral(Celda celdaInicial) {
-		super(new Zona(celdaInicial, base, altura), 450, 100, 25, 3);
+	public PlazaCentral(Celda celdaInicial, Jugador jugador) {
+		super(new Zona(celdaInicial, base, altura), 450, 100,jugador, 25, 3);
 	}
 
 	static int base = 2;
@@ -19,9 +20,9 @@ public class PlazaCentral extends Edificio {
 		return altura;
 	}
 
-	public ArrayList<Celda> posiblesCeldasParaCrearAldeano(Mapa mapa) {
+	public ArrayList<Celda> posiblesCeldasParaCrearAldeano() {
 		
-		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2, mapa);
+		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		
 		if(celdasPosibles.isEmpty()){
 			throw new NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException();
@@ -30,8 +31,10 @@ public class PlazaCentral extends Edificio {
 		return celdasPosibles;
 	}
 
-	public void crearAldeano(Mapa mapa, Celda celda) {
-		mapa.insertar(celda);
+	public void crearAldeano(Celda celda) {
+		Aldeano aldeano = new Aldeano(celda,this.jugador);
+		this.jugador.agregarObjetivo(aldeano);
+		Mapa.obtenerInstancia().insertar(celda);
 	}
 
 }

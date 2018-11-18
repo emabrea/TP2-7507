@@ -1,5 +1,6 @@
 package Modelo;
 
+
 import java.util.ArrayList;
 
 public class Mapa {
@@ -7,12 +8,21 @@ public class Mapa {
 	int altura;
 	int base;
 	ArrayList<Posicion> posiciones;
+
+	private static Mapa instancia = new Mapa();
 	
 	public Mapa(){
 		this.altura = 25;
 		this.base = 50;
-		this.posiciones = new ArrayList<Posicion>();
-		
+		this.posiciones = new ArrayList<Posicion>();		
+	}
+
+	public static Mapa obtenerInstancia(){		       
+		return Mapa.instancia;
+	}
+
+	public static void reset(){
+		instancia = new Mapa();
 	}
 	
 	public void mover(Celda celdaNueva){

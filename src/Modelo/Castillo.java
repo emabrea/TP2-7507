@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Castillo extends Edificio{
 	
-	public Castillo(Celda celdaInicial) {
-		super(new Zona(celdaInicial, base, altura), 1000, 0, 15, 0);
+	public Castillo(Celda celdaInicial, Jugador jugador) {
+		super(new Zona(celdaInicial, base, altura), 1000, 0,jugador, 15, 0);
 	}
 
 	static int base = 4;
@@ -19,9 +19,9 @@ public class Castillo extends Edificio{
 		return altura;
 	}
 	
-	public ArrayList<Celda> posiblesCeldasParaCrearArmaDeAsedio(Mapa mapa){
+	public ArrayList<Celda> posiblesCeldasParaCrearArmaDeAsedio(){
 		
-		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2, mapa);
+		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		 
 		if(celdasPosibles.isEmpty()){
 			throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
@@ -30,12 +30,14 @@ public class Castillo extends Edificio{
 		return celdasPosibles;
 	}
 
-	public void crearArmaDeAsedio(Mapa mapa, Celda celda) {
-		mapa.insertar(celda);
+	public void crearArmaDeAsedio(Celda celda) {
+		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celda, this.jugador);
+		this.jugador.agregarObjetivo(armaDeAsedio);
+		Mapa.obtenerInstancia().insertar(celda);
 	}
 
 	public boolean derrumbado() {
-		return (this.vida == 0);
+		return (this.vida < 1);
 	}
 
 }
