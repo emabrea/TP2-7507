@@ -36,13 +36,11 @@ public class AldeanoReparando implements EstadoAldeano{
 		return false;
 	}
 
-	public void realizarTareas(Aldeano aldeano,Jugador jugador){//implementar
+	public void realizarTareas(Aldeano aldeano,Jugador jugador){
+		this.edificio.aumentarVida();
 		if(!this.edificio.esPosibleAumentarVida()){
 			aldeano.desocuparse();
-		}
-		else{
-			this.edificio.aumentarVida();
-		}
+		}		
 	}
 
 }

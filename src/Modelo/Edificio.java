@@ -37,6 +37,12 @@ public class Edificio extends Objetivo{
 		this.vida = Math.min(this.vida + this.velocidadDeReparacion, this.vidaMaxima);
 	}
 
+	public void recibirDanio(int danio){
+		this.vida -= danio;
+	}
 
+	public int vidaActual(){
+		return this.vida;
+	}
 
 }

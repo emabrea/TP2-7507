@@ -13,24 +13,22 @@ public class Jugador {
 	//Castillo castillo;
 	
 	public Jugador(/*Castillo castillo, */ int cantidadDeOro){
-		//this.castillo = castillo;
-		//this.poblacion = aldeanos.size();
+		//this.castillo = castillo;		
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
 		this.cantidadDeOro = cantidadDeOro;	
 		
 	}
-/*
+	/*
 	public boolean perdiste(){
 		return castillo.derrumbado();
+	}*/
+
+	public Edificio obtenerEdificio(){
+		return edificios.get(0);
 	}
 	
-	public void recolectarOro(){
-		for(Aldeano aldeano: aldeanos){
-			cantidadDeOro += aldeano.recolectarOro();
-		}
-	}*/
 
 	public void agregarObjetivo(Aldeano aldeano){
 		aldeanos.add(aldeano);
