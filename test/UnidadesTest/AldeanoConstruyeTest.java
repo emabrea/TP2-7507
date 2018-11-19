@@ -11,6 +11,7 @@ import Modelo.Celda;
 import Modelo.Mapa;
 import Modelo.Zona;
 import Modelo.Jugador;
+import Modelo.NoEsPosibleConstruirException;
 
 public class AldeanoConstruyeTest {
 
@@ -237,5 +238,23 @@ public class AldeanoConstruyeTest {
 		Assert.assertTrue(jugador.cantidadDeOro()==120);		
 		
 	}	
+
+	@Test
+	public void test07NoSePuedeConstruirEnCualquierZona(){		
+		
+		Celda celda = new Celda(20, 20);
+		Jugador jugador = new Jugador(100);
+		Mapa.obtenerInstancia().insertar(celda);
+
+		Aldeano aldeano = new Aldeano(celda,jugador);			
+		Zona zonaAConstruir = new Zona(new Celda(5,5),2,2);			
+
+		try{
+			aldeano.construirPlazaCentralEnZona(zonaAConstruir);			
+		} catch(NoEsPosibleConstruirException e){ }			
+			
+		
+	}	
+	
 	
 }
