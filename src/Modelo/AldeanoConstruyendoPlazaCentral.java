@@ -17,17 +17,17 @@ public class AldeanoConstruyendoPlazaCentral implements EstadoAldeano{
 	}	
 
 	@Override
-	public int recolectarOro() {
+	public void desocuparse(Aldeano aldeano) {
 		throw new AldeanoEstaConstruyendoPlazaCentralException();
 	}
 
 	@Override
-	public void construirCuartel(Zona zona,Aldeano aldeano,  Jugador jugador) {
+	public void construirCuartel(Zona zona,Aldeano aldeano) {
 		throw new AldeanoEstaConstruyendoPlazaCentralException();
 	}
 
 	@Override
-	public void construirPlazaCentral(Zona zona,Aldeano aldeano, Jugador jugador) {
+	public void construirPlazaCentral(Zona zona,Aldeano aldeano) {
 		if(zona != this.zonaEnQueSeConstruye){
 			throw new AldeanoEstaConstruyendoUnaPlazaCentralEnOtraZonaException();
 		}

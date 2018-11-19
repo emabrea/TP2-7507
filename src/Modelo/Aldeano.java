@@ -53,16 +53,35 @@ public class Aldeano extends Unidad{
 		return zonasPosibles;
 	}
 	
-	public void repararEdificio(Edificio edificio){		
-		this.estado.repararEdificio(edificio,this);
+	public void repararEdificio(Edificio edificio){
+		edificio.reparando(true);
+		this.estado.repararEdificio(edificio,this);		
 	}	
 	
-	public void construirCuartelEnZona(Zona zona){				
-		this.estado.construirCuartel(zona, this, this.jugador);
+	public void construirCuartelEnZona(Zona zona){
+		boolean esPosibleConstruir = false; 
+		for(Zona zonaValida : this.posiblesZonasAConstruirCuartel()){
+			if(zonaValida.igualA(zona)){
+				esPosibleConstruir = true;				
+			}
+		}
+		if(!esPosibleConstruir){
+			throw new NoEsPosibleConstruirException();
+		}	
+		this.estado.construirCuartel(zona, this);		
 	}
 	
-	public void construirPlazaCentralEnZona(Zona zona){			
-		this.estado.construirPlazaCentral(zona, this, this.jugador);
+	public void construirPlazaCentralEnZona(Zona zona){	
+		boolean esPosibleConstruir = false; 
+		for(Zona zonaValida : this.posiblesZonasAConstruirCuartel()){
+			if(zonaValida.igualA(zona)){
+				esPosibleConstruir = true;				
+			}
+		}
+		if(!esPosibleConstruir){
+			throw new NoEsPosibleConstruirException();
+		}				
+		this.estado.construirPlazaCentral(zona, this);
 	}
 
 	public void desocuparse(){
@@ -87,11 +106,7 @@ public class Aldeano extends Unidad{
 
 	public boolean posicionValidaParaConstruirEdificio(Zona zona){
 		return zona.estaAlLadoDe((Celda)this.posicion);
-	}
-	
-	public int recolectarOro(){		
-		return this.estado.recolectarOro();
-	}
+	}	
 
 	public void realizarTareas(){
 		this.estado.realizarTareas(this,this.jugador);

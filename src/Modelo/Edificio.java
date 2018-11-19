@@ -6,6 +6,7 @@ public class Edificio extends Objetivo{
 	
 	private int velocidadDeReparacion;
 	private int turnosEnConstruirse;	
+	boolean siendoReparado = false;	
 	
 	public Edificio(Zona zona, int vida, int costo,Jugador jugador,int velocidadDeReparacion, int turnosEnConstruirse){
 		super(zona, vida, costo,jugador);
@@ -44,5 +45,13 @@ public class Edificio extends Objetivo{
 	public int vidaActual(){
 		return this.vida;
 	}
+
+	public void reparando(Boolean estado){
+		if(this.siendoReparado == estado){
+			throw new EdificioSiendoReparado();
+		}
+		this.siendoReparado = estado;
+	}
+
 
 }

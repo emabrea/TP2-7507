@@ -13,12 +13,12 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	}	
 
 	@Override
-	public int recolectarOro() {
-		return cantidadDeOroRecolectado;
+	public void desocuparse(Aldeano aldeano) {
+		return;
 	}
 
 	@Override
-	public void construirCuartel(Zona zona, Aldeano aldeano, Jugador jugador) {
+	public void construirCuartel(Zona zona, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaConstruirEdificio(zona)){
 			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
 		}
@@ -26,7 +26,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	}
 
 	@Override
-	public void construirPlazaCentral(Zona zona, Aldeano aldeano, Jugador jugador) {
+	public void construirPlazaCentral(Zona zona, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaConstruirEdificio(zona)){
 			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
 		}
@@ -38,7 +38,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	}
 
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){
-		jugador.aumentarOro(aldeano.recolectarOro());
+		jugador.aumentarOro(cantidadDeOroRecolectado);
 	}
 
 }

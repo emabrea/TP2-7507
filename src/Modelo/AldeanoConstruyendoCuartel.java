@@ -19,12 +19,12 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 	}		
 
 	@Override
-	public int recolectarOro() {
+	public void desocuparse(Aldeano aldeano) {
 		throw new AldeanoEstaConstruyendoUnCuartelException();
 	}
 
 	@Override
-	public void construirCuartel(Zona zona,Aldeano aldeano, Jugador jugador) {
+	public void construirCuartel(Zona zona,Aldeano aldeano) {
 		if(zona != this.zonaEnQueSeConstruye){
 			throw new AldeanoEstaConstruyendoUnCuartelEnOtraZonaException();
 		}
@@ -33,9 +33,8 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 		}			
 	}
 
-
 	@Override
-	public void construirPlazaCentral(Zona zona,Aldeano aldeano, Jugador jugador) {
+	public void construirPlazaCentral(Zona zona,Aldeano aldeano) {
 		throw new AldeanoEstaConstruyendoUnCuartelException();
 	}
 
