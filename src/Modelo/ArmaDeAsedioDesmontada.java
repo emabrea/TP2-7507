@@ -3,35 +3,35 @@ package Modelo;
 public class ArmaDeAsedioDesmontada implements EstadoArmaDeAsedio{
 
 	public void moverArriba(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverArriba(mapa);
+		return;
 	}
 	
 	public void moverAbajo(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverAbajo(mapa);
+		return;
 	}
 	
 	public void moverDerecha(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverDerecha(mapa);
+		return;
 	}
 	
 	public void moverIzquierda(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverIzquierda(mapa);
+		return;
 	}
 	
 	public void moverArribaDerecha(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverArribaDerecha(mapa);
+		return;
 	}
 	
 	public void moverArribaIzquierda(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverArribaIzquierda(mapa);
+		return;
 	}
 	
 	public void moverAbajoDerecha(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverAbajoDerecha(mapa);
+		return;
 	}
 	
 	public void moverAbajoIzquierda(Mapa mapa,ArmaDeAsedio arma){
-		arma.moverAbajoIzquierda(mapa);
+		return;
 	}
 
 }
