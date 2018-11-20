@@ -15,6 +15,10 @@ public class Objetivo {
 		this.vidaMaxima = vida;
 		this.jugador = jugador;
 	}
+
+	public Posicion obtenerPosicion(){
+		return this.posicion;
+	}
 	
 	
 }
