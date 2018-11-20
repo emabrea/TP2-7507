@@ -39,7 +39,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio cuartel = jugador1.obtenerEdificio();
+		Edificio cuartel = jugador1.obtenerEdificio(zonaAConstruir);
 
 		Assert.assertTrue(cuartel.vidaActual()==250);
 		cuartel.recibirDanio(100);
@@ -71,7 +71,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio plaza = jugador1.obtenerEdificio();
+		Edificio plaza = jugador1.obtenerEdificio(zonaAConstruir);
 
 		Assert.assertTrue(plaza.vidaActual()==450);
 		plaza.recibirDanio(70);
@@ -104,7 +104,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio cuartel = jugador1.obtenerEdificio();
+		Edificio cuartel = jugador1.obtenerEdificio(zonaAConstruir);
 
 		Assert.assertTrue(cuartel.vidaActual()==250);
 		cuartel.recibirDanio(70);

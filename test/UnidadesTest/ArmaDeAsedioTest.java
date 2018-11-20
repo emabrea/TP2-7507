@@ -30,7 +30,7 @@ public class ArmaDeAsedioTest{
 		Celda celdaACrear = celdasPosibles.get(0); //celda=(14,16)
 		castillo.crearArmaDeAsedio(celdaACrear);
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaACrear));
-		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad();
+		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
 		arma.moverArriba(Mapa.obtenerInstancia());
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,16)));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,17)));
@@ -53,7 +53,7 @@ public class ArmaDeAsedioTest{
 		ArrayList<Celda> celdasPosibles = castillo.posiblesCeldasParaCrearArmaDeAsedio();
 		Celda celdaACrear = celdasPosibles.get(0); //celda=(14,16)
 		castillo.crearArmaDeAsedio(celdaACrear);
-		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad();		
+		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);		
 		try{
 			arma.moverArriba(Mapa.obtenerInstancia());			
 		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }
