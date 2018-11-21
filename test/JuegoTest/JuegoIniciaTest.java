@@ -13,6 +13,7 @@ import Modelo.Aldeano;
 import Modelo.Celda;
 import Modelo.Zona;
 import Modelo.Cuartel;
+import Modelo.PoblacionExcedida;
 
 public class JuegoIniciaTest {	
 
@@ -148,11 +149,26 @@ public class JuegoIniciaTest {
 
 		cuartel.crearArquero(new Celda(1,2));
 		Assert.assertTrue(jugador1.poblacion()==5);
-
-	
-
-	
-
 	}
 	
+	@Test
+	public void test07PoblacionLimiteEs50(){
+
+		Juego juego = new Juego();
+		Jugador jugador1 = juego.obtenerJugador1();		
+		
+		for(int i=0;i<47;i++){
+			jugador1.agregarObjetivo(new Aldeano(new Celda(i,10),jugador1));
+		}
+		Assert.assertTrue(jugador1.poblacion()==50);
+
+		try{
+			jugador1.agregarObjetivo(new Aldeano(new Celda(1,1),jugador1));		 
+		} catch(PoblacionExcedida e){ }
+
+		Jugador jugador2 = juego.obtenerJugador2();	
+		jugador2.agregarObjetivo(new Aldeano(new Celda(1,1),jugador1));
+		Assert.assertTrue(jugador1.poblacion()==50);
+		Assert.assertTrue(jugador2.poblacion()==4);
+	}
 }
