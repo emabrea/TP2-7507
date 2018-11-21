@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.ArrayList;
 
-public class Cuartel extends Edificio {
+public class Cuartel extends Edificio implements EdificioAtacable{
 
 	public Cuartel(Celda celdaInicial,Jugador jugador) {
 		super(new Zona(celdaInicial, base, altura), 250, 50,jugador, 50, 3);
@@ -51,6 +51,22 @@ public class Cuartel extends Edificio {
 		Espadachin espadachin = new Espadachin(celda, this.jugador);
 		this.jugador.agregarObjetivo(espadachin);
 		Mapa.obtenerInstancia().insertar(celda);
+	}
+
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(10);
+	}
+
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(15);
+	}
+
+	public void recibirDanio(ArmaDeAsedio armaDeAsedio){
+		this.reducirVidaEn(75);
+	}
+
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
 	}
 
 }

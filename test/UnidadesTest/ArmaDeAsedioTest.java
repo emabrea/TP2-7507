@@ -11,7 +11,6 @@ import Modelo.Celda;
 import Modelo.Mapa;
 import Modelo.Castillo;
 import Modelo.Jugador;
-import Modelo.Unidad;
 import Modelo.ArmaDeAsedioMontadaNoPuedeMoverse;
 
 public class ArmaDeAsedioTest{
@@ -31,13 +30,13 @@ public class ArmaDeAsedioTest{
 		castillo.crearArmaDeAsedio(celdaACrear);
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaACrear));
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
-		arma.moverArriba(Mapa.obtenerInstancia());
+		arma.moverArriba();
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,16)));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,17)));
-		arma.moverAbajoDerecha(Mapa.obtenerInstancia());
+		arma.moverAbajoDerecha();
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,17)));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(15,16)));
-		arma.moverIzquierda(Mapa.obtenerInstancia());
+		arma.moverIzquierda();
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(15,16)));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,16)));
 
@@ -55,7 +54,7 @@ public class ArmaDeAsedioTest{
 		castillo.crearArmaDeAsedio(celdaACrear);
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);		
 		try{
-			arma.moverArriba(Mapa.obtenerInstancia());			
+			arma.moverArriba();
 		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }
 
 

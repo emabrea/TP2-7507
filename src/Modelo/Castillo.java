@@ -2,7 +2,7 @@ package Modelo;
 
 import java.util.ArrayList;
 
-public class Castillo extends Edificio{
+public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDeUnidades, EdificioAtacable{
 	
 	public Castillo(Celda celdaInicial, Jugador jugador) {
 		super(new Zona(celdaInicial, base, altura), 1000, 0,jugador, 15, 0);
@@ -38,6 +38,30 @@ public class Castillo extends Edificio{
 
 	public boolean derrumbado() {
 		return (this.vida < 1);
+	}
+
+	public void atacar(UnidadAtacable unidadAtacable){
+		unidadAtacable.recibirDanio(this);
+	}
+
+	public void atacar(EdificioAtacable edificioAtacable){
+		edificioAtacable.recibirDanio(this);
+	}
+
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(10);
+	}
+
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(15);
+	}
+
+	public void recibirDanio(ArmaDeAsedio armaDeAsedio){
+		this.reducirVidaEn(75);
+	}
+
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
 	}
 
 }

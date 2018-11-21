@@ -2,7 +2,7 @@ package Modelo;
 import java.util.ArrayList;
 
 
-public class Aldeano extends Unidad{
+public class Aldeano extends Unidad implements UnidadAtacable{
 	
 	EstadoAldeano estado;
 	
@@ -10,9 +10,19 @@ public class Aldeano extends Unidad{
 		super(celda, 50, 25, jugador);
 		this.estado = new AldeanoRecolectandoOro();
 	}
-	
+
 	public void actualizarEstado(EstadoAldeano estadoNuevo) {
 		this.estado = estadoNuevo;
+	}
+
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(15);
+	}
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(25);
+	}
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
 	}
 
 	public ArrayList<Zona> posiblesZonasAConstruirCuartel() {

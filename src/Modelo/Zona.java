@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 public class Zona implements Posicion{
@@ -75,6 +76,25 @@ public class Zona implements Posicion{
 			if(celda.estaAlLadoDe(celdaZona)){
 				return true;
 			}
+		}
+		return false;
+	}
+
+
+	public boolean distanciaAPosicionEsMenorIgualA(int unValor, Posicion unaPosicion){
+		return unaPosicion.distanciaAZonaEsMenorIgualA(unValor, this);
+	}
+
+	public boolean distanciaAZonaEsMenorIgualA(int unValor, Zona otraZona){
+		for(Celda celda: this.celdas){
+			if(otraZona.distanciaACeldaEsMenorIgualA(unValor,celda)) return true;
+		}
+		return false;
+	}
+
+	public boolean distanciaACeldaEsMenorIgualA(int unValor, Celda unaCelda){
+		for(Celda celda: this.celdas){
+			if(unaCelda.distanciaACeldaEsMenorIgualA(unValor,celda)) return true;
 		}
 		return false;
 	}

@@ -5,11 +5,9 @@ import org.junit.Test;
 import org.junit.Before;
 
 import Modelo.Aldeano;
-import Modelo.ArmaDeAsedio;
 import Modelo.Celda;
 import Modelo.CeldaInvalidaException;
 import Modelo.CeldaOcupadaException;
-import Modelo.Espadachin;
 import Modelo.Mapa;
 import Modelo.Arquero;
 import Modelo.Jugador;
@@ -32,7 +30,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArriba(Mapa.obtenerInstancia());
+		unidad.moverArriba();
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(0, 0);
@@ -53,7 +51,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajo(Mapa.obtenerInstancia());
+		unidad.moverAbajo();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(0, 1);
@@ -75,7 +73,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverDerecha(Mapa.obtenerInstancia());
+		unidad.moverDerecha();
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 0);
@@ -96,7 +94,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverIzquierda(Mapa.obtenerInstancia());
+		unidad.moverIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 0);
@@ -117,7 +115,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArribaIzquierda(Mapa.obtenerInstancia());
+		unidad.moverArribaIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(1, 0);
@@ -138,7 +136,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArribaDerecha(Mapa.obtenerInstancia());
+		unidad.moverArribaDerecha();
 		
 		Celda celdaNueva = new Celda(1, 1);
 		Celda celdaVieja = new Celda(0, 0);
@@ -159,7 +157,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajoIzquierda(Mapa.obtenerInstancia());
+		unidad.moverAbajoIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 1);
@@ -180,7 +178,7 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajoDerecha(Mapa.obtenerInstancia());
+		unidad.moverAbajoDerecha();
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 1);
@@ -205,7 +203,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(Mapa.obtenerInstancia());
+			unidad.moverArriba();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
@@ -229,7 +227,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(Mapa.obtenerInstancia());
+			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura);
@@ -253,7 +251,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajo(Mapa.obtenerInstancia());
+			unidad.moverAbajo();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
@@ -276,7 +274,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajo(Mapa.obtenerInstancia());
+			unidad.moverAbajo();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
@@ -300,7 +298,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverDerecha(Mapa.obtenerInstancia());
+			unidad.moverDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
@@ -324,7 +322,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverDerecha(Mapa.obtenerInstancia());
+			unidad.moverDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base, 0);
@@ -348,7 +346,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverIzquierda(Mapa.obtenerInstancia());
+			unidad.moverIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
@@ -371,7 +369,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverIzquierda(Mapa.obtenerInstancia());
+			unidad.moverIzquierda();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
@@ -395,7 +393,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaDerecha(Mapa.obtenerInstancia());
+			unidad.moverArribaDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 1);
@@ -419,7 +417,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaDerecha(Mapa.obtenerInstancia());
+			unidad.moverArribaDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura);
@@ -443,7 +441,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaIzquierda(Mapa.obtenerInstancia());
+			unidad.moverArribaIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
@@ -467,7 +465,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(Mapa.obtenerInstancia());
+			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura);
@@ -491,7 +489,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoDerecha(Mapa.obtenerInstancia());
+			unidad.moverAbajoDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
@@ -515,7 +513,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoDerecha(Mapa.obtenerInstancia());
+			unidad.moverAbajoDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base, 0);
@@ -539,7 +537,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoIzquierda(Mapa.obtenerInstancia());
+			unidad.moverAbajoIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
@@ -563,7 +561,7 @@ public class MovimientoYDireccionTest {
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoIzquierda(Mapa.obtenerInstancia());
+			unidad.moverAbajoIzquierda();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base, 0);

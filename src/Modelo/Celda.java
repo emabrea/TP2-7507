@@ -109,4 +109,26 @@ public class Celda implements Posicion{
 		return Math.abs(y-this.y);
 	}
 
+	private int[] distanciaACelda(Celda otraCelda){
+		int[] distancias = new int[2];
+		distancias[0] = this.distanciaEntreX(this.x);
+		distancias[1] = this.distanciaEntreY(this.y);
+		return distancias;
+	}
+
+	public boolean distanciaACeldaEsMenorIgualA(int unValor,Celda otraCelda){
+		int[] distancias = this.distanciaACelda(otraCelda);
+		for(int distancia: distancias){
+			if(distancia > unValor) return false;
+		}
+		return true;
+	}
+
+	public boolean distanciaAPosicionEsMenorIgualA(int unValor, Posicion unaPosicion){
+		return unaPosicion.distanciaACeldaEsMenorIgualA(unValor, this);
+	}
+
+	public boolean distanciaAZonaEsMenorIgualA(int unValor, Zona unaZona){
+		return unaZona.distanciaACeldaEsMenorIgualA(unValor, this);
+	}
 }

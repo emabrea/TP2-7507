@@ -2,7 +2,7 @@ package Modelo;
 import java.lang.Math;
 import java.util.ArrayList;
 
-public class Edificio extends Objetivo{
+public class Edificio extends Objetivo {
 	
 	private int velocidadDeReparacion;
 	private int turnosEnConstruirse;	
@@ -53,5 +53,16 @@ public class Edificio extends Objetivo{
 		this.siendoReparado = estado;
 	}
 
-
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(10);
+	}
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(15);
+	}
+	public void recibirDanio(ArmaDeAsedio armaDeAsedio){
+		this.reducirVidaEn(75);
+	}
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
+	}
 }

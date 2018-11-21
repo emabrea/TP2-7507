@@ -1,9 +1,18 @@
 package Modelo;
 
 public interface Posicion {
-	
-	public boolean enRango(int altura, int base);
-	public boolean igualA(Posicion unaPosicion);
-	public boolean igualA(Celda unaCelda);
-	public boolean igualA(Zona unaZona);
+
+	boolean enRango(int altura, int base);
+
+	boolean igualA(Posicion unaPosicion);
+
+	boolean igualA(Celda unaCelda);
+
+	boolean igualA(Zona unaZona);
+
+	boolean distanciaAPosicionEsMenorIgualA(int unValor, Posicion unaPosicion);
+
+	boolean distanciaAZonaEsMenorIgualA(int unValor, Zona unaZona);
+
+	boolean distanciaACeldaEsMenorIgualA(int unValor, Celda unaCelda);
 }
