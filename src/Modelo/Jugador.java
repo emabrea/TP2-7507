@@ -49,12 +49,18 @@ public class Jugador {
 	
 
 	public void agregarObjetivo(Aldeano aldeano){
+		if(this.poblacion == 50){
+			throw new PoblacionExcedida();
+		}
 		aldeanos.add(aldeano);
 		unidades.add(aldeano);
 		this.poblacion +=1;
 	}
 
 	public void agregarObjetivo(Unidad unidad){
+		if(this.poblacion == 50){
+			throw new PoblacionExcedida();
+		}
 		unidades.add(unidad);
 		this.poblacion +=1;
 	}
