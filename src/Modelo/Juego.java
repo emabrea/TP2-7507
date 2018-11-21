@@ -27,33 +27,30 @@ public class Juego {
 		Celda celdaInicial = new Celda(0, alturaMapa);		
 		Castillo castillo = new Castillo(celdaInicial, jugador1);
 		jugador1.crearCastillo(castillo);
-				
 		
-		ArrayList<Celda> celdas = new ArrayList<Celda>();
 		
 		// Primer aldeano
 		celdaInicial.desplazarVerticalmente(-alturaCastillo - 1);
 		celdaInicial.desplazarDerecha();
-		Celda celda1 = celdaInicial.crearCeldaIgual();				
-		celdas.add(celda1);
+		Celda celda1 = celdaInicial.crearCeldaIgual();	
+		Mapa.obtenerInstancia().insertar(celda1);
+		
 		
 		// Segundo aldeano
 		celdaInicial.desplazarHorizontalmente(baseCastillo);
-		Celda celda2 = celdaInicial.crearCeldaIgual();				
-		celdas.add(celda2);
+		Celda celda2 = celdaInicial.crearCeldaIgual();	
+		Mapa.obtenerInstancia().insertar(celda2);		
 		
 		// Tercer aldeano
 		celdaInicial.desplazarVerticalmente(alturaCastillo);
-		Celda celda3 = celdaInicial.crearCeldaIgual();				
-		celdas.add(celda3);
-		
+		Celda celda3 = celdaInicial.crearCeldaIgual();
+		Mapa.obtenerInstancia().insertar(celda3);		
 		
 		jugador1.agregarObjetivo(new Aldeano(celda1, jugador1 ));
 		jugador1.agregarObjetivo(new Aldeano(celda2, jugador1 ));
 		jugador1.agregarObjetivo(new Aldeano(celda3, jugador1 ));				
 		
-		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
-		this.insertarPosicionesEnMapa(zona, celdas);
+		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);		
 	}
 
 	private void inicializarJugador2() {
@@ -65,39 +62,37 @@ public class Juego {
 		
 		Celda celdaInicial = new Celda(baseMapa - baseCastillo + 1, alturaCastillo - 1);	
 		Castillo castillo = new Castillo(celdaInicial, jugador2);	
-		jugador2.crearCastillo(castillo);
-
-		ArrayList<Celda> celdas = new ArrayList<Celda>();
+		jugador2.crearCastillo(castillo);		
 		
 		// Primer aldeano
 		celdaInicial.desplazarHorizontalmente(baseCastillo - 2);
 		celdaInicial.desplazarVerticalmente(2);		
-		Celda celda1 = celdaInicial.crearCeldaIgual();		
-		celdas.add(celda1);
+		Celda celda1 = celdaInicial.crearCeldaIgual();
+		Mapa.obtenerInstancia().insertar(celda1);		
 		
 		// Segundo aldeano
 		celdaInicial.desplazarHorizontalmente(-baseCastillo);
-		Celda celda2 = celdaInicial.crearCeldaIgual();		
-		celdas.add(celda2);
+		Celda celda2 = celdaInicial.crearCeldaIgual();	
+		Mapa.obtenerInstancia().insertar(celda2);		
 		
 		// Tercer aldeano
 		celdaInicial.desplazarVerticalmente(-alturaCastillo);
-		Celda celda3 = celdaInicial.crearCeldaIgual();		
-		celdas.add(celda3);		
+		Celda celda3 = celdaInicial.crearCeldaIgual();	
+		Mapa.obtenerInstancia().insertar(celda3);		
 		
 		jugador2.agregarObjetivo(new Aldeano(celda1, jugador2 ));
 		jugador2.agregarObjetivo(new Aldeano(celda2, jugador2 ));
 		jugador2.agregarObjetivo(new Aldeano(celda3, jugador2) );		
 
-		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
-		this.insertarPosicionesEnMapa(zona, celdas);
+		Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);		
 	}
 
-	private void insertarPosicionesEnMapa(Zona zona, ArrayList<Celda> celdas) {
-		Mapa.obtenerInstancia().insertar(zona);
-		for(Celda celda: celdas){
-			Mapa.obtenerInstancia().insertar(celda);
-		}
+	public Jugador obtenerJugador1(){
+		return jugador1;
+	}
+
+	public Jugador obtenerJugador2(){
+		return jugador2;
 	}
 	
 }

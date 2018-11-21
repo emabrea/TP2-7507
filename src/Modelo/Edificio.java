@@ -65,4 +65,8 @@ public class Edificio extends Objetivo {
 	public void recibirDanio(Castillo castillo){
 		this.reducirVidaEn(20);
 	}
+	public boolean estaEnPosicion(Zona zona){
+		return this.posicion.igualA(zona);
+	}
+
 }
