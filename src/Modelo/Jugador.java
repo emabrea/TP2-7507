@@ -17,8 +17,7 @@ public class Jugador {
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
 		this.cantidadDeOro = cantidadDeOro;	
-		this.poblacion = 0;
-		
+		this.poblacion = 0;		
 	}
 	/*
 	public boolean perdiste(){
@@ -31,7 +30,7 @@ public class Jugador {
 
 	public Edificio obtenerEdificio(Zona zona){
 		for(Edificio edificio : edificios){
-			if(zona.igualA(edificio.obtenerPosicion())){
+			if(edificio.estaEnPosicion(zona)){
 				return edificio;
 			}
 		}
@@ -41,16 +40,17 @@ public class Jugador {
 
 	public Unidad obtenerUnidad(Celda celda){
 		for(Unidad unidad: unidades){
-			if(celda.igualA(unidad.obtenerPosicion())){
+			if(unidad.estaEnPosicion(celda)){
 				return unidad;
 			}
-		}
+		}		
 		return null;		
 	}
 	
 
 	public void agregarObjetivo(Aldeano aldeano){
 		aldeanos.add(aldeano);
+		unidades.add(aldeano);
 		this.poblacion +=1;
 	}
 
@@ -83,6 +83,10 @@ public class Jugador {
 
 	public int cantidadDeOro(){
 		return this.cantidadDeOro;
+	}
+
+	public int poblacion(){
+		return this.poblacion;
 	}
 	
 }

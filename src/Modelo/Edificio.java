@@ -53,5 +53,8 @@ public class Edificio extends Objetivo{
 		this.siendoReparado = estado;
 	}
 
+	public boolean estaEnPosicion(Zona zona){
+		return this.posicion.igualA(zona);
+	}
 
 }
