@@ -111,8 +111,8 @@ public class Celda implements Posicion{
 
 	private int[] distanciaACelda(Celda otraCelda){
 		int[] distancias = new int[2];
-		distancias[0] = this.distanciaEntreX(this.x);
-		distancias[1] = this.distanciaEntreY(this.y);
+		distancias[0] = otraCelda.distanciaEntreX(this.x);
+		distancias[1] = otraCelda.distanciaEntreY(this.y);
 		return distancias;
 	}
 

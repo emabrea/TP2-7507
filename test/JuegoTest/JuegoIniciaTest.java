@@ -114,8 +114,8 @@ public class JuegoIniciaTest {
 		Assert.assertTrue(aldeanoObtenido1.estaEnPosicion(celda1) );
 		Assert.assertTrue(aldeanoObtenido2.estaEnPosicion(celda2) );
 
-		aldeanoObtenido1.moverArribaDerecha(Mapa.obtenerInstancia());
-		aldeanoObtenido2.moverAbajo(Mapa.obtenerInstancia());
+		aldeanoObtenido1.moverArribaDerecha();
+		aldeanoObtenido2.moverAbajo();
 
 		Assert.assertFalse( Mapa.obtenerInstancia().posicionOcupada(celda1) );
 		Assert.assertFalse( Mapa.obtenerInstancia().posicionOcupada(celda2) );

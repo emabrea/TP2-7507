@@ -26,13 +26,16 @@ public class Objetivo {
 		// VER QUE HACER EN CASO DE QUE MUERA OBJETIVO.
 	}
 
-	private boolean distanciaAObjetivoEsMenorIgualA(int unValor, Objetivo unObjetivo){
+	public boolean distanciaAObjetivoEsMenorIgualA(int unValor, Objetivo unObjetivo){
 		return unObjetivo.distanciaAPosicionEsMenorIgualA(unValor, this.posicion);
 	}
 
-	private boolean distanciaAPosicionEsMenorIgualA(int unValor, Posicion posicion) {
+	public boolean distanciaAPosicionEsMenorIgualA(int unValor, Posicion posicion) {
 		return posicion.distanciaAPosicionEsMenorIgualA(unValor, this.posicion);
 	}
 
+	public int obtenerVida(){
+		return this.vida;
+	}
 
 }

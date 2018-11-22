@@ -3,6 +3,7 @@ package Modelo;
 public class ArmaDeAsedio extends Unidad implements AtacanteDeEdificios, UnidadAtacable {
 
 	EstadoArmaDeAsedio estado;
+	private int alcance = 5;
 
 	public ArmaDeAsedio(Celda celda, Jugador jugador) {
 		super(celda, 150, 200, jugador);
@@ -14,6 +15,9 @@ public class ArmaDeAsedio extends Unidad implements AtacanteDeEdificios, UnidadA
 	}
 
 	public void atacar(EdificioAtacable edificioAtacable) {
+		if(!this.distanciaAObjetivoEsMenorIgualA(this.alcance,(Objetivo)edificioAtacable)){
+			throw new NoEsPosibleAtacarEdificioFueraDelAlcanceException();
+		}
 		edificioAtacable.recibirDanio(this);
 	}
 
