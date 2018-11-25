@@ -6,12 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Aldeano;
-import Modelo.Celda;
-import Modelo.Mapa;
-import Modelo.Zona;
-import Modelo.Jugador;
-import Modelo.NoEsPosibleConstruirException;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class AldeanoConstruyeTest {
 

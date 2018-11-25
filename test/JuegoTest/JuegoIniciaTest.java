@@ -6,14 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Juego;
-import Modelo.Jugador;
-import Modelo.Mapa;
-import Modelo.Aldeano;
-import Modelo.Celda;
-import Modelo.Zona;
-import Modelo.Cuartel;
-import Modelo.PoblacionExcedida;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class JuegoIniciaTest {	
 
@@ -55,14 +51,14 @@ public class JuegoIniciaTest {
 		Aldeano aldeano1 = new Aldeano(new Celda(0,0), jugador1 );
 		Aldeano aldeano2 = new Aldeano(new Celda(15,15), jugador2 );
 
-		jugador1.agregarObjetivo(aldeano1);
-		jugador2.agregarObjetivo(aldeano2);
+		jugador1.agregarPieza(aldeano1);
+		jugador2.agregarPieza(aldeano2);
 
 		Assert.assertTrue(jugador1.poblacion()==4);
 		Assert.assertTrue(jugador2.poblacion()==4);
 
-		jugador1.eliminarObjetivo(aldeano1);
-		jugador2.eliminarObjetivo(aldeano2);
+		jugador1.eliminarPieza(aldeano1);
+		jugador2.eliminarPieza(aldeano2);
 
 		Assert.assertTrue(jugador1.poblacion()==3);
 		Assert.assertTrue(jugador2.poblacion()==3);
@@ -82,8 +78,8 @@ public class JuegoIniciaTest {
 		Aldeano aldeano1 = new Aldeano(celda1, jugador1 );
 		Aldeano aldeano2 = new Aldeano(celda2, jugador2 );
 
-		jugador1.agregarObjetivo(aldeano1);
-		jugador2.agregarObjetivo(aldeano2);		
+		jugador1.agregarPieza(aldeano1);
+		jugador2.agregarPieza(aldeano2);		
 
 		Assert.assertTrue( aldeano1.Libre() );
 		Assert.assertTrue( aldeano2.Libre() );		
@@ -102,8 +98,8 @@ public class JuegoIniciaTest {
 		Aldeano aldeano1 = new Aldeano(celda1, jugador1 );
 		Aldeano aldeano2 = new Aldeano(celda2, jugador2 );
 
-		jugador1.agregarObjetivo(aldeano1);
-		jugador2.agregarObjetivo(aldeano2);		
+		jugador1.agregarPieza(aldeano1);
+		jugador2.agregarPieza(aldeano2);		
 
 		Assert.assertTrue( aldeano1.estaEnPosicion(celda1) );
 		Assert.assertTrue( aldeano2.estaEnPosicion(celda2) );		
@@ -131,7 +127,7 @@ public class JuegoIniciaTest {
 		Celda celda1 = new Celda(0,0);
 		Aldeano aldeano1 = new Aldeano(celda1, jugador1 );		
 
-		jugador1.agregarObjetivo(aldeano1);
+		jugador1.agregarPieza(aldeano1);
 		Aldeano aldeanoObtenido1 = (Aldeano)jugador1.obtenerUnidad(celda1);
 
 		Zona zonaAconstruir = new Zona(new Celda(1,1),2,2); 
@@ -158,16 +154,16 @@ public class JuegoIniciaTest {
 		Jugador jugador1 = juego.obtenerJugador1();		
 		
 		for(int i=0;i<47;i++){
-			jugador1.agregarObjetivo(new Aldeano(new Celda(i,10),jugador1));
+			jugador1.agregarPieza(new Aldeano(new Celda(i,10),jugador1));
 		}
 		Assert.assertTrue(jugador1.poblacion()==50);
 
 		try{
-			jugador1.agregarObjetivo(new Aldeano(new Celda(1,1),jugador1));		 
-		} catch(PoblacionExcedida e){ }
+			jugador1.agregarPieza(new Aldeano(new Celda(1,1),jugador1));		 
+		} catch(PoblacionExcedidaException e){ }
 
 		Jugador jugador2 = juego.obtenerJugador2();	
-		jugador2.agregarObjetivo(new Aldeano(new Celda(1,1),jugador1));
+		jugador2.agregarPieza(new Aldeano(new Celda(1,1),jugador1));
 		Assert.assertTrue(jugador1.poblacion()==50);
 		Assert.assertTrue(jugador2.poblacion()==4);
 	}

@@ -4,13 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Aldeano;
-import Modelo.Celda;
-import Modelo.CeldaInvalidaException;
-import Modelo.CeldaOcupadaException;
-import Modelo.Mapa;
-import Modelo.Arquero;
-import Modelo.Jugador;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class MovimientoYDireccionTest {
 

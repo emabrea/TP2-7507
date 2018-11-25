@@ -4,9 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Celda;
-import Modelo.Mapa;
-import Modelo.Zona;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class PosicionesEnRangoDelMapa {
 

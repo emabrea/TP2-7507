@@ -6,13 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Celda;
-import Modelo.Cuartel;
-import Modelo.Mapa;
-import Modelo.NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException;
-import Modelo.NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException;
-import Modelo.Zona;
-import Modelo.Jugador;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class CuartelCreaArquerosYEspadachinesTest {
 

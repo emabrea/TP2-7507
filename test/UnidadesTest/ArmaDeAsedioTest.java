@@ -6,12 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.ArmaDeAsedio;
-import Modelo.Celda;
-import Modelo.Mapa;
-import Modelo.Castillo;
-import Modelo.Jugador;
-import Modelo.ArmaDeAsedioMontadaNoPuedeMoverse;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class ArmaDeAsedioTest{
 	@Before

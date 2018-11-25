@@ -6,13 +6,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Aldeano;
-import Modelo.Celda;
-import Modelo.Mapa;
-import Modelo.Zona;
-import Modelo.Jugador;
-import Modelo.Edificio;
-import Modelo.EdificioSiendoReparado;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class AldeanoReparaTest {
 
@@ -116,11 +113,11 @@ public class AldeanoReparaTest {
 
 		try{
 			aldeano.repararEdificio(cuartel);			//ya lo esta reparando  
-		} catch(EdificioSiendoReparado e){ }
+		} catch(EdificioSiendoReparadoException e){ }
 		
 		try{
 			aldeano2.repararEdificio(cuartel);			//ya lo esta reparando otro
-		} catch(EdificioSiendoReparado e){ }
+		} catch(EdificioSiendoReparadoException e){ }
 
 		Assert.assertTrue(cuartel.vidaActual()==230);
 		aldeano.realizarTareas();

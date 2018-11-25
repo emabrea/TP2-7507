@@ -1,6 +1,9 @@
 package UnidadesTest;
 
-import Modelo.*;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;

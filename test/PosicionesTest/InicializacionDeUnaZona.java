@@ -3,8 +3,10 @@ package PosicionesTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Modelo.Celda;
-import Modelo.Zona;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class InicializacionDeUnaZona {
 
