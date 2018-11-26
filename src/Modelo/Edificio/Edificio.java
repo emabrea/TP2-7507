@@ -56,23 +56,7 @@ public class Edificio extends Pieza {
 		}
 		this.siendoReparado = estado;
 	}
-/*
-	public void recibirDanio(Arquero arquero){
-		this.reducirVidaEn(10);
-		this.verificarVida();
-	}
-	public void recibirDanio(Espadachin espadachin){
-		this.reducirVidaEn(15);
-		this.verificarVida();
-	}
-	public void recibirDanio(ArmaDeAsedio armaDeAsedio){
-		this.reducirVidaEn(75);
-		this.verificarVida();
-	}
-	public void recibirDanio(Castillo castillo){
-		this.reducirVidaEn(20);
-		this.verificarVida();
-	}*/
+
 	public boolean estaEnPosicion(Zona zona){
 		return this.posicion.igualA(zona);
 	}
