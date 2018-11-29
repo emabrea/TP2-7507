@@ -14,7 +14,7 @@ public class Espadachin extends Unidad implements AtacanteDeUnidades, AtacanteDe
 
 	public void atacar(UnidadAtacable unidadAtacable){
 		if(((Pieza)unidadAtacable).esPiezaPropia(this.jugador)){
-			throw new NoEsPosibleAtacarPiezasAmigas();
+			throw new NoEsPosibleAtacarPiezasPropias();
 		}
 		if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)unidadAtacable)){
 			throw new NoEsPosibleAtacarUnidadFueraDelAlcanceException();
@@ -24,7 +24,7 @@ public class Espadachin extends Unidad implements AtacanteDeUnidades, AtacanteDe
 
 	public void atacar(EdificioAtacable edificioAtacable){
 		if(((Pieza)edificioAtacable).esPiezaPropia(this.jugador)){
-			throw new NoEsPosibleAtacarPiezasAmigas();
+			throw new NoEsPosibleAtacarPiezasPropias();
 		}
 		if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)edificioAtacable)){
 			throw new NoEsPosibleAtacarEdificioFueraDelAlcanceException();

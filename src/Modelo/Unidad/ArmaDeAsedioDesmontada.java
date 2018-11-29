@@ -1,10 +1,15 @@
 package Modelo.Unidad;
 
 import Modelo.Edificio.*;
-import Modelo.Juego.*;
 import Modelo.Excepciones.*;
+import Modelo.Juego.Jugador;
 
 public class ArmaDeAsedioDesmontada implements EstadoArmaDeAsedio{
+
+	@Override
+	public void atacar(EdificioAtacable edificioAtacable, ArmaDeAsedio armaDeAsedio, Jugador jugador, int alcance) {
+		throw new ArmaDeAsedioDesmontadaNoPuedeActacar();
+	}
 
 	public void moverArriba(ArmaDeAsedio arma){
 		return;

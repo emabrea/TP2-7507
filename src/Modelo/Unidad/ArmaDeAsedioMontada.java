@@ -6,6 +6,16 @@ import Modelo.Excepciones.*;
 
 public class ArmaDeAsedioMontada implements EstadoArmaDeAsedio{
 
+	public void atacar(EdificioAtacable edificioAtacable, ArmaDeAsedio armaDeAsedio, Jugador jugador, int alcance) {
+		if(((Pieza)edificioAtacable).esPiezaPropia(jugador)){
+			throw new NoEsPosibleAtacarPiezasPropias();
+		}
+		if(!armaDeAsedio.distanciaAPiezaEsMenorIgualA(alcance,(Pieza)edificioAtacable)){
+			throw new NoEsPosibleAtacarEdificioFueraDelAlcanceException();
+		}
+		edificioAtacable.recibirDanio(armaDeAsedio);
+	}
+
 	public void moverArriba(ArmaDeAsedio arma){
 		throw new ArmaDeAsedioMontadaNoPuedeMoverse();
 	}

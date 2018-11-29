@@ -14,4 +14,5 @@ public interface EstadoArmaDeAsedio {
 	public void moverArribaIzquierda(ArmaDeAsedio arma);
 	public void moverAbajoDerecha(ArmaDeAsedio arma);
 	public void moverAbajoIzquierda(ArmaDeAsedio arma);
+    public void atacar(EdificioAtacable edificioAtacable, ArmaDeAsedio armaDeAsedio, Jugador jugador, int alcance);
 }

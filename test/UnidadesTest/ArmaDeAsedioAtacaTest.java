@@ -33,6 +33,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaPlazaCentral = new Zona(celdaPlazaCentral, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         PlazaCentral plazaCentral = new PlazaCentral(celdaPlazaCentral, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
@@ -59,6 +61,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaPlazaCentral = new Zona(celdaPlazaCentral, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         PlazaCentral plazaCentral = new PlazaCentral(celdaPlazaCentral, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
@@ -81,6 +85,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaCuartel = new Zona(celdaCuartel, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         Cuartel cuartel = new Cuartel(celdaCuartel, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
@@ -107,6 +113,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaCuartel = new Zona(celdaCuartel, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         Cuartel cuartel = new Cuartel(celdaCuartel, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
@@ -129,6 +137,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         Castillo castillo = new Castillo(celdaCastillo, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
@@ -155,6 +165,8 @@ public class ArmaDeAsedioAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador1);
+        armaDeAsedio.actualizarEstado(new ArmaDeAsedioMontada());
+
         Castillo castillo = new Castillo(celdaCastillo, jugador2);
 
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);

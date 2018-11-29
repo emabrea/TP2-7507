@@ -1,12 +1,9 @@
 package JuegoTest;
 
-import java.util.ArrayList;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Edificio.*;
 import Modelo.Unidad.*;
 import Modelo.Excepciones.*;
 import Modelo.Juego.*;
@@ -33,7 +30,7 @@ public class JuegoAtacarLogicaTest {
 
 		try{
 			espadachin1.atacar(espadachin2);
-		}catch(NoEsPosibleAtacarPiezasAmigas e){ }
+		}catch(NoEsPosibleAtacarPiezasPropias e){ }
 
 		Arquero arquero = new Arquero(new Celda(4,3), jugador2);
 		espadachin1.atacar(arquero);
