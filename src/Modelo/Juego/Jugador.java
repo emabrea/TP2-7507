@@ -6,29 +6,24 @@ import Modelo.Excepciones.*;
 import java.util.ArrayList;
 
 public class Jugador {
-
 	
 	ArrayList<Aldeano> aldeanos;
 	ArrayList<Edificio> edificios;
 	ArrayList<Unidad> unidades;
 	int cantidadDeOro;
-	int poblacion ;
+	int poblacion ; 
 	Castillo castillo;
 	Jugador jugadorOponente;
-
-	public Jugador(int cantidadDeOro){
+	
+	
+	public Jugador(int cantidadDeOro){				
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
 		this.cantidadDeOro = cantidadDeOro;	
-		this.poblacion = 0;
-	}
-
-	/*
-	public boolean perdiste(){
-		return castillo.derrumbado();
-	}*/
-
+		this.poblacion = 0;		
+	}	
+	
 	public void setearJugadorOponente(Jugador jugadorOponente) {
 		this.jugadorOponente = jugadorOponente;
 	}
@@ -45,24 +40,22 @@ public class Jugador {
 		return this.castillo;
 	}
 
-	public Edificio obtenerEdificio(Zona zona){
+	public Pieza obtenerPieza(Celda celda){
 		for(Edificio edificio : edificios){
-			if(edificio.estaEnPosicion(zona)){
+			if(edificio.estaEnPosicion(celda)){
 				return edificio;
 			}
 		}
-		return null;
-		
-	}
-
-	public Unidad obtenerUnidad(Celda celda){
 		for(Unidad unidad: unidades){
 			if(unidad.estaEnPosicion(celda)){
 				return unidad;
 			}
-		}		
-		return null;		
-	}
+		}
+		if(this.castillo.estaEnPosicion(celda)){
+			return this.castillo;
+		}
+		throw new PosicionVaciaException();
+	}	
 	
 
 	public void agregarPieza(Aldeano aldeano){
@@ -88,7 +81,6 @@ public class Jugador {
 
 	public void eliminarPieza(Aldeano aldeano){
 		aldeanos.remove(aldeano);
-		unidades.remove(aldeano);
 		this.poblacion -=1;
 	}
 
@@ -112,6 +104,31 @@ public class Jugador {
 	public int poblacion(){
 		return this.poblacion;
 	}
+	
+	public void realizarTareas(){
+		for(Aldeano aldeano : aldeanos){
+			aldeano.realizarTareas();
+		}
+	}
+
+	public Edificio obtenerEdificio(Zona zona){
+		for(Edificio edificio : edificios){
+			if(edificio.estaEnPosicion(zona)){
+				return edificio;
+			}
+		}
+		return null;
+		
+	}
+
+	public Unidad obtenerUnidad(Celda celda){
+		for(Unidad unidad: unidades){
+			if(unidad.estaEnPosicion(celda)){
+				return unidad;
+			}
+		}		
+		return null;		
+	}
 
 	public ArrayList<Unidad> obtenerUnidades() {
 		return this.unidades;
@@ -120,4 +137,6 @@ public class Jugador {
 	public ArrayList<Edificio> obtenerEdificios() {
 		return this.edificios;
 	}
+
+	
 }
