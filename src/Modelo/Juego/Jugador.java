@@ -54,7 +54,7 @@ public class Jugador {
 		if(this.castillo.estaEnPosicion(celda)){
 			return this.castillo;
 		}
-		throw new PosicionVaciaException();
+		return null;
 	}	
 	
 
