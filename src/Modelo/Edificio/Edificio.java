@@ -61,6 +61,10 @@ public class Edificio extends Pieza {
 		return this.posicion.igualA(zona);
 	}
 
+	public boolean estaEnPosicion(Celda celda){
+		return this.posicion.contiene(celda);
+	}
+
 	public void verificarVida(){
 		if(this.vida < 1 ){
 			this.jugador.eliminarPieza(this);
