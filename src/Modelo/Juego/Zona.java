@@ -102,4 +102,13 @@ public class Zona implements Posicion{
 		return false;
 	}
 
+	public boolean contiene(Celda unacelda){
+		for(Celda celda: this.celdas){
+			if(celda.igualA(unacelda)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

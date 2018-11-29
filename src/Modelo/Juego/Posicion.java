@@ -19,4 +19,6 @@ public interface Posicion {
 	boolean distanciaAZonaEsMenorIgualA(int unValor, Zona unaZona);
 
 	boolean distanciaACeldaEsMenorIgualA(int unValor, Celda unaCelda);
+
+	boolean contiene(Celda unaCelda);
 }

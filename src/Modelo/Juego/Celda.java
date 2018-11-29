@@ -135,4 +135,8 @@ public class Celda implements Posicion{
 	public boolean distanciaAZonaEsMenorIgualA(int unValor, Zona unaZona){
 		return unaZona.distanciaACeldaEsMenorIgualA(unValor, this);
 	}
+
+	public boolean contiene(Celda unaCelda){
+		return this.igualA(unaCelda);
+	}
 }
