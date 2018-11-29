@@ -2,6 +2,7 @@ package Vista;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import Controladores.*;
 
 public class Boton extends Button {
 

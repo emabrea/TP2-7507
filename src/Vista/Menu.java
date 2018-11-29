@@ -6,6 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import Controladores.*;
 
 public class Menu{
 
@@ -36,7 +37,7 @@ public class Menu{
  
         @Override
         public void handle(ActionEvent event) {
-            label.setText("Select Menu Item 2");
+            //label.setText("Select Menu Item 2");
         }
         });
 

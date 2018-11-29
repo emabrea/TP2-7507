@@ -1,6 +1,5 @@
 package Vista;
 
-import Modelo.Juego.*;
 
 public class PosicionActual{
 	int x ;

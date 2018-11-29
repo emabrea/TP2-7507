@@ -1,6 +1,7 @@
 package Vista;
 
 import Modelo.Juego.*;
+import Controladores.*;
 
 public class PiezaActual{
 	Pieza pieza;	
@@ -10,7 +11,7 @@ public class PiezaActual{
 	public void actualizar(int x,int y){
 		Jugador jugador = ControladorDeTurno.getInstance().jugador();		
 		Pieza pieza =jugador.obtenerPieza(new Celda(x,y));
-		if( pieza == null){
+		if( pieza == null || !pieza.esPiezaPropia(jugador)){
 			return;
 		}
 		this.pieza = pieza;		
