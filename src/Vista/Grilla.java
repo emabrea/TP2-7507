@@ -41,14 +41,25 @@ public class Grilla{
 			    @Override
 			    public void handle(MouseEvent event) {                    
 			    	int x = grid.getColumnIndex(button);
-			    	int y = grid.getRowIndex(button);                   
+			    	int y = grid.getRowIndex(button);
+
 			        System.out.println("Row: "+ y);
-					System.out.println("Column: "+ x);               
+					System.out.println("Column: "+ x);  
+
                     Jugador jugador = ControladorDeTurno.getInstance().jugador();
                     PosicionActual posicion =PosicionActual.obtenerInstancia();
-                    posicion.actualizar(x,Mapa.obtenerInstancia().getTamanioAltura()-y-1);                    
+                    posicion.actualizar(x,Mapa.obtenerInstancia().getTamanioAltura()-y-1); 
+
+                    PiezaActual piezaActual = PiezaActual.obtenerInstancia();
+                    piezaActual.actualizar(x,Mapa.obtenerInstancia().getTamanioAltura()-y-1);  
+
+                    
                     Pieza pieza = jugador.obtenerPieza(new Celda(posicion.getX(),posicion.getY()));
-                    System.out.println("Vida: "+pieza.obtenerVida());   
+                    if(pieza != null){
+                        System.out.println("Vida: "+pieza.obtenerVida()); 
+                    }                                      
+                                        
+                    System.out.println("Vida 2: "+piezaActual.obtenerPieza().obtenerVida());   
                     System.out.println(PosicionActual.obtenerInstancia().getY());                  	    			    	
 			    }
 				});        
