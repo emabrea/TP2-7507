@@ -30,7 +30,9 @@ public class ControladorDeTurno {
         if(this.actual == this.jugadores.get(0)){
             this.actual = this.jugadores.get(1);
         }
-        this.actual= this.jugadores.get(0);
+        else{            
+            this.actual= this.jugadores.get(0);
+        }
     }
     
    
