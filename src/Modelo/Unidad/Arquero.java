@@ -33,8 +33,8 @@ public class Arquero extends Unidad implements AtacanteDeUnidades, AtacanteDeEdi
 	}
 
 	public void recibirDanio(Arquero arquero){
-		this.reducirVidaEn(15);	
-		this.verificarVida();	
+		this.reducirVidaEn(15);
+		this.verificarVida();
 	}
 
 	public void recibirDanio(Espadachin espadachin){
@@ -45,5 +45,5 @@ public class Arquero extends Unidad implements AtacanteDeUnidades, AtacanteDeEdi
 	public void recibirDanio(Castillo castillo){
 		this.reducirVidaEn(20);
 		this.verificarVida();
-	}	
+	}
 }

@@ -4,7 +4,7 @@ import Modelo.Edificio.*;
 import Modelo.Juego.*;
 import Modelo.Excepciones.*;
 
-public class Unidad extends Pieza {
+public class Unidad extends Pieza{
 	
 	Movimiento movimiento;
 	

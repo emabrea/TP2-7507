@@ -6,7 +6,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 
-import Modelo.Edificio.*;
 import Modelo.Unidad.*;
 import Modelo.Excepciones.*;
 import Modelo.Juego.*;

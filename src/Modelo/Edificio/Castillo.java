@@ -23,15 +23,15 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 	public static int getTamanioAltura() {
 		return altura;
 	}
-	
+
 	public ArrayList<Celda> posiblesCeldasParaCrearArmaDeAsedio(){
-		
+
 		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
-		 
+
 		if(celdasPosibles.isEmpty()){
 			throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
 		}
-		
+
 		return celdasPosibles;
 	}
 
@@ -45,23 +45,32 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 		return (this.vida < 1);
 	}
 
+
+	public void atacar(){
+		Jugador jugadorOponente = this.jugador.obtenerJugadorOponente();
+		ArrayList<Unidad> unidadesOponente = jugadorOponente.obtenerUnidades();
+		ArrayList<Edificio> edificiosOponente = jugadorOponente.obtenerEdificios();
+
+		// Ataco unidades.
+		for(Unidad unidad: unidadesOponente){
+			if(this.distanciaAPiezaEsMenorIgualA(this.alcance,unidad)){
+				this.atacar((UnidadAtacable)unidad);
+			}
+		}
+
+		// Ataco edificios.
+		for(Edificio edificio: edificiosOponente){
+			if(this.distanciaAPiezaEsMenorIgualA(this.alcance,edificio)){
+				this.atacar((EdificioAtacable)edificio);
+			}
+		}
+	}
+
 	public void atacar(UnidadAtacable unidadAtacable){
-		if(((Pieza)unidadAtacable).esPiezaPropia(this.jugador)){
-			throw new NoEsPosibleAtacarPiezasAmigas();
-		}
-		if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)unidadAtacable)){
-			throw new NoEsPosibleAtacarUnidadFueraDelAlcanceException();
-		}
 		unidadAtacable.recibirDanio(this);
 	}
 
 	public void atacar(EdificioAtacable edificioAtacable){
-		if(((Pieza)edificioAtacable).esPiezaPropia(this.jugador)){
-			throw new NoEsPosibleAtacarPiezasAmigas();
-		}
-		if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)edificioAtacable)){
-			throw new NoEsPosibleAtacarEdificioFueraDelAlcanceException();
-		}
 		edificioAtacable.recibirDanio(this);
 	}
 

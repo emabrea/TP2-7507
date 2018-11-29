@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.Before;
 
 import Modelo.Edificio.*;
-import Modelo.Unidad.*;
 import Modelo.Excepciones.*;
 import Modelo.Juego.*;
 
@@ -21,7 +20,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test01CuartelCreaArqueroAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celda = new Celda(17, 8);
 		
 		int base = Cuartel.getTamanioBase();
@@ -55,7 +54,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test02CuartelCreaArqueroEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaDondeIriaElArquero = new Celda(2, 1);
 		
@@ -108,7 +107,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test03CuartelNoCreaArqueroYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia
@@ -150,7 +149,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test04CuartelCreaEspadachinAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celda = new Celda(17, 8);
 		
 		int base = Cuartel.getTamanioBase();
@@ -185,7 +184,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test05CuartelCreaEspadachinEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(17, 8);
 		Celda celdaDondeIriaElEspadachin = new Celda(16, 6);
 		
@@ -247,7 +246,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 	@Test
 	public void test06CuartelNoCreaEspadachinYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia

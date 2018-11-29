@@ -28,21 +28,6 @@ public class ArmaDeAsedio extends Unidad implements AtacanteDeEdificios, UnidadA
 		edificioAtacable.recibirDanio(this);
 	}
 
-	public void recibirDanio(Arquero arquero) {
-		this.reducirVidaEn(15);
-		this.verificarVida();
-	}
-
-	public void recibirDanio(Espadachin espadachin) {
-		this.reducirVidaEn(25);
-		this.verificarVida();
-	}
-
-	public void recibirDanio(Castillo castillo) {
-		this.reducirVidaEn(20);
-		this.verificarVida();
-	}
-
 	public void moverArriba() {
 		this.estado.moverArriba(this);
 		super.moverArriba();
@@ -81,5 +66,20 @@ public class ArmaDeAsedio extends Unidad implements AtacanteDeEdificios, UnidadA
 	public void moverAbajoIzquierda(){
 		this.estado.moverAbajoIzquierda(this);
 		super.moverAbajoIzquierda();
+	}
+
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(15);
+		this.verificarVida();
+	}
+
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(25);
+		this.verificarVida();
+	}
+
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
+		this.verificarVida();
 	}
 }

@@ -24,6 +24,8 @@ public class CastilloAtacaTest {
     public void test01CastilloPuedeAtacarEspadachinSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(9,4);
         Celda celdaEspadachin = new Celda(4,4);
@@ -33,14 +35,17 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Espadachin espadachin = new Espadachin(celdaEspadachin, jugador2);
+        jugador2.agregarPieza(espadachin);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaEspadachin);
 
         int vidaInicial = espadachin.obtenerVida();
 
-        castillo.atacar(espadachin); // Castillo saca 20 a unidades y edificios.
+        castillo.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,espadachin.obtenerVida());
     }
@@ -49,6 +54,8 @@ public class CastilloAtacaTest {
     public void test02CastilloNoPuedeAtacarEspadachinSiNoEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(10,4);
         Celda celdaEspadachin = new Celda(4,4);
@@ -58,19 +65,27 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Espadachin espadachin = new Espadachin(celdaEspadachin, jugador2);
+        jugador2.agregarPieza(espadachin);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaEspadachin);
 
-        thrown.expect(NoEsPosibleAtacarUnidadFueraDelAlcanceException.class);
-        castillo.atacar(espadachin);
+        int vidaInicial = espadachin.obtenerVida();
+
+        castillo.atacar();
+
+        Assert.assertEquals(vidaInicial,espadachin.obtenerVida());
     }
 
     @Test
     public void test03CastilloPuedeAtacarArmaDeAsedioSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(9,4);
         Celda celdaArmaDeAsedio = new Celda(4,4);
@@ -80,14 +95,17 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador2);
+        jugador2.agregarPieza(armaDeAsedio);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
 
         int vidaInicial = armaDeAsedio.obtenerVida();
 
-        castillo.atacar(armaDeAsedio); // Castillo saca 20 a unidades y edificios.
+        castillo.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,armaDeAsedio.obtenerVida());
     }
@@ -96,6 +114,8 @@ public class CastilloAtacaTest {
     public void test04CastilloNoPuedeAtacarArmaDeAsedioSiNoEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(10,4);
         Celda celdaArmaDeAsedio = new Celda(4,4);
@@ -105,19 +125,27 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celdaArmaDeAsedio, jugador2);
+        jugador2.agregarPieza(armaDeAsedio);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaArmaDeAsedio);
 
-        thrown.expect(NoEsPosibleAtacarUnidadFueraDelAlcanceException.class);
-        castillo.atacar(armaDeAsedio);
+        int vidaInicial = armaDeAsedio.obtenerVida();
+
+        castillo.atacar();
+
+        Assert.assertEquals(vidaInicial,armaDeAsedio.obtenerVida());
     }
 
     @Test
     public void test05CastilloPuedeAtacarAldeanoSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(9,4);
         Celda celdaAldeano = new Celda(4,4);
@@ -127,14 +155,17 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Aldeano aldeano = new Aldeano(celdaAldeano, jugador2);
+        jugador2.agregarPieza(aldeano);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaAldeano);
 
         int vidaInicial = aldeano.obtenerVida();
 
-        castillo.atacar(aldeano); // Castillo saca 20 a unidades y edificios.
+        castillo.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,aldeano.obtenerVida());
     }
@@ -143,6 +174,8 @@ public class CastilloAtacaTest {
     public void test06CastilloNoPuedeAtacarAldeanoSiNoEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(10,4);
         Celda celdaAldeano = new Celda(4,4);
@@ -152,19 +185,27 @@ public class CastilloAtacaTest {
         Zona zonaCastillo = new Zona(celdaCastillo, base, altura);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Aldeano aldeano = new Aldeano(celdaAldeano, jugador2);
+        jugador2.agregarPieza(aldeano);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(celdaAldeano);
 
-        thrown.expect(NoEsPosibleAtacarUnidadFueraDelAlcanceException.class);
-        castillo.atacar(aldeano);
+        int vidaInicial = aldeano.obtenerVida();
+
+        castillo.atacar();
+
+        Assert.assertEquals(vidaInicial,aldeano.obtenerVida());
     }
 
     @Test
     public void test07CastilloPuedeAtacarCastilloSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo1 = new Celda(12,4);
         Celda celdaCastillo2 = new Celda(4,4);
@@ -176,14 +217,17 @@ public class CastilloAtacaTest {
         Zona zonaCastillo2 = new Zona(celdaCastillo2, base, altura);
 
         Castillo castillo1 = new Castillo(celdaCastillo1, jugador1);
+        jugador1.agregarPieza(castillo1);
+
         Castillo castillo2 = new Castillo(celdaCastillo2, jugador2);
+        jugador2.agregarPieza(castillo2);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo1);
         Mapa.obtenerInstancia().insertar(zonaCastillo2);
 
         int vidaInicial = castillo2.obtenerVida();
 
-        castillo1.atacar(castillo2); // Castillo saca 20 a unidades y edificios.
+        castillo1.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,castillo2.obtenerVida());
     }
@@ -192,6 +236,8 @@ public class CastilloAtacaTest {
     public void test08CastilloNoPuedeAtacarCastilloSiNoEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo1 = new Celda(13,4);
         Celda celdaCastillo2 = new Celda(4,4);
@@ -203,19 +249,27 @@ public class CastilloAtacaTest {
         Zona zonaCastillo2 = new Zona(celdaCastillo2, base, altura);
 
         Castillo castillo1 = new Castillo(celdaCastillo1, jugador1);
+        jugador1.agregarPieza(castillo1);
+
         Castillo castillo2 = new Castillo(celdaCastillo2, jugador2);
+        jugador2.agregarPieza(castillo2);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo1);
         Mapa.obtenerInstancia().insertar(zonaCastillo2);
-        
-        thrown.expect(NoEsPosibleAtacarEdificioFueraDelAlcanceException.class);
-        castillo1.atacar(castillo2);
+
+        int vidaInicial = castillo2.obtenerVida();
+
+        castillo1.atacar();
+
+        Assert.assertEquals(vidaInicial,castillo2.obtenerVida());
     }
 
     @Test
     public void test09CastilloPuedeAtacarPlazaCentralSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(10,4);
         Celda celdaPlazaCentral = new Celda(4,4);
@@ -231,14 +285,17 @@ public class CastilloAtacaTest {
         Zona zonaPlazaCentral = new Zona(celdaPlazaCentral, basePlazaCentral, alturaPlazaCentral);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         PlazaCentral plazaCentral = new PlazaCentral(celdaPlazaCentral, jugador2);
+        jugador2.agregarPieza(plazaCentral);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(zonaPlazaCentral);
 
         int vidaInicial = plazaCentral.obtenerVida();
 
-        castillo.atacar(plazaCentral); // Castillo saca 20 a unidades y edificios.
+        castillo.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,plazaCentral.obtenerVida());
     }
@@ -247,6 +304,8 @@ public class CastilloAtacaTest {
     public void test10CastilloNoPuedeAtacarPlazaCentralSiNoEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(11,4);
         Celda celdaPlazaCentral = new Celda(4,4);
@@ -262,19 +321,28 @@ public class CastilloAtacaTest {
         Zona zonaPlazaCentral = new Zona(celdaPlazaCentral, basePlazaCentral, alturaPlazaCentral);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         PlazaCentral plazaCentral = new PlazaCentral(celdaPlazaCentral, jugador2);
+        jugador2.agregarPieza(plazaCentral);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(zonaPlazaCentral);
 
-        thrown.expect(NoEsPosibleAtacarEdificioFueraDelAlcanceException.class);
-        castillo.atacar(plazaCentral);
+        int vidaInicial = plazaCentral.obtenerVida();
+
+        castillo.atacar();
+
+        Assert.assertEquals(vidaInicial,plazaCentral.obtenerVida());
     }
 
     @Test
     public void test11CastilloPuedeAtacarCuartelSiEstaEnSuAlcance(){
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
+
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
 
         Celda celdaCastillo = new Celda(10,4);
         Celda celdaCuartel = new Celda(4,4);
@@ -285,19 +353,21 @@ public class CastilloAtacaTest {
         int baseCuartel = Cuartel.getTamanioBase();
         int alturaCuartel = Cuartel.getTamanioAltura();
 
-
         Zona zonaCastillo = new Zona(celdaCastillo, baseCastillo, alturaCastillo);
         Zona zonaCuartel = new Zona(celdaCuartel, baseCuartel, alturaCuartel);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Cuartel cuartel = new Cuartel(celdaCuartel, jugador2);
+        jugador2.agregarPieza(cuartel);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(zonaCuartel);
 
         int vidaInicial = cuartel.obtenerVida();
 
-        castillo.atacar(cuartel); // Castillo saca 20 a unidades y edificios.
+        castillo.atacar(); // Castillo saca 20 a unidades y edificios.
 
         Assert.assertEquals(vidaInicial-20,cuartel.obtenerVida());
     }
@@ -307,6 +377,9 @@ public class CastilloAtacaTest {
         Jugador jugador1 = new Jugador(100);
         Jugador jugador2 = new Jugador(100);
 
+        jugador1.setearJugadorOponente(jugador2);
+        jugador2.setearJugadorOponente(jugador1);
+
         Celda celdaCastillo = new Celda(11,4);
         Celda celdaCuartel = new Celda(4,4);
 
@@ -321,13 +394,106 @@ public class CastilloAtacaTest {
         Zona zonaCuartel = new Zona(celdaCuartel, baseCuartel, alturaCuartel);
 
         Castillo castillo = new Castillo(celdaCastillo, jugador1);
+        jugador1.agregarPieza(castillo);
+
         Cuartel cuartel = new Cuartel(celdaCuartel, jugador2);
+        jugador2.agregarPieza(cuartel);
 
         Mapa.obtenerInstancia().insertar(zonaCastillo);
         Mapa.obtenerInstancia().insertar(zonaCuartel);
 
-        thrown.expect(NoEsPosibleAtacarEdificioFueraDelAlcanceException.class);
-        castillo.atacar(cuartel);
+        int vidaInicial = cuartel.obtenerVida();
+
+        castillo.atacar();
+
+        Assert.assertEquals(vidaInicial,cuartel.obtenerVida());
     }
 
+    @Test
+    public void test13CastilloAtacaVariasPiezasEnSuAlcance() {
+        Juego juego = new Juego();
+
+        Jugador jugador1 = juego.obtenerJugador1();
+        Jugador jugador2 = juego.obtenerJugador2();
+
+        int baseCuartel = Cuartel.getTamanioBase();
+        int alturaCuartel = Cuartel.getTamanioAltura();
+        Celda celdaCuartel1 = new Celda(3, 17);
+        Celda celdaCuartel2 = new Celda(8, 16);
+        Zona zonaCuartel1 = new Zona(celdaCuartel1,baseCuartel,alturaCuartel);
+        Zona zonaCuartel2 = new Zona(celdaCuartel2,baseCuartel,alturaCuartel);
+
+        Celda celdaEspadachin1 = new Celda(1, 17);
+        Celda celdaEspadachin2 = new Celda(8, 24);
+
+        Cuartel cuartel1 = new Cuartel(celdaCuartel1, jugador2);
+        Cuartel cuartel2 = new Cuartel(celdaCuartel2, jugador2);
+        Espadachin espadachin1 = new Espadachin(celdaEspadachin1, jugador2);
+        Espadachin espadachin2 = new Espadachin(celdaEspadachin2, jugador2);
+
+        jugador2.agregarPieza(cuartel1);
+        jugador2.agregarPieza(cuartel2);
+        jugador2.agregarPieza(espadachin1);
+        jugador2.agregarPieza(espadachin2);
+
+        Mapa.obtenerInstancia().insertar(zonaCuartel1);
+        Mapa.obtenerInstancia().insertar(zonaCuartel2);
+        Mapa.obtenerInstancia().insertar(celdaEspadachin1);
+        Mapa.obtenerInstancia().insertar(celdaEspadachin2);
+
+        int vidaInicialCuartel = cuartel1.obtenerVida();
+        int vidaInicialEspadachin = espadachin1.obtenerVida();
+
+        Castillo castilloJugador1 = jugador1.obtenerCastillo();
+        castilloJugador1.atacar();
+
+        Assert.assertEquals(vidaInicialCuartel-20,cuartel1.obtenerVida());
+        Assert.assertEquals(vidaInicialCuartel-20,cuartel2.obtenerVida());
+        Assert.assertEquals(vidaInicialEspadachin-20,espadachin1.obtenerVida());
+        Assert.assertEquals(vidaInicialEspadachin-20,espadachin2.obtenerVida());
+    }
+
+    @Test
+    public void test14CastilloNoAtacaVariasPiezasFueraDeSuAlcance() {
+        Juego juego = new Juego();
+
+        Jugador jugador1 = juego.obtenerJugador1();
+        Jugador jugador2 = juego.obtenerJugador2();
+
+        int baseCuartel = Cuartel.getTamanioBase();
+        int alturaCuartel = Cuartel.getTamanioAltura();
+        Celda celdaCuartel1 = new Celda(3, 15);
+        Celda celdaCuartel2 = new Celda(8, 15);
+        Zona zonaCuartel1 = new Zona(celdaCuartel1,baseCuartel,alturaCuartel);
+        Zona zonaCuartel2 = new Zona(celdaCuartel2,baseCuartel,alturaCuartel);
+
+        Celda celdaEspadachin1 = new Celda(1, 15);
+        Celda celdaEspadachin2 = new Celda(9, 24);
+
+        Cuartel cuartel1 = new Cuartel(celdaCuartel1, jugador2);
+        Cuartel cuartel2 = new Cuartel(celdaCuartel2, jugador2);
+        Espadachin espadachin1 = new Espadachin(celdaEspadachin1, jugador2);
+        Espadachin espadachin2 = new Espadachin(celdaEspadachin2, jugador2);
+
+        jugador2.agregarPieza(cuartel1);
+        jugador2.agregarPieza(cuartel2);
+        jugador2.agregarPieza(espadachin1);
+        jugador2.agregarPieza(espadachin2);
+
+        Mapa.obtenerInstancia().insertar(zonaCuartel1);
+        Mapa.obtenerInstancia().insertar(zonaCuartel2);
+        Mapa.obtenerInstancia().insertar(celdaEspadachin1);
+        Mapa.obtenerInstancia().insertar(celdaEspadachin2);
+
+        int vidaInicialCuartel = cuartel1.obtenerVida();
+        int vidaInicialEspadachin = espadachin1.obtenerVida();
+
+        Castillo castilloJugador1 = jugador1.obtenerCastillo();
+        castilloJugador1.atacar();
+
+        Assert.assertEquals(vidaInicialCuartel,cuartel1.obtenerVida());
+        Assert.assertEquals(vidaInicialCuartel,cuartel2.obtenerVida());
+        Assert.assertEquals(vidaInicialEspadachin,espadachin1.obtenerVida());
+        Assert.assertEquals(vidaInicialEspadachin,espadachin2.obtenerVida());
+    }
 }

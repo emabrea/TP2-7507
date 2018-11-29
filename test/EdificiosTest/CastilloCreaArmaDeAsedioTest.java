@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.Before;
 
 import Modelo.Edificio.*;
-import Modelo.Unidad.*;
 import Modelo.Excepciones.*;
 import Modelo.Juego.*;
 
@@ -21,7 +20,7 @@ public class CastilloCreaArmaDeAsedioTest {
 	@Test
 	public void test01CastilloCreaArmaDeAsedioAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celda = new Celda(8, 5);
 		
 		int base = Castillo.getTamanioBase();
@@ -55,7 +54,7 @@ public class CastilloCreaArmaDeAsedioTest {
 	@Test 
 	public void test02CastilloCreaArmaDeAsedioEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(8, 5);
 		Celda celdaDondeIriaElArmaDeAsedio = new Celda(10, 1);
 		
@@ -117,7 +116,7 @@ public class CastilloCreaArmaDeAsedioTest {
 	@Test
 	public void test03CastilloNoCreaArmaDeAsedioYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Jugador jugador = new Jugador(100);		
+		Jugador jugador = new Jugador(100);
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia

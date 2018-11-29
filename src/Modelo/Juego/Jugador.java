@@ -12,23 +12,37 @@ public class Jugador {
 	ArrayList<Edificio> edificios;
 	ArrayList<Unidad> unidades;
 	int cantidadDeOro;
-	int poblacion ; 
+	int poblacion ;
 	Castillo castillo;
-	
-	public Jugador(int cantidadDeOro){				
+	Jugador jugadorOponente;
+
+	public Jugador(int cantidadDeOro){
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
 		this.cantidadDeOro = cantidadDeOro;	
-		this.poblacion = 0;		
+		this.poblacion = 0;
 	}
+
 	/*
 	public boolean perdiste(){
 		return castillo.derrumbado();
 	}*/
 
-	public void crearCastillo(Castillo castillo){
+	public void setearJugadorOponente(Jugador jugadorOponente) {
+		this.jugadorOponente = jugadorOponente;
+	}
+
+	public Jugador obtenerJugadorOponente(){
+		return this.jugadorOponente;
+	}
+
+	public void setearCastillo(Castillo castillo){
 		this.castillo = castillo;
+	}
+
+	public Castillo obtenerCastillo(){
+		return this.castillo;
 	}
 
 	public Edificio obtenerEdificio(Zona zona){
@@ -74,6 +88,7 @@ public class Jugador {
 
 	public void eliminarPieza(Aldeano aldeano){
 		aldeanos.remove(aldeano);
+		unidades.remove(aldeano);
 		this.poblacion -=1;
 	}
 
@@ -97,5 +112,12 @@ public class Jugador {
 	public int poblacion(){
 		return this.poblacion;
 	}
-	
+
+	public ArrayList<Unidad> obtenerUnidades() {
+		return this.unidades;
+	}
+
+	public ArrayList<Edificio> obtenerEdificios() {
+		return this.edificios;
+	}
 }

@@ -19,19 +19,6 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 		this.estado = estadoNuevo;
 	}
 
-	public void recibirDanio(Arquero arquero){
-		this.reducirVidaEn(15);
-		this.verificarVida();
-	}
-	public void recibirDanio(Espadachin espadachin){
-		this.reducirVidaEn(25);
-		this.verificarVida();
-	}
-	public void recibirDanio(Castillo castillo){
-		this.reducirVidaEn(20);
-		this.verificarVida();
-	}
-
 	public ArrayList<Zona> posiblesZonasAConstruirCuartel() {
 		Mapa mapa = Mapa.obtenerInstancia();
 		int base = Cuartel.getTamanioBase();
@@ -138,6 +125,21 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 			this.jugador.eliminarPieza(this);
 			Mapa.obtenerInstancia().eliminar(this.posicion);
 		}
+	}
+
+	public void recibirDanio(Arquero arquero){
+		this.reducirVidaEn(15);
+		this.verificarVida();
+	}
+
+	public void recibirDanio(Espadachin espadachin){
+		this.reducirVidaEn(25);
+		this.verificarVida();
+	}
+
+	public void recibirDanio(Castillo castillo){
+		this.reducirVidaEn(20);
+		this.verificarVida();
 	}
 	
 }
