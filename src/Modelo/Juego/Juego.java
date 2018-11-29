@@ -2,11 +2,13 @@ package Modelo.Juego;
 
 import Modelo.Edificio.*;
 import Modelo.Unidad.*;
+import java.util.ArrayList;
 
 public class Juego {
 	Jugador jugador1;
 	Jugador jugador2;
-	int cantidadDeOroInicial;	
+	int cantidadDeOroInicial;
+	ArrayList<Jugador> jugadores;	
 	
 	public Juego(){		
 		this.cantidadDeOroInicial = 100;
@@ -14,21 +16,19 @@ public class Juego {
 	}
 
 	private void inicializarJugadores() {
-		Jugador jugador1 = new Jugador(this.cantidadDeOroInicial);
-		Jugador jugador2 = new Jugador(this.cantidadDeOroInicial);
+		this.inicializarJugador1();
+		this.inicializarJugador2();
 
 		jugador1.setearJugadorOponente(jugador2);
 		jugador2.setearJugadorOponente(jugador1);
-
-		this.jugador1 = jugador1;
-		this.jugador2 = jugador2;
-
-		this.inicializarJugador1();
-		this.inicializarJugador2();
+		
+		this.jugadores = new ArrayList<Jugador>();
+		this.jugadores.add(this.jugador1);
+		this.jugadores.add(this.jugador2);	
 	}
 
 	private void inicializarJugador1() {
-
+		this.jugador1 = new Jugador(this.cantidadDeOroInicial);
 		int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
 		int baseCastillo = Castillo.getTamanioBase();
 		int alturaCastillo = Castillo.getTamanioAltura();
@@ -63,13 +63,13 @@ public class Juego {
 		this.jugador1.agregarPieza(new Aldeano(celda1, this.jugador1 ));
 		this.jugador1.agregarPieza(new Aldeano(celda2, this.jugador1 ));
 		this.jugador1.agregarPieza(new Aldeano(celda3, this.jugador1 ));
-		this.jugador1.agregarPieza(new PlazaCentral(celda4, this.jugador1 ));
+		this.jugador1.agregarPieza(new PlazaCentral(celda4, this.jugador1 ));				
 		
-		// que es esto Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
+				
 	}
 
 	private void inicializarJugador2() {
-
+		this.jugador2 = new Jugador(this.cantidadDeOroInicial);
 		int baseCastillo = Castillo.getTamanioBase();
 		int alturaCastillo = Castillo.getTamanioAltura();
 		int baseMapa = Mapa.obtenerInstancia().getTamanioBase();		
@@ -103,17 +103,20 @@ public class Juego {
 		this.jugador2.agregarPieza(new Aldeano(celda1, this.jugador2 ));
 		this.jugador2.agregarPieza(new Aldeano(celda2, this.jugador2 ));
 		this.jugador2.agregarPieza(new Aldeano(celda3, this.jugador2) );
-		this.jugador2.agregarPieza(new PlazaCentral(celda4, this.jugador2));
-
-		// que es esto Zona zona = new Zona(celdaInicial, baseCastillo, alturaCastillo);
+		this.jugador2.agregarPieza(new PlazaCentral(celda4, this.jugador2));			
+				
 	}
 
 	public Jugador obtenerJugador1(){
-		return this.jugador1;
+		return jugador1;
 	}
 
 	public Jugador obtenerJugador2(){
-		return this.jugador2;
+		return jugador2;
+	}
+
+	public ArrayList<Jugador> obtenerJugadores(){
+		return this.jugadores;
 	}
 	
 }
