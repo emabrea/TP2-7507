@@ -142,11 +142,11 @@ public class PlazaCentralCreaAldeanoTest {
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
 			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
-		
+		/*
 		try{
 			// Busca las celdas posibles donde puede respawnear el Aldeano
 			plazaCentral.posiblesCeldasParaCrearAldeano();
-		} catch(NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException e){ }
+		} catch(NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException e){ }*/
 		
 		// Siguen ocupadas la zona de la Plaza Central y las celdas de la periferia
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));

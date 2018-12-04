@@ -148,11 +148,11 @@ public class CastilloCreaArmaDeAsedioTest {
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
 			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
-		
+		/*
 		// Busca las celdas posibles donde puede respawnear el Arma de Asedio
 		try{
 			castillo.posiblesCeldasParaCrearArmaDeAsedio();
-		} catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){ }
+		} catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){ }*/
 		
 		// Siguen ocupadas la zona del castillo y las celdas de la periferia
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
