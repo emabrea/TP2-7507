@@ -10,10 +10,19 @@ import Vista.*;
 
 public class ControladorFinalizarTurno implements EventHandler<ActionEvent>{
 
+	ContenedorPrincipal contenedor;
+
+	public ControladorFinalizarTurno(ContenedorPrincipal contenedor){
+		this.contenedor = contenedor;
+	}
+
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Finaliza su turno");
         ControladorDeTurno.getInstance().cambiarJugador();
+        this.contenedor.actualizar();
+        ControladorDeTurno.getInstance().jugador().realizarTareas();
+
     }
 
 }

@@ -10,6 +10,12 @@ import Vista.*;
 
 public class ControladorAtacar implements EventHandler<ActionEvent>{
 
+    ContenedorPrincipal contenedor;
+
+    public ControladorAtacar(ContenedorPrincipal contenedor){
+        this.contenedor = contenedor;
+    }
+
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Ataca");

@@ -10,8 +10,9 @@ import Vista.*;
 public class ControladorDeTurno {
     
     public Jugador actual;    
-    public ArrayList<Jugador> jugadores;
+    public ArrayList<Jugador> jugadores;    
     private static ControladorDeTurno instancia = new ControladorDeTurno();
+    
 
     public void asignarJugadores(ArrayList<Jugador> unosJugadores){
         this.jugadores = unosJugadores;
@@ -30,11 +31,9 @@ public class ControladorDeTurno {
         if(this.actual == this.jugadores.get(0)){
             this.actual = this.jugadores.get(1);
         }
-        else{            
+        else{
             this.actual= this.jugadores.get(0);
-        }
-    }
-    
-   
+        }        
+    }   
 
 }

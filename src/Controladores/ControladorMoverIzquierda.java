@@ -10,9 +10,17 @@ import Vista.*;
 
 public class ControladorMoverIzquierda implements EventHandler<ActionEvent>{
 
+	ContenedorPrincipal contenedor;
+
+	public ControladorMoverIzquierda(ContenedorPrincipal contenedor){
+		this.contenedor = contenedor;
+	}
+
     @Override
     public void handle(ActionEvent event) {
        System.out.println("Mueve izquierda");
+       UnidadActual.obtenerInstancia().unidad().moverIzquierda();
+       this.contenedor.actualizar();
 
 	}
 }
