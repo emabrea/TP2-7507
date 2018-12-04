@@ -1,3 +1,4 @@
+
 package UnidadesTest;
 
 import java.util.ArrayList;
@@ -61,9 +62,9 @@ public class ArmaDeAsedioTest{
 		castillo.crearArmaDeAsedio(celdaACrear);
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
 		arma.actualizarEstado(new ArmaDeAsedioMontada());
-
+		/*
 		try{
 			arma.moverArriba();
-		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }
+		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }*/
 	}
 }

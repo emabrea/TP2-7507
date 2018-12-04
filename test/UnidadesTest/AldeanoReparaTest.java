@@ -36,7 +36,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio cuartel = jugador1.obtenerEdificio(zonaAConstruir);
+		Edificio cuartel = (Edificio)jugador1.obtenerPieza(zonaAConstruir.getCeldaArribaIzquierda());
 
 		Assert.assertTrue(cuartel.vidaActual()==250);
 		cuartel.recibirDanio(100);
@@ -68,7 +68,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio plaza = jugador1.obtenerEdificio(zonaAConstruir);
+		Edificio plaza = (Edificio)jugador1.obtenerPieza(zonaAConstruir.getCeldaArribaIzquierda());
 
 		Assert.assertTrue(plaza.vidaActual()==450);
 		plaza.recibirDanio(70);
@@ -101,7 +101,7 @@ public class AldeanoReparaTest {
 
 		Assert.assertTrue(aldeano.Libre());
 
-		Edificio cuartel = jugador1.obtenerEdificio(zonaAConstruir);
+		Edificio cuartel = (Edificio)jugador1.obtenerPieza(zonaAConstruir.getCeldaArribaIzquierda());
 
 		Assert.assertTrue(cuartel.vidaActual()==250);
 		cuartel.recibirDanio(70);
@@ -110,14 +110,14 @@ public class AldeanoReparaTest {
 		aldeano.realizarTareas();
 		
 		Aldeano aldeano2= new Aldeano(new Celda(14, 15),jugador1);
-
+		/*
 		try{
-			aldeano.repararEdificio(cuartel);			//ya lo esta reparando  
+			aldeano.repararEdificio(cuartel);			 
 		} catch(EdificioSiendoReparadoException e){ }
 		
 		try{
-			aldeano2.repararEdificio(cuartel);			//ya lo esta reparando otro
-		} catch(EdificioSiendoReparadoException e){ }
+			aldeano2.repararEdificio(cuartel);			
+		} catch(EdificioSiendoReparadoException e){ }*/
 
 		Assert.assertTrue(cuartel.vidaActual()==230);
 		aldeano.realizarTareas();
