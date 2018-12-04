@@ -104,8 +104,8 @@ public class JuegoIniciaTest {
 		Assert.assertTrue( aldeano1.estaEnPosicion(celda1) );
 		Assert.assertTrue( aldeano2.estaEnPosicion(celda2) );		
 
-		Aldeano aldeanoObtenido1 = (Aldeano)jugador1.obtenerUnidad(celda1);
-		Aldeano aldeanoObtenido2 = (Aldeano)jugador2.obtenerUnidad(celda2);
+		Aldeano aldeanoObtenido1 = (Aldeano)jugador1.obtenerPieza(celda1);
+		Aldeano aldeanoObtenido2 = (Aldeano)jugador2.obtenerPieza(celda2);
 
 		Assert.assertTrue(aldeanoObtenido1.estaEnPosicion(celda1) );
 		Assert.assertTrue(aldeanoObtenido2.estaEnPosicion(celda2) );
@@ -128,7 +128,7 @@ public class JuegoIniciaTest {
 		Aldeano aldeano1 = new Aldeano(celda1, jugador1 );		
 
 		jugador1.agregarPieza(aldeano1);
-		Aldeano aldeanoObtenido1 = (Aldeano)jugador1.obtenerUnidad(celda1);
+		Aldeano aldeanoObtenido1 = (Aldeano)jugador1.obtenerPieza(celda1);
 
 		Zona zonaAconstruir = new Zona(new Celda(1,1),2,2); 
 		aldeanoObtenido1.construirCuartelEnZona(zonaAconstruir);
@@ -139,7 +139,7 @@ public class JuegoIniciaTest {
 		aldeanoObtenido1.realizarTareas();
 
 		Assert.assertTrue( aldeanoObtenido1.Libre() );
-		Cuartel cuartel = (Cuartel)jugador1.obtenerEdificio(zonaAconstruir);
+		Cuartel cuartel = (Cuartel)jugador1.obtenerPieza(new Celda(1,1));
 		Assert.assertTrue( cuartel.estaEnPosicion(zonaAconstruir) );
 		Assert.assertTrue(jugador1.poblacion()==4);
 
@@ -157,10 +157,10 @@ public class JuegoIniciaTest {
 			jugador1.agregarPieza(new Aldeano(new Celda(i,10),jugador1));
 		}
 		Assert.assertTrue(jugador1.poblacion()==50);
-
+		/*
 		try{
 			jugador1.agregarPieza(new Aldeano(new Celda(1,1),jugador1));		 
-		} catch(PoblacionExcedidaException e){ }
+		} catch(PoblacionExcedidaException e){ }*/
 
 		Jugador jugador2 = juego.obtenerJugador2();	
 		jugador2.agregarPieza(new Aldeano(new Celda(1,1),jugador1));

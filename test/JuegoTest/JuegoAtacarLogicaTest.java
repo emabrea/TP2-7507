@@ -26,11 +26,7 @@ public class JuegoAtacarLogicaTest {
 		Espadachin espadachin2 = new Espadachin(new Celda(4,5), jugador1);
 
 		jugador1.agregarPieza(espadachin1);
-		jugador2.agregarPieza(espadachin2);
-
-		try{
-			espadachin1.atacar(espadachin2);
-		}catch(NoEsPosibleAtacarPiezasPropias e){ }
+		jugador2.agregarPieza(espadachin2);		
 
 		Arquero arquero = new Arquero(new Celda(4,3), jugador2);
 		espadachin1.atacar(arquero);
