@@ -56,7 +56,7 @@ public class Jugador {
 		}
 		return null;
 	}	
-	
+
 
 	public void agregarPieza(Aldeano aldeano){
 		if(this.poblacion == 50){
