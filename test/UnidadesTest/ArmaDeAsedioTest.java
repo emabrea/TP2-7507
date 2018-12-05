@@ -22,7 +22,7 @@ public class ArmaDeAsedioTest{
 	public void test01ArmaDeAsedioDesmontadaSePuedeMover(){
 
 		Celda celda = new Celda(15, 15);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Mario");
 		Castillo castillo = new Castillo(celda, jugador);
 		jugador.aumentarOro(200);
 		ArrayList<Celda> celdasPosibles = castillo.posiblesCeldasParaCrearArmaDeAsedio();
@@ -42,7 +42,7 @@ public class ArmaDeAsedioTest{
 	public void test02ArmaDeAsedioMontadaNoSePuedeMover(){
 
 		Celda celda = new Celda(15, 15);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Mario");
 		Castillo castillo = new Castillo(celda, jugador);
 
 		ArrayList<Celda> celdasPosibles = castillo.posiblesCeldasParaCrearArmaDeAsedio();
