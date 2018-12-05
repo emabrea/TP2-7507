@@ -19,7 +19,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test01MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
@@ -40,7 +40,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test02MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -62,7 +62,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test03MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -83,7 +83,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test04MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){		
 	
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -104,7 +104,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test05MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -125,7 +125,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test06MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -146,7 +146,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test07MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -167,7 +167,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test08MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -188,7 +188,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test09MoverUnidadUnCasilleroHaciaArribaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(0, 1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -214,7 +214,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test10MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
 		Celda celdaInicial = new Celda(0, altura-1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -236,7 +236,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test11MoverUnidadUnCasilleroHaciaAbajoYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaOcupar = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -262,7 +262,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test12MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsInvalidoEsFalse(){		
 	
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -283,7 +283,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test13MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(1, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -309,7 +309,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test14MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int base = Mapa.obtenerInstancia().getTamanioBase();
 		Celda celdaInicial = new Celda(base-1, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -331,7 +331,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test15MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Celda celdaOcupar = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -357,7 +357,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test16MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
@@ -378,7 +378,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test17MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(1, 1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -404,7 +404,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test18MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
 		Celda celdaInicial = new Celda(0, altura-1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
@@ -426,7 +426,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test19MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Celda celdaOcupar = new Celda(0, 1);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
@@ -452,7 +452,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test20MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
 		Celda celdaInicial = new Celda(0, altura-1);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
@@ -474,7 +474,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test21MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaOcupar = new Celda(1, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
@@ -500,7 +500,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test22MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int base = Mapa.obtenerInstancia().getTamanioAltura();
 		Celda celdaInicial = new Celda(base-1, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
@@ -522,7 +522,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test23MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 1);
 		Celda celdaOcupar = new Celda(0, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
@@ -548,7 +548,7 @@ public class MovimientoYDireccionTest {
 	@Test
 	public void test24MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){		
 		
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Juan");
 		int base = Mapa.obtenerInstancia().getTamanioAltura();
 		Celda celdaInicial = new Celda(base-1, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
