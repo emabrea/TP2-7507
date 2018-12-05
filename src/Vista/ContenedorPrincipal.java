@@ -7,36 +7,63 @@ import Modelo.Excepciones.*;
 import Modelo.Edificio.*;
 import Modelo.Unidad.*;
 import javafx.geometry.*;
+import javafx.scene.paint.*;
+import javafx.scene.shape.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.*;
 import javafx.scene.image.*;
 import Controladores.*;
 
 
+
 public class ContenedorPrincipal{
     HBox root;
     GridPane grid;
-    Juego juego;
+    Juego juego;    
     int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
     int baseMapa = Mapa.obtenerInstancia().getTamanioBase();
 
 	public ContenedorPrincipal(Juego juego,HBox root){
         this.root = root;
-        this.juego = juego;
+        this.juego = juego;        
         this.crearGrilla(baseMapa,alturaMapa,juego);
         this.agregarBotones();
-	}
-
+	}	
+	
 	public void crearGrilla(int columnas,int filas,Juego juego){
 		GridPane grid  = new GridPane();
-        grid.setPadding(new Insets(2));
-        grid.setHgap(1);
-        grid.setVgap(1);
+        grid.setPadding(new Insets(2));        
+        grid.setHgap(0.5);
+        grid.setVgap(0.5);
 
         for (int r = 0; r < filas; r++) {
             for (int c = 0; c < columnas; c++) {
 
-                Button button = new Button();
+            	Button button = new Button();  
+            	Jugador jugador1 = juego.obtenerJugador1();
+            	Jugador jugador2 = juego.obtenerJugador2();
+            	Pieza pieza1 = jugador1.obtenerPieza(new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1)) ;
+            	Pieza pieza2 = jugador2.obtenerPieza(new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1)) ;
+
+            	if(pieza1 instanceof Aldeano ||pieza2 instanceof Aldeano ){                	
+                	button.setOnAction(new BotonAldeano());                	
+                	button.setStyle("-fx-background-image: url('file:src/aldeano.png');");	        	
+            	}      	
+            	else if(pieza1 instanceof Arquero ){                	
+                	button.setOnAction(new BotonAldeano());                	
+                	button.setStyle("-fx-background-image: url('file:src/arquero1.png');");	        	
+            	}
+            	else if(pieza2 instanceof Arquero){                	
+                	button.setOnAction(new BotonAldeano());                	
+                	button.setStyle("-fx-background-image: url('file:src/arquero2.png');");	        	
+            	}
+            	else{
+            		button.setStyle("-fx-background-image: url('file:src/grass.jpg');"); 
+            	}                        
+               
+                               
+                button.setMinHeight(40);
+                button.setMinWidth(40);
                 this.colorearMapa(button,c,Mapa.obtenerInstancia().getTamanioAltura()-r-1,juego);
 
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -113,40 +140,37 @@ public class ContenedorPrincipal{
         vbox4.getChildren().addAll(boton14,labelVida,labelOro1,labelOro2,labelPob1,labelPob2,labelturno) ;
 
         vbox.getChildren().addAll(hbox1,hbox2,hbox3,vbox4) ;
-        this.root.getChildren().add(vbox) ;
+        this.root.getChildren().addAll(vbox) ;
 
     }
-
+    
     public void colorearMapa(Button button,int x,int y,Juego juego){
         for(Jugador jugador : juego.obtenerJugadores()){
             Pieza pieza = jugador.obtenerPieza(new Celda(x,y)) ;
-
-            if(pieza instanceof Aldeano){
-                button.setStyle("-fx-background-color: #FE9A2E; ");
-            }
+           
             if(pieza instanceof Castillo){
                  button.setStyle("-fx-background-color: #FF0000; ");
             }
-            if(pieza instanceof PlazaCentral){
+            else if(pieza instanceof PlazaCentral){
                 button.setStyle("-fx-background-color: #8A4B08; ");
             }
-            if(pieza instanceof Cuartel){
+            else if(pieza instanceof Cuartel){
                 button.setStyle("-fx-background-color: #2EFEF7; ");
-            }
-            if(pieza instanceof Arquero){
+            }/*
+            else if(pieza instanceof Arquero){
                 button.setStyle("-fx-background-color: #FFFF00; ");
-            }
-            if(pieza instanceof Espadachin){
+            }*/
+            else if(pieza instanceof Espadachin){
                 button.setStyle("-fx-background-color: #FF00FF; ");
             }
-            if(pieza instanceof ArmaDeAsedio){
+            else if(pieza instanceof ArmaDeAsedio){
                 button.setStyle("-fx-background-color: #40FF00; ");
-            }
+            }            
         }
     }
 
     public void actualizar(){
-    	this.root.getChildren().clear();
+    	this.root.getChildren().clear();    	
     	this.crearGrilla(baseMapa,alturaMapa,this.juego);
         this.agregarBotones();
     }

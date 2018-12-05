@@ -32,8 +32,8 @@ public class BotonJugarEventHandler implements EventHandler<ActionEvent>{
 
         Scene scene = new Scene(root, 500, 500);
         stage.setTitle("Algo of Empires");
-        stage.setHeight(700);
-        stage.setWidth(900);
+        stage.setMinHeight(800);
+        stage.setMinWidth(1500);
         stage.setScene(scene);
 	}
 
