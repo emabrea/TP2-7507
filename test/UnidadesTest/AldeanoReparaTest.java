@@ -22,7 +22,7 @@ public class AldeanoReparaTest {
 	public void test01AldeanoReparaCuartel(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador1 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
 
 		Aldeano aldeano = new Aldeano(celda,jugador1);
 		Mapa.obtenerInstancia().insertar(celda);
@@ -54,7 +54,7 @@ public class AldeanoReparaTest {
 	public void test02AldeanoReparaPlazaCentral(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador1 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
 
 		Aldeano aldeano = new Aldeano(celda,jugador1);
 		Mapa.obtenerInstancia().insertar(celda);
@@ -87,7 +87,7 @@ public class AldeanoReparaTest {
 	public void test03CuartelNoPuedeSerReparadoPorDosAldenos(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador1 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
 
 		Aldeano aldeano = new Aldeano(celda,jugador1);
 		Mapa.obtenerInstancia().insertar(celda);
