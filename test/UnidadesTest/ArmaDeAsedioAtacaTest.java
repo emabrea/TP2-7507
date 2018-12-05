@@ -22,8 +22,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test01ArmaDeAsedioPuedeAtacarPlazaCentralSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
         Celda celdaPlazaCentral = new Celda(9,4);
@@ -49,8 +49,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test02ArmaDeAsedioNoPuedeAtacarPlazaCentralSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
 
@@ -74,8 +74,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test03ArmaDeAsedioPuedeAtacarCuartelSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
         Celda celdaCuartel = new Celda(9,4);
@@ -101,8 +101,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test04ArmaDeAsedioNoPuedeAtacarCuartelSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
 
@@ -126,8 +126,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test05ArmaDeAsedioPuedeAtacarCastilloSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
         Celda celdaCastillo = new Celda(9,4);
@@ -153,8 +153,8 @@ public class ArmaDeAsedioAtacaTest {
 
     @Test
     public void test06ArmaDeAsedioNoPuedeAtacarCastilloSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArmaDeAsedio = new Celda(4,4);
 
