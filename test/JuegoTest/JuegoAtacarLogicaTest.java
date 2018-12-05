@@ -18,7 +18,7 @@ public class JuegoAtacarLogicaTest {
 	@Test
 	public void test01JugadoresNoPuedenAtacarPiezasPropias(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Luis");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();		
 
@@ -38,7 +38,7 @@ public class JuegoAtacarLogicaTest {
 	@Test
 	public void test02LasPiezasSeEliminanAlNoTenerVida(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Luis");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();		
 
