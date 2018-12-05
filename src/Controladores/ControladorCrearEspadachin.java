@@ -23,13 +23,16 @@ public class ControladorCrearEspadachin implements EventHandler<ActionEvent>{
     	System.out.println("Crea espadachin");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Edificio edificioActual = EdificioActual.obtenerInstancia().edificio();
-    	if(edificioActual instanceof Cuartel){
-    		Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
-    		cuartel.crearEspadachin(celda);    		
-    	}       
-        else{
-            throw new NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException();
-        }
+        try{
+            if(edificioActual instanceof Cuartel){
+                Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
+                cuartel.crearEspadachin(celda);         
+            }
+            throw new NoEsPosibleCrearException();
+        } 	        
+        catch(NoEsPosibleCrearException e){
+            new Alerta().noSePuedeCrearAhi();
+        } 
     	this.contenedor.actualizar();
 	}
 }

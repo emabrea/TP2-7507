@@ -23,13 +23,17 @@ public class ControladorCrearArquero implements EventHandler<ActionEvent>{
     	System.out.println("Crea arquero");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Edificio edificioActual = EdificioActual.obtenerInstancia().edificio();
-    	if(edificioActual instanceof Cuartel){
-    		Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
-    		cuartel.crearArquero(celda);    		
-    	}       
-        else{
-            throw new NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException();
+        try{
+            if(edificioActual instanceof Cuartel){
+                Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
+                cuartel.crearArquero(celda);            
+            } 
+            throw new NoEsPosibleCrearException();
         }
+        catch(NoEsPosibleCrearException e){
+            new Alerta().noSePuedeCrearAhi();
+        }   	      
+       
     	this.contenedor.actualizar();
 	}
 }
