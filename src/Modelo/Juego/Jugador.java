@@ -13,13 +13,15 @@ public class Jugador {
 	int cantidadDeOro;	 
 	Castillo castillo;
 	Jugador jugadorOponente;
+	String nombre;
 	
 	
-	public Jugador(int cantidadDeOro){				
+	public Jugador(int cantidadDeOro, String nombreJugador){				
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
-		this.cantidadDeOro = cantidadDeOro;			
+		this.cantidadDeOro = cantidadDeOro;
+		this.nombre = nombreJugador;
 	}	
 	
 	public void setearJugadorOponente(Jugador jugadorOponente) {
@@ -153,7 +155,10 @@ public class Jugador {
 	public ArrayList<Edificio> obtenerEdificios() {
 		return this.edificios;
 	}
-
+	
+	public getNombre(){
+		return this.nombre;	
+	}
 
 	
 }
