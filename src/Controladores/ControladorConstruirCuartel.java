@@ -23,13 +23,17 @@ public class ControladorConstruirCuartel implements EventHandler<ActionEvent>{
     	System.out.println("Contruye cuartel");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Unidad unidadActual = UnidadActual.obtenerInstancia().unidad();
-    	if(unidadActual instanceof Aldeano){
-    		Aldeano aldeano = (Aldeano)UnidadActual.obtenerInstancia().unidad();
-    		aldeano.construirCuartelEnZona(new Zona(celda,2,2));    		
-    	}       
-        else{
-            throw new NoEsPosibleConstruirException();
+        try{
+            if(unidadActual instanceof Aldeano){
+                Aldeano aldeano = (Aldeano)UnidadActual.obtenerInstancia().unidad();
+                aldeano.construirCuartelEnZona(new Zona(celda,2,2));            
+            }           
         }
+        catch(NoEsPosibleConstruirException e){
+            new Alerta().unidadOcupada();
+        }     
+         
+        
     	this.contenedor.actualizar();
 	}
 }

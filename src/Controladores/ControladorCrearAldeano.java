@@ -24,13 +24,16 @@ public class ControladorCrearAldeano implements EventHandler<ActionEvent>{
     	System.out.println("Crea aldeano");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Edificio edificioActual = EdificioActual.obtenerInstancia().edificio();
-    	if(edificioActual instanceof PlazaCentral){
-    		PlazaCentral plaza = (PlazaCentral)EdificioActual.obtenerInstancia().edificio();
-    		plaza.crearAldeano(celda);    		
-    	}       
-        else{
-            throw new NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException();
-        }
+        try{
+            if(edificioActual instanceof PlazaCentral){
+                PlazaCentral plaza = (PlazaCentral)EdificioActual.obtenerInstancia().edificio();
+                plaza.crearAldeano(celda);          
+            }
+        }    	       
+        catch(NoEsPosibleCrearException e){
+            new Alerta().noSePuedeCrearAhi();
+        }          
+        
     	this.contenedor.actualizar();
 	}
 }

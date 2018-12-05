@@ -1,13 +1,10 @@
 package Controladores;
 
-import Modelo.Edificio.AtacanteDeEdificios;
-import Modelo.Edificio.Cuartel;
-import Modelo.Edificio.EdificioAtacable;
-import Modelo.Excepciones.EdificioSiendoReparadoException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import Modelo.Unidad.*;
 import Modelo.Juego.*;
+import Modelo.Excepciones.*;
 import Vista.*;
 
 
@@ -22,30 +19,20 @@ public class ControladorAtacar implements EventHandler<ActionEvent>{
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Ataca");
+        /*
+        ControladorDeTurno controlador = ControladorDeTurno.getInstance();
+        Jugador jugador = controlador.jugador();
+        PosicionActual posicion = PosicionActual.obtenerInstancia();
+        Pieza piezaActual = PiezaActual.obtenerInstancia().obtenerPieza();
+        Pieza objetivo = jugador.obtenerPieza(new Celda(posicion.getX(),posicion.getY()));
 
-        ControladorDeTurno controladorDeTurno = ControladorDeTurno.getInstance();
-
-        Jugador jugador = controladorDeTurno.jugadorEnTurno();
-
-        Celda posicionActual = PosicionActual.obtenerInstancia().celda();
-        Unidad unidadAtacante = UnidadActual.obtenerInstancia().unidad();
-        Pieza piezaAAtacar = controladorDeTurno.jugadorFueraDeTurno().obtenerPieza(posicionActual);
-
-        if(piezaAAtacar instanceof UnidadAtacable){
-
-            UnidadAtacable unidadAAtacar = (UnidadAtacable)piezaAAtacar;
-
-            if(unidadAtacante instanceof AtacanteDeUnidades){
-                ((AtacanteDeUnidades)unidadAtacante).atacar(unidadAAtacar);
-            }
-        }else if(piezaAAtacar instanceof EdificioAtacable){
-            EdificioAtacable edificioAAtacar = (EdificioAtacable)piezaAAtacar;
-
-            if(unidadAtacante instanceof AtacanteDeEdificios){
-                ((AtacanteDeEdificios)edificioAAtacar).atacar(edificioAAtacar);
-            }
+        if(objetivo==null || objetivo.esPiezaPropia(jugador)){
+            System.out.println("No es un objetivo para atacar");
+            return;
         }
-
-        contenedor.actualizar();
+        piezaActual.atacar(objetivo);
+        ContenedorPrincipal.actualizar();
+        */
     }
+
 }

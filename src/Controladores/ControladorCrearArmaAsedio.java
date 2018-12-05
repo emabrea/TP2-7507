@@ -25,7 +25,12 @@ public class ControladorCrearArmaAsedio implements EventHandler<ActionEvent>{
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Jugador jugador = ControladorDeTurno.getInstance().jugador();
         Castillo castillo = jugador.obtenerCastillo();
-    	castillo.crearArmaDeAsedio(celda);      
+        try{
+            castillo.crearArmaDeAsedio(celda);    
+        }
+    	catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){
+            new Alerta().noSePuedeCrearAhi();
+        }
     	this.contenedor.actualizar();
 	}
 }

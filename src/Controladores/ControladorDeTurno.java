@@ -9,7 +9,7 @@ import Vista.*;
 
 public class ControladorDeTurno {
     
-    public Jugador actual;
+    public Jugador actual;    
     public ArrayList<Jugador> jugadores;    
     private static ControladorDeTurno instancia = new ControladorDeTurno();
     private ContenedorPrincipal contenedorPrincipal;
@@ -24,18 +24,9 @@ public class ControladorDeTurno {
         return ControladorDeTurno.instancia;
     }    
 
-    public Jugador jugadorEnTurno(){
+    public Jugador jugador(){
         return this.actual;
-    }
-
-    public Jugador jugadorFueraDeTurno(){
-        for(Jugador jugador: this.jugadores){
-            if(jugador != this.actual){
-                return jugador;
-            }
-        }
-        return null;
-    }
+    } 
 
     public void cambiarJugador(){
         if(this.actual == this.jugadores.get(0)){
