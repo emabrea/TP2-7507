@@ -46,7 +46,7 @@ public class ContenedorPrincipal{
 			    	int x = grid.getColumnIndex(button);
 			    	int y = grid.getRowIndex(button);			         
 
-                    Jugador jugador = ControladorDeTurno.getInstance().jugador();
+                    Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
                     PosicionActual posicion = PosicionActual.obtenerInstancia();
                     posicion.actualizar(x,alturaMapa-y-1); 
 
@@ -105,7 +105,7 @@ public class ContenedorPrincipal{
         VBox vbox4 = new VBox(4); 
         Boton boton14 = new Boton("Posicion actual", new ControladorPosicionActual());
 
-        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugador().cantidadDeOro());
+        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugadorEnTurno().cantidadDeOro());
         Label labelVida = new Label("Vida: "+PiezaActual.obtenerInstancia().obtenerVida());
 
         vbox4.getChildren().addAll(boton14,labelOro,labelVida) ;

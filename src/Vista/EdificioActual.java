@@ -10,7 +10,7 @@ public class EdificioActual{
 	private static EdificioActual instancia = new EdificioActual();
 	
 	public void actualizar(int x,int y){
-		Jugador jugador = ControladorDeTurno.getInstance().jugador();		
+		Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();		
 		Edificio edificio = jugador.obtenerEdificio(new Zona(new Celda(x,y),2,2));
 		if( edificio == null || !edificio.esPiezaPropia(jugador)){
 			return;

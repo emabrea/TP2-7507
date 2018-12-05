@@ -9,7 +9,7 @@ public class PiezaActual{
 	private static PiezaActual instancia = new PiezaActual();
 	
 	public void actualizar(int x,int y){
-		Jugador jugador = ControladorDeTurno.getInstance().jugador();		
+		Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();		
 		Pieza pieza = jugador.obtenerPieza(new Celda(x,y));
 		if( pieza == null || !pieza.esPiezaPropia(jugador)){
 			return;
