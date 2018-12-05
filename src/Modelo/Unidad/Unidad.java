@@ -20,8 +20,7 @@ public class Unidad extends Pieza{
 	public void verificarMovimiento(Celda posicionAnterior){
 
 		if(!posicionAnterior.igualA(this.posicion)){
-			this.seHaMovido = true;
-			System.out.println("HOLA");
+			this.seHaMovido = true;			
 		}	
 	}
 
