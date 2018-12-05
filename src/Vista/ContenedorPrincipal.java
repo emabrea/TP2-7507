@@ -40,30 +40,44 @@ public class ContenedorPrincipal{
             for (int c = 0; c < columnas; c++) {
 
             	Button button = new Button();  
+            	button.setMinHeight(40);
+                button.setMinWidth(40);
+                Celda celda = new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1);
             	Jugador jugador1 = juego.obtenerJugador1();
             	Jugador jugador2 = juego.obtenerJugador2();
-            	Pieza pieza1 = jugador1.obtenerPieza(new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1)) ;
-            	Pieza pieza2 = jugador2.obtenerPieza(new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1)) ;
+            	Pieza pieza1 = jugador1.obtenerPieza(celda) ;
+            	Pieza pieza2 = jugador2.obtenerPieza(celda) ;
+            	Boolean insertar = true;
 
-            	if(pieza1 instanceof Aldeano ||pieza2 instanceof Aldeano ){                	
+            	if(pieza1 instanceof Aldeano  ){                	
                 	button.setOnAction(new BotonAldeano());                	
-                	button.setStyle("-fx-background-image: url('file:src/aldeano.png');");	        	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/aldeano1.jpg');");	        	
+            	}
+            	else if(pieza2 instanceof Aldeano ){                	
+                	button.setOnAction(new BotonAldeano());                	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/aldeano2.jpg');");	        	
             	}      	
             	else if(pieza1 instanceof Arquero ){                	
-                	button.setOnAction(new BotonAldeano());                	
-                	button.setStyle("-fx-background-image: url('file:src/arquero1.png');");	        	
+                	button.setOnAction(new BotonArquero());                	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/arquero1.jpg');");	        	
             	}
-            	else if(pieza2 instanceof Arquero){                	
-                	button.setOnAction(new BotonAldeano());                	
-                	button.setStyle("-fx-background-image: url('file:src/arquero2.png');");	        	
+            	else if(pieza2 instanceof Arquero ){                	
+                	button.setOnAction(new BotonArquero());                	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/arquero2.jpg');");	        	
             	}
+            	else if(pieza1 instanceof Espadachin){                	
+                	button.setOnAction(new BotonEspadachin());                	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/espadachin1.jpg');");	        	
+            	}
+            	else if(pieza2 instanceof Espadachin){                	
+                	button.setOnAction(new BotonEspadachin());                	
+                	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/espadachin2.jpg');");	        	
+            	}            	           	           	         	
             	else{
-            		button.setStyle("-fx-background-image: url('file:src/grass.jpg');"); 
-            	}                        
-               
-                               
-                button.setMinHeight(40);
-                button.setMinWidth(40);
+            		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/grass.jpg');"); 
+            	}                    
+                              
+                
                 this.colorearMapa(button,c,Mapa.obtenerInstancia().getTamanioAltura()-r-1,juego);
 
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -90,8 +104,9 @@ public class ContenedorPrincipal{
 				});
 
                 grid.setRowIndex(button,r);
-                grid.setColumnIndex(button,c);
-                grid.getChildren().add(button);
+                grid.setColumnIndex(button,c);               
+                grid.getChildren().add(button);	 
+                
             }
         }
         this.root.getChildren().add(grid) ;
@@ -156,13 +171,7 @@ public class ContenedorPrincipal{
             }
             else if(pieza instanceof Cuartel){
                 button.setStyle("-fx-background-color: #2EFEF7; ");
-            }/*
-            else if(pieza instanceof Arquero){
-                button.setStyle("-fx-background-color: #FFFF00; ");
-            }*/
-            else if(pieza instanceof Espadachin){
-                button.setStyle("-fx-background-color: #FF00FF; ");
-            }
+            }           
             else if(pieza instanceof ArmaDeAsedio){
                 button.setStyle("-fx-background-color: #40FF00; ");
             }            
