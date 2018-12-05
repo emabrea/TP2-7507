@@ -21,13 +21,26 @@ public class ControladorConstruirPlazaCentral implements EventHandler<ActionEven
     	System.out.println("Contruye plaza central");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
     	Unidad unidadActual = UnidadActual.obtenerInstancia().unidad();
-    	if(unidadActual instanceof Aldeano){
-    		Aldeano aldeano = (Aldeano)UnidadActual.obtenerInstancia().unidad();
-    		aldeano.construirPlazaCentralEnZona(new Zona(celda,2,2));    		
-    	}	
-        else{
-            throw new NoEsPosibleConstruirException();
-        }	
+        try{
+            if(unidadActual instanceof Aldeano){
+                Aldeano aldeano = (Aldeano)UnidadActual.obtenerInstancia().unidad();
+                aldeano.construirPlazaCentralEnZona(new Zona(celda,2,2));           
+            }
+            else{
+                throw new NoEsPosibleConstruirException();
+            }
+        }
+        catch(AldeanoOcupado e){
+            new Alerta().AldeanoOcupado();
+        }
+        catch(NoEsPosibleConstruirException e){
+            new Alerta().noSePuedeConstruirAhi();
+        }
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        } 
+    		
+        	
     	this.contenedor.actualizar();
 
 	}

@@ -76,13 +76,13 @@ public class ContenedorPrincipal{
         VBox vbox = new VBox(4);        
         Boton boton1 = new Boton("Finalizar Turno", new ControladorFinalizarTurno(this));
         Boton boton2 = new Boton("Atacar", new ControladorAtacar(this));
-        Boton boton3 = new Boton("Construir Cuartel", new ControladorConstruirCuartel(this));
-        Boton boton4 = new Boton("Construir Plaza Central", new ControladorConstruirPlazaCentral(this));       
+        Boton boton3 = new Boton("Construir Cuartel (50 oro)", new ControladorConstruirCuartel(this));
+        Boton boton4 = new Boton("Construir Plaza Central (100 oro)", new ControladorConstruirPlazaCentral(this));       
         Boton boton5 = new Boton("Reparar", new ControladorReparar());
-        Boton boton15 = new Boton("Crear aldeano",new ControladorCrearAldeano(this));
-        Boton boton16 = new Boton("Crear arquero",new ControladorCrearArquero(this));
-        Boton boton17 = new Boton("Crear espadachin",new ControladorCrearEspadachin(this));
-        Boton boton18 = new Boton("Crear arma de asedio",new ControladorCrearArmaAsedio(this));        
+        Boton boton15 = new Boton("Crear aldeano (25 oro)",new ControladorCrearAldeano(this));
+        Boton boton16 = new Boton("Crear arquero (75 oro)",new ControladorCrearArquero(this));
+        Boton boton17 = new Boton("Crear espadachin (50 oro)",new ControladorCrearEspadachin(this));
+        Boton boton18 = new Boton("Crear arma de asedio (200 oro)",new ControladorCrearArmaAsedio(this));        
         vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton15,boton16,boton17,boton18) ; 
 
         HBox hbox1 = new HBox(4);
@@ -104,11 +104,20 @@ public class ContenedorPrincipal{
 
         VBox vbox4 = new VBox(4); 
         Boton boton14 = new Boton("Posicion actual", new ControladorPosicionActual());
-
-        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugadorEnTurno().cantidadDeOro());
         Label labelVida = new Label("Vida: "+PiezaActual.obtenerInstancia().obtenerVida());
+        Label labelOro1 = new Label("Oro jugador 1: "+ juego.obtenerJugador1().cantidadDeOro());
+        Label labelOro2 = new Label("Oro jugador 2: "+ juego.obtenerJugador2().cantidadDeOro());
+        Label labelPob1 = new Label("Poblacion jugador 1: "+ juego.obtenerJugador1().poblacion());
+        Label labelPob2 = new Label("Poblacion jugador 2: "+ juego.obtenerJugador2().poblacion());
+        Label labelturno;
+        if(ControladorDeTurno.getInstance().jugadorEnTurno()==juego.obtenerJugador1()){
+            labelturno = new Label("Es el turno del jugador 1" );    
+        }
+        else{
+            labelturno = new Label("Es el turno del jugador 2" );
+        }          
 
-        vbox4.getChildren().addAll(boton14,labelOro,labelVida) ;
+        vbox4.getChildren().addAll(boton14,labelVida,labelOro1,labelOro2,labelPob1,labelPob2,labelturno) ;
 
         vbox.getChildren().addAll(hbox1,hbox2,hbox3,vbox4) ;
         this.root.getChildren().add(vbox) ;     

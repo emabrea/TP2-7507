@@ -27,12 +27,20 @@ public class ControladorCrearArquero implements EventHandler<ActionEvent>{
             if(edificioActual instanceof Cuartel){
                 Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
                 cuartel.crearArquero(celda);            
-            } 
-            throw new NoEsPosibleCrearException();
+            }
+            else{
+                throw new NoEsPosibleCrearException();
+            }           
         }
         catch(NoEsPosibleCrearException e){
             new Alerta().noSePuedeCrearAhi();
-        }   	      
+        }   
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        } 
+        catch(PoblacionExcedidaException e){
+            new Alerta().poblacionExcedida();
+        } 	      
        
     	this.contenedor.actualizar();
 	}

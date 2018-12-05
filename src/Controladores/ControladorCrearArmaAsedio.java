@@ -28,9 +28,15 @@ public class ControladorCrearArmaAsedio implements EventHandler<ActionEvent>{
         try{
             castillo.crearArmaDeAsedio(celda);    
         }
-    	catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){
+    	catch(NoEsPosibleCrearException e){
             new Alerta().noSePuedeCrearAhi();
         }
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        } 
+        catch(PoblacionExcedidaException e){
+            new Alerta().poblacionExcedida();
+        } 
     	this.contenedor.actualizar();
 	}
 }

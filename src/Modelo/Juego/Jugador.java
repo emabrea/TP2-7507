@@ -10,8 +10,7 @@ public class Jugador {
 	ArrayList<Aldeano> aldeanos;
 	ArrayList<Edificio> edificios;
 	ArrayList<Unidad> unidades;
-	int cantidadDeOro;
-	int poblacion ; 
+	int cantidadDeOro;	 
 	Castillo castillo;
 	Jugador jugadorOponente;
 	
@@ -20,8 +19,7 @@ public class Jugador {
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
-		this.cantidadDeOro = cantidadDeOro;	
-		this.poblacion = 0;		
+		this.cantidadDeOro = cantidadDeOro;			
 	}	
 	
 	public void setearJugadorOponente(Jugador jugadorOponente) {
@@ -59,42 +57,52 @@ public class Jugador {
 
 
 	public void agregarPieza(Aldeano aldeano){
-		if(this.poblacion == 50){
+		if(unidades.size() == 50){
 			throw new PoblacionExcedidaException();
 		}
 		aldeanos.add(aldeano);
 		unidades.add(aldeano);
-		this.poblacion +=1;
+		
 	}
 
 	public void agregarPieza(Unidad unidad){
-		if(this.poblacion == 50){
+		if(unidades.size() == 50){
 			throw new PoblacionExcedidaException();
 		}
-		unidades.add(unidad);
-		this.poblacion +=1;
+		unidades.add(unidad);		
 	}
 
 	public void agregarPieza(Edificio edificio){
 		edificios.add(edificio);		
-	}
+	}	
 
-	public void eliminarPieza(Aldeano aldeano){
-		aldeanos.remove(aldeano);
-		this.poblacion -=1;
-	}
-
-	public void eliminarPieza(Unidad unidad){
-		unidades.remove(unidad);
-		this.poblacion -=1;
-	}
-
-	public void eliminarPieza(Edificio edificio){
-		edificios.remove(edificio);		
+	public void eliminarPieza(Pieza pieza){
+		if(pieza instanceof Aldeano){
+			aldeanos.remove(pieza);
+			unidades.remove(pieza);			
+		}
+		else if(pieza instanceof Unidad){
+			unidades.remove(pieza);			
+		}
+		if(pieza instanceof Castillo){
+			throw new JuegoTerminado();
+		}
+		if(pieza instanceof Edificio){
+			edificios.remove(pieza);	
+		}
 	}
 
 	public void aumentarOro(int monto){
 		this.cantidadDeOro += monto;
+	}
+
+	public void disminuirOro(int monto){
+		if(monto <= this.cantidadDeOro){
+			this.cantidadDeOro -= monto;
+		}
+		else{
+			throw new OroInsuficienteException();
+		}		
 	}
 
 	public int cantidadDeOro(){
@@ -102,7 +110,7 @@ public class Jugador {
 	}
 
 	public int poblacion(){
-		return this.poblacion;
+		return unidades.size();
 	}
 
 	public void habilitarMovimientoUnidades(){
@@ -117,6 +125,7 @@ public class Jugador {
 			aldeano.realizarTareas();
 		}
 		habilitarMovimientoUnidades();
+		this.castillo.atacar();
 	}
 
 	public Edificio obtenerEdificio(Zona zona){

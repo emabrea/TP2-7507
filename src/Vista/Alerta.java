@@ -13,7 +13,7 @@ public class Alerta{
 		alerta.setHeaderText(null);		
 	}
 
-	public void unidadOcupada(){
+	public void AldeanoOcupado(){
 		this.alerta.setTitle("Accion no valida"); 
 		this.alerta.setContentText("El aldeano esta ocupado.");
 	    this.alerta.showAndWait(); 
@@ -39,8 +39,33 @@ public class Alerta{
 
 	public void noSePuedeCrearAhi(){
 		this.alerta.setTitle("Accion no valida"); 
-		this.alerta.setContentText("No es posible crear en esa posicion");
+		this.alerta.setContentText("No es posible crear unidad.");
 	    this.alerta.showAndWait(); 
 	}
+
+	public void noSePuedeConstruirAhi(){
+		this.alerta.setTitle("Accion no valida"); 
+		this.alerta.setContentText("No es posible construir edificio.");
+	    this.alerta.showAndWait(); 
+	}
+
+	public void oroInsuficiente(){
+		this.alerta.setTitle("Accion no valida"); 
+		this.alerta.setContentText("Oro insuficiente para realizar dicha accion");
+	    this.alerta.showAndWait(); 
+	}
+
+	public void poblacionExcedida(){
+		this.alerta.setTitle("Poblacion excedida"); 
+		this.alerta.setContentText("El limite de poblacion es 50");
+	    this.alerta.showAndWait(); 
+	}
+
+	public void juegoTerminado(){
+		this.alerta.setTitle("FELICITACIONES!"); 
+		this.alerta.setContentText("Ha destruido el castillo rival y ha ganado!");
+	    this.alerta.showAndWait(); 
+	}
+
 
 }

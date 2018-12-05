@@ -20,27 +20,27 @@ public class AldeanoConstruyendoCuartel implements EstadoAldeano{
 
 	@Override
 	public void repararEdificio(Edificio edificio , Aldeano aldeano) {
-		throw new AldeanoEstaConstruyendoUnCuartelException();
+		throw new AldeanoOcupado();
 	}		
 
 	@Override
 	public void desocuparse(Aldeano aldeano) {
-		throw new AldeanoEstaConstruyendoUnCuartelException();
+		throw new AldeanoOcupado();
 	}
 
 	@Override
 	public void construirCuartel(Zona zona,Aldeano aldeano) {
 		if(zona != this.zonaEnQueSeConstruye){
-			throw new AldeanoEstaConstruyendoUnCuartelEnOtraZonaException();
+			throw new AldeanoOcupado();
 		}
 		else{
-			throw new AldeanoYaEstaConstruyendoUnCuartelEnEsaZonaException();	
+			throw new AldeanoOcupado();	
 		}			
 	}
 
 	@Override
 	public void construirPlazaCentral(Zona zona,Aldeano aldeano) {
-		throw new AldeanoEstaConstruyendoUnCuartelException();
+		throw new AldeanoOcupado();
 	}
 
 	public boolean aldeanoLibre(){

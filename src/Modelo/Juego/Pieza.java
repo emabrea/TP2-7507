@@ -24,10 +24,12 @@ public class Pieza {
 		return this.posicion;
 	}
 
-	public void reducirVidaEn(int unaCantidad){
-		int nuevaVida = this.vida - unaCantidad;
-		this.vida = nuevaVida;							
-		// VER QUE HACER EN CASO DE QUE MUERA OBJETIVO.
+	public void reducirVidaEn(int unaCantidad){	
+		this.vida = this.vida - unaCantidad;
+		if(this.vida <= 0){
+			this.jugador.eliminarPieza(this);
+			Mapa.obtenerInstancia().eliminar(this.posicion);
+		}				
 	}
 
 	public boolean distanciaAPiezaEsMenorIgualA(int unValor, Pieza pieza){
@@ -40,6 +42,10 @@ public class Pieza {
 
 	public int obtenerVida(){
 		return this.vida;
+	}
+
+	public int obtenerCosto(){
+		return this.costo;
 	}
 
 	public boolean esPiezaPropia(Jugador jugador){

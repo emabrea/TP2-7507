@@ -36,6 +36,9 @@ public class Unidad extends Pieza{
 			this.movimiento.moverArriba((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
 		}
+		else{
+			throw new UnidadYaMovidaException();
+		}
 	}
 
 	public void moverAbajo(){
@@ -45,7 +48,9 @@ public class Unidad extends Pieza{
 			this.movimiento.moverAbajo((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
 		}
-
+		else{
+			throw new UnidadYaMovidaException();
+		}
 	}
 	
 	public void moverDerecha(){
@@ -54,6 +59,9 @@ public class Unidad extends Pieza{
 			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
 			this.movimiento.moverDerecha((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
+		}
+		else{
+			throw new UnidadYaMovidaException();
 		}
 	}
 	
@@ -64,6 +72,9 @@ public class Unidad extends Pieza{
 			this.movimiento.moverIzquierda((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
 		}
+		else{
+			throw new UnidadYaMovidaException();
+		}
 	}
 	
 	public void moverArribaDerecha(){
@@ -72,6 +83,9 @@ public class Unidad extends Pieza{
 			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
 			this.movimiento.moverArribaDerecha((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
+		}
+		else{
+			throw new UnidadYaMovidaException();
 		}
 	}
 	
@@ -82,6 +96,9 @@ public class Unidad extends Pieza{
 			this.movimiento.moverArribaIzquierda((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
 		}
+		else{
+			throw new UnidadYaMovidaException();
+		}
 
 	}
 	
@@ -91,6 +108,9 @@ public class Unidad extends Pieza{
 			this.movimiento.moverAbajoDerecha((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
 		}
+		else{
+			throw new UnidadYaMovidaException();
+		}
 	}
 	
 	public void moverAbajoIzquierda(){
@@ -99,6 +119,9 @@ public class Unidad extends Pieza{
 			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
 			this.movimiento.moverAbajoIzquierda((Celda)this.posicion);
 			this.verificarMovimiento(posicionAnterior);
+		}
+		else{
+			throw new UnidadYaMovidaException();
 		}
 
 	}

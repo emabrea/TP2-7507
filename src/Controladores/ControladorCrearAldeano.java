@@ -35,7 +35,13 @@ public class ControladorCrearAldeano implements EventHandler<ActionEvent>{
         }    	       
         catch(NoEsPosibleCrearException e){
             new Alerta().noSePuedeCrearAhi();
-        }          
+        }
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        }  
+        catch(PoblacionExcedidaException e){
+            new Alerta().poblacionExcedida();
+        }         
         
     	this.contenedor.actualizar();
 	}

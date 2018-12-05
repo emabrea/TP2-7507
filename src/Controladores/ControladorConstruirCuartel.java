@@ -29,9 +29,15 @@ public class ControladorConstruirCuartel implements EventHandler<ActionEvent>{
                 aldeano.construirCuartelEnZona(new Zona(celda,2,2));            
             }           
         }
+        catch(AldeanoOcupado e){
+            new Alerta().AldeanoOcupado();
+        }
         catch(NoEsPosibleConstruirException e){
-            new Alerta().unidadOcupada();
-        }     
+            new Alerta().noSePuedeConstruirAhi();
+        }   
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        }   
          
         
     	this.contenedor.actualizar();

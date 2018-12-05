@@ -28,7 +28,7 @@ public class PlazaCentral extends Edificio implements EdificioAtacable {
 		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		
 		if(celdasPosibles.isEmpty()){
-			throw new NoSePuedeCrearElAldeanoCeldasPerifericasOcupadasException();
+			throw new NoEsPosibleCrearException();
 		}
 		
 		return celdasPosibles;
@@ -37,9 +37,10 @@ public class PlazaCentral extends Edificio implements EdificioAtacable {
 	public void crearAldeano(Celda unaCelda) {
 		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearAldeano();
 		for(Celda celda: celdasPosibles){
-			if(celda.igualA(unaCelda)){
+			if(celda.igualA(unaCelda)){				
 				Aldeano aldeano = new Aldeano(celda,this.jugador);
-				this.jugador.agregarPieza(aldeano);
+				this.jugador.disminuirOro(aldeano.obtenerCosto());
+				this.jugador.agregarPieza(aldeano);				
 				Mapa.obtenerInstancia().insertar(celda);
 				return;
 			}

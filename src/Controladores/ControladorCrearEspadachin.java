@@ -28,10 +28,18 @@ public class ControladorCrearEspadachin implements EventHandler<ActionEvent>{
                 Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
                 cuartel.crearEspadachin(celda);         
             }
-            throw new NoEsPosibleCrearException();
+            else{
+                throw new NoEsPosibleCrearException();   
+            }            
         } 	        
         catch(NoEsPosibleCrearException e){
             new Alerta().noSePuedeCrearAhi();
+        } 
+        catch(OroInsuficienteException e){
+            new Alerta().oroInsuficiente();
+        } 
+        catch(PoblacionExcedidaException e){
+            new Alerta().poblacionExcedida();
         } 
     	this.contenedor.actualizar();
 	}

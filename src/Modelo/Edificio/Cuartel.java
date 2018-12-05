@@ -27,7 +27,7 @@ public class Cuartel extends Edificio implements EdificioAtacable{
 		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		 
 		if(celdasPosibles.isEmpty()){
-			throw new NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException();
+			throw new NoEsPosibleCrearException();
 		}
 		
 		return celdasPosibles;
@@ -38,7 +38,7 @@ public class Cuartel extends Edificio implements EdificioAtacable{
 		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 		 
 		if(celdasPosibles.isEmpty()){
-			throw new NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException();
+			throw new NoEsPosibleCrearException();
 		}
 		
 		return celdasPosibles;
@@ -47,9 +47,10 @@ public class Cuartel extends Edificio implements EdificioAtacable{
 	public void crearArquero(Celda unaCelda) {
 		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearArquero();
 		for(Celda celda : celdasPosibles){
-			if(celda.igualA(unaCelda)){
+			if(celda.igualA(unaCelda)){				
 				Arquero arquero = new Arquero(celda, this.jugador);
-				this.jugador.agregarPieza(arquero);
+				this.jugador.disminuirOro(arquero.obtenerCosto());
+				this.jugador.agregarPieza(arquero);				
 				Mapa.obtenerInstancia().insertar(celda);
 				return;
 			}
@@ -60,9 +61,10 @@ public class Cuartel extends Edificio implements EdificioAtacable{
 	public void crearEspadachin(Celda unaCelda) {
 		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearEspadachin();
 		for(Celda celda : celdasPosibles){
-			if(celda.igualA(unaCelda)){
+			if(celda.igualA(unaCelda)){				
 				Espadachin espadachin = new Espadachin(celda, this.jugador);
-				this.jugador.agregarPieza(espadachin);
+				this.jugador.disminuirOro(espadachin.obtenerCosto());
+				this.jugador.agregarPieza(espadachin);				
 				Mapa.obtenerInstancia().insertar(celda);
 				return;
 			}			

@@ -29,7 +29,7 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 		ArrayList<Celda> celdasPosibles = super.posiblesCeldasParaCrearUnidad((Zona)this.posicion, base + 2, altura + 2);
 
 		if(celdasPosibles.isEmpty()){
-			throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
+			throw new NoEsPosibleCrearException();
 		}
 
 		return celdasPosibles;
@@ -38,14 +38,15 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 	public void crearArmaDeAsedio(Celda unaCelda) {
 		ArrayList<Celda> celdasPosibles = this.posiblesCeldasParaCrearArmaDeAsedio();
 		for(Celda celda : celdasPosibles){
-			if(celda.igualA(unaCelda)){
+			if(celda.igualA(unaCelda)){				
 				ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celda, this.jugador);
-				this.jugador.agregarPieza(armaDeAsedio);
+				this.jugador.disminuirOro(armaDeAsedio.obtenerCosto());
+				this.jugador.agregarPieza(armaDeAsedio);				
 				Mapa.obtenerInstancia().insertar(celda);
 				return;
 			}
 		}
-		throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
+		throw new NoEsPosibleCrearException();
 		
 	}
 

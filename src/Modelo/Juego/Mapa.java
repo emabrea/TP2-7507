@@ -15,7 +15,7 @@ public class Mapa {
 	
 	public Mapa(){
 		this.altura = 25;
-		this.base = 50;
+		this.base = 25;
 		this.posiciones = new ArrayList<Posicion>();		
 	}
 
@@ -55,7 +55,7 @@ public class Mapa {
 		}
 		return false;
 	}
-
+	
 	public int getTamanioBase() {
 		return base;
 	}

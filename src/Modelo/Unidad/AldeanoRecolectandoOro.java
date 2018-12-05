@@ -11,7 +11,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	@Override
 	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
-			throw new AldeanoDebeEstarAlLadoDelEdificioARepararException();
+			throw new NoEsPosibleRepararException();
 		}
 		aldeano.comienzaAReparar(edificio);		
 	}	
@@ -24,7 +24,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	@Override
 	public void construirCuartel(Zona zona, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaConstruirEdificio(zona)){
-			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
+			throw new NoEsPosibleConstruirException();
 		}
 		aldeano.comienzaAConstruirUnCuartelEnZona(zona);		
 	}
@@ -32,7 +32,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 	@Override
 	public void construirPlazaCentral(Zona zona, Aldeano aldeano) {
 		if(!aldeano.posicionValidaParaConstruirEdificio(zona)){
-			throw new AldeanoDebeEstarAlLadoDeLaZonaParaPoderConstruirElEdificioException();
+			throw new NoEsPosibleConstruirException();
 		}
 		aldeano.comienzaAConstruirUnaPlazaCentralEnZona(zona);		
 	}

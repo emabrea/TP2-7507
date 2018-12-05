@@ -28,7 +28,7 @@ public class Main extends Application  {
         stage.setScene(scene);         
         stage.setTitle("Age of Empires II");
         stage.setHeight(700);
-        stage.setWidth(1300);
+        stage.setWidth(900);
         stage.show();       
 
     }

@@ -66,12 +66,13 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 		boolean esPosibleConstruir = false; 
 		for(Zona zonaValida : this.posiblesZonasAConstruirCuartel()){
 			if(zonaValida.igualA(zona)){
-				esPosibleConstruir = true;				
+				esPosibleConstruir = true;										
 			}
 		}
 		if(!esPosibleConstruir){
 			throw new NoEsPosibleConstruirException();
 		}	
+		this.jugador.disminuirOro((new Cuartel(new Celda(0,0),this.jugador)).obtenerCosto());
 		this.estado.construirCuartel(zona, this);		
 	}
 	
@@ -85,6 +86,7 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 		if(!esPosibleConstruir){
 			throw new NoEsPosibleConstruirException();
 		}				
+		this.jugador.disminuirOro((new PlazaCentral(new Celda(0,0),this.jugador)).obtenerCosto());
 		this.estado.construirPlazaCentral(zona, this);
 	}
 
