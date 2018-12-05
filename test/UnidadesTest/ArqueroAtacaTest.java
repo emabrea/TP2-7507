@@ -22,8 +22,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test01ArqueroPuedeAtacarEspadachinSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Pedro");
+        Jugador jugador2 = new Jugador(100, "Lucas");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaEspadachin = new Celda(7,4);
@@ -43,8 +43,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test02ArqueroNoPuedeAtacarEspadachinSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "German");
+        Jugador jugador2 = new Jugador(100, "Hernan");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaEspadachin = new Celda(8,4);
@@ -61,8 +61,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test03ArqueroPuedeAtacarArmaDeAsedioSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Juan");
+        Jugador jugador2 = new Jugador(100, "Luis");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaArmaDeAsedio = new Celda(7,4);
@@ -82,8 +82,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test04ArqueroNoPuedeAtacarArmaDeAsedioSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Carlos");
+        Jugador jugador2 = new Jugador(100, "Facundo");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaArmaDeAsedio = new Celda(8,4);
@@ -100,8 +100,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test05ArqueroPuedeAtacarAldeanoSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Leandro");
+        Jugador jugador2 = new Jugador(100, "Sebastian");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaAldeano = new Celda(7,4);
@@ -121,8 +121,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test06ArqueroNoPuedeAtacarAldeanoSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaAldeano = new Celda(8,4);
@@ -139,8 +139,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test07ArqueroPuedeAtacarArqueroSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero1 = new Celda(4,4);
         Celda celdaArquero2 = new Celda(7,4);
@@ -160,8 +160,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test08ArqueroNoPuedeAtacarArqueroSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero1 = new Celda(4,4);
         Celda celdaArquero2 = new Celda(8,4);
@@ -178,8 +178,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test09ArqueroPuedeAtacarPlazaCentralSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaPlazaCentral = new Celda(7,4);
@@ -203,8 +203,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test10ArqueroNoPuedeAtacarPlazaCentralSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
 
@@ -226,8 +226,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test11ArqueroPuedeAtacarCuartelSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaCuartel = new Celda(7,4);
@@ -251,8 +251,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test12ArqueroNoPuedeAtacarCuartelSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
 
@@ -274,8 +274,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test13ArqueroPuedeAtacarCastilloSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
         Celda celdaCastillo = new Celda(7,4);
@@ -299,8 +299,8 @@ public class ArqueroAtacaTest {
 
     @Test
     public void test14ArqueroNoPuedeAtacarCastilloSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Lucas");
+        Jugador jugador2 = new Jugador(100, "Martin");
 
         Celda celdaArquero = new Celda(4,4);
 
