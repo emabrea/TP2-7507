@@ -7,6 +7,7 @@ public class Unidad extends Pieza{
 	
 	Movimiento movimiento;
 	Boolean seHaMovido = false;
+	Boolean haAtacado = false;
 
 	public Unidad(Celda celda, int vida, int costo,Jugador jugador){
 		super(celda, vida, costo,jugador);
@@ -24,8 +25,16 @@ public class Unidad extends Pieza{
 		}	
 	}
 
+	public void inhabilitarAtaque(){
+		this.haAtacado = true;
+	}
+
 	public void habilitarMovimiento(){
 		this.seHaMovido = false;
+	}
+
+	public void habilitarAtaque(){
+		this.haAtacado = false;
 	}
 
 
