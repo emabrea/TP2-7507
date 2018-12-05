@@ -34,10 +34,17 @@ public class PlazaCentral extends Edificio implements EdificioAtacable {
 		return celdasPosibles;
 	}
 
-	public void crearAldeano(Celda celda) {
-		Aldeano aldeano = new Aldeano(celda,this.jugador);
-		this.jugador.agregarPieza(aldeano);
-		Mapa.obtenerInstancia().insertar(celda);
+	public void crearAldeano(Celda unaCelda) {
+		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearAldeano();
+		for(Celda celda: celdasPosibles){
+			if(celda.igualA(unaCelda)){
+				Aldeano aldeano = new Aldeano(celda,this.jugador);
+				this.jugador.agregarPieza(aldeano);
+				Mapa.obtenerInstancia().insertar(celda);
+				return;
+			}
+		}
+		throw new NoEsPosibleCrearException();		
 	}
 
 	public void recibirDanio(Arquero arquero){
