@@ -1,13 +1,12 @@
 package Controladores;
 
-import Vista.ContenedorJugador;
+import Modelo.Juego.Juego;
 import Vista.ContenedorPrincipal;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class BotonJugarEventHandler implements EventHandler<ActionEvent>{

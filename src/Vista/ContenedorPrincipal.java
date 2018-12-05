@@ -108,8 +108,7 @@ public class ContenedorPrincipal{
         Label labelOro2 = new Label("Oro jugador 2: "+ juego.obtenerJugador2().cantidadDeOro());
         Label labelPob1 = new Label("Poblacion jugador 1: "+ juego.obtenerJugador1().poblacion());
         Label labelPob2 = new Label("Poblacion jugador 2: "+ juego.obtenerJugador2().poblacion());
-        Label labelturno;
-        labelturno("Es el turno de " + ControladorDeTurno.getInstance().jugadorEnTurno().getNombre());
+        Label labelturno = new Label("Es el turno de " + ControladorDeTurno.getInstance().jugadorEnTurno().getNombre());
 
         vbox4.getChildren().addAll(boton14,labelVida,labelOro1,labelOro2,labelPob1,labelPob2,labelturno) ;
 

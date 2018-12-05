@@ -6,24 +6,24 @@ import Modelo.Excepciones.*;
 import java.util.ArrayList;
 
 public class Jugador {
-	
+
 	ArrayList<Aldeano> aldeanos;
 	ArrayList<Edificio> edificios;
 	ArrayList<Unidad> unidades;
-	int cantidadDeOro;	 
+	int cantidadDeOro;
 	Castillo castillo;
 	Jugador jugadorOponente;
 	String nombre;
-	
-	
-	public Jugador(int cantidadDeOro, String nombreJugador){				
+
+
+	public Jugador(int cantidadDeOro, String nombreJugador){
 		this.aldeanos = new ArrayList<Aldeano>();
 		this.unidades= new ArrayList<Unidad>();
 		this.edificios= new ArrayList<Edificio>();
 		this.cantidadDeOro = cantidadDeOro;
 		this.nombre = nombreJugador;
-	}	
-	
+	}
+
 	public void setearJugadorOponente(Jugador jugadorOponente) {
 		this.jugadorOponente = jugadorOponente;
 	}
@@ -55,7 +55,7 @@ public class Jugador {
 			return this.castillo;
 		}
 		return null;
-	}	
+	}
 
 
 	public void agregarPieza(Aldeano aldeano){
@@ -64,33 +64,33 @@ public class Jugador {
 		}
 		aldeanos.add(aldeano);
 		unidades.add(aldeano);
-		
+
 	}
 
 	public void agregarPieza(Unidad unidad){
 		if(unidades.size() == 50){
 			throw new PoblacionExcedidaException();
 		}
-		unidades.add(unidad);		
+		unidades.add(unidad);
 	}
 
 	public void agregarPieza(Edificio edificio){
-		edificios.add(edificio);		
-	}	
+		edificios.add(edificio);
+	}
 
 	public void eliminarPieza(Pieza pieza){
 		if(pieza instanceof Aldeano){
 			aldeanos.remove(pieza);
-			unidades.remove(pieza);			
+			unidades.remove(pieza);
 		}
 		else if(pieza instanceof Unidad){
-			unidades.remove(pieza);			
+			unidades.remove(pieza);
 		}
 		if(pieza instanceof Castillo){
 			throw new JuegoTerminado();
 		}
 		if(pieza instanceof Edificio){
-			edificios.remove(pieza);	
+			edificios.remove(pieza);
 		}
 	}
 
@@ -104,7 +104,7 @@ public class Jugador {
 		}
 		else{
 			throw new OroInsuficienteException();
-		}		
+		}
 	}
 
 	public int cantidadDeOro(){
@@ -144,8 +144,8 @@ public class Jugador {
 			if(unidad.estaEnPosicion(celda)){
 				return unidad;
 			}
-		}		
-		return null;		
+		}
+		return null;
 	}
 
 	public ArrayList<Unidad> obtenerUnidades() {
@@ -155,10 +155,10 @@ public class Jugador {
 	public ArrayList<Edificio> obtenerEdificios() {
 		return this.edificios;
 	}
-	
-	public getNombre(){
-		return this.nombre;	
+
+	public String getNombre(){
+		return this.nombre;
 	}
 
-	
+
 }
