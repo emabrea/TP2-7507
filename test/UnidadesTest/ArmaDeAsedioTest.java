@@ -52,9 +52,9 @@ public class ArmaDeAsedioTest{
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
 		arma.actualizarEstado(new ArmaDeAsedioMontada());
 
-		/*
+		
 		try{
 			arma.moverArriba();
-		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }*/
+		} catch(ArmaDeAsedioMontadaNoPuedeMoverse e){ }
 	}
 }

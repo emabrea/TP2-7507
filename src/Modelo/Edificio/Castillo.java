@@ -35,10 +35,18 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 		return celdasPosibles;
 	}
 
-	public void crearArmaDeAsedio(Celda celda) {
-		ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celda, this.jugador);
-		this.jugador.agregarPieza(armaDeAsedio);
-		Mapa.obtenerInstancia().insertar(celda);
+	public void crearArmaDeAsedio(Celda unaCelda) {
+		ArrayList<Celda> celdasPosibles = this.posiblesCeldasParaCrearArmaDeAsedio();
+		for(Celda celda : celdasPosibles){
+			if(celda.igualA(unaCelda)){
+				ArmaDeAsedio armaDeAsedio = new ArmaDeAsedio(celda, this.jugador);
+				this.jugador.agregarPieza(armaDeAsedio);
+				Mapa.obtenerInstancia().insertar(celda);
+				return;
+			}
+		}
+		throw new NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException();
+		
 	}
 
 	public boolean derrumbado() {

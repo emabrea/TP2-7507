@@ -50,8 +50,13 @@ public class ContenedorPrincipal{
 
                     PiezaActual piezaActual = PiezaActual.obtenerInstancia();
                     piezaActual.actualizar(x,alturaMapa-y-1); 
+
                     UnidadActual unidadActual = UnidadActual.obtenerInstancia();
                     unidadActual.actualizar(x,alturaMapa-y-1);
+
+                    EdificioActual edificioActual = EdificioActual.obtenerInstancia();
+                    edificioActual.actualizar(x,alturaMapa-y-1);
+
                     actualizar();
 			    }
 				}); 
@@ -72,7 +77,11 @@ public class ContenedorPrincipal{
         Boton boton3 = new Boton("Construir Cuartel", new ControladorConstruirCuartel(this));
         Boton boton4 = new Boton("Construir Plaza Central", new ControladorConstruirPlazaCentral(this));       
         Boton boton5 = new Boton("Reparar", new ControladorReparar());
-        vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5) ; 
+        Boton boton15 = new Boton("Crear aldeano",new ControladorCrearAldeano(this));
+        Boton boton16 = new Boton("Crear arquero",new ControladorCrearArquero(this));
+        Boton boton17 = new Boton("Crear espadachin",new ControladorCrearEspadachin(this));
+        Boton boton18 = new Boton("Crear arma de asedio",new ControladorCrearArmaAsedio(this));        
+        vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton15,boton16,boton17,boton18) ; 
 
         HBox hbox1 = new HBox(4);
         Boton boton6 = new Boton("Mover arriba izquieda", new ControladorMoverArribaIzquierda(this));
@@ -119,6 +128,15 @@ public class ContenedorPrincipal{
             }
             if(pieza instanceof Cuartel){
                 button.setStyle("-fx-background-color: #2EFEF7; ");
+            }
+            if(pieza instanceof Arquero){
+                button.setStyle("-fx-background-color: #FFFF00; ");
+            }
+            if(pieza instanceof Espadachin){
+                button.setStyle("-fx-background-color: #FF00FF; ");
+            }
+            if(pieza instanceof ArmaDeAsedio){
+                button.setStyle("-fx-background-color: #40FF00; ");
             }
         }            
     }    

@@ -110,14 +110,14 @@ public class AldeanoReparaTest {
 		aldeano.realizarTareas();
 		
 		Aldeano aldeano2= new Aldeano(new Celda(14, 15),jugador1);
-		/*
+		
 		try{
 			aldeano.repararEdificio(cuartel);			 
 		} catch(EdificioSiendoReparadoException e){ }
 		
 		try{
 			aldeano2.repararEdificio(cuartel);			
-		} catch(EdificioSiendoReparadoException e){ }*/
+		} catch(EdificioSiendoReparadoException e){ }
 
 		Assert.assertTrue(cuartel.vidaActual()==230);
 		aldeano.realizarTareas();

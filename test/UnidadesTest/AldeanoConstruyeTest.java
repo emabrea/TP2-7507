@@ -246,10 +246,10 @@ public class AldeanoConstruyeTest {
 
 		Aldeano aldeano = new Aldeano(celda,jugador);			
 		Zona zonaAConstruir = new Zona(new Celda(5,5),2,2);			
-		/*
+		
 		try{
 			aldeano.construirPlazaCentralEnZona(zonaAConstruir);			
-		} catch(NoEsPosibleConstruirException e){ }	*/		
+		} catch(NoEsPosibleConstruirException e){ }			
 			
 		
 	}	

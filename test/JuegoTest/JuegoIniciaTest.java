@@ -157,10 +157,10 @@ public class JuegoIniciaTest {
 			jugador1.agregarPieza(new Aldeano(new Celda(i,10),jugador1));
 		}
 		Assert.assertTrue(jugador1.poblacion()==50);
-		/*
+		
 		try{
 			jugador1.agregarPieza(new Aldeano(new Celda(1,1),jugador1));		 
-		} catch(PoblacionExcedidaException e){ }*/
+		} catch(PoblacionExcedidaException e){ }
 
 		Jugador jugador2 = juego.obtenerJugador2();	
 		jugador2.agregarPieza(new Aldeano(new Celda(1,1),jugador1));
