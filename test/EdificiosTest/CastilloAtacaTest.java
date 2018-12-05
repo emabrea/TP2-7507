@@ -22,8 +22,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test01CastilloPuedeAtacarEspadachinSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -52,8 +52,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test02CastilloNoPuedeAtacarEspadachinSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -82,8 +82,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test03CastilloPuedeAtacarArmaDeAsedioSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -112,8 +112,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test04CastilloNoPuedeAtacarArmaDeAsedioSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -142,8 +142,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test05CastilloPuedeAtacarAldeanoSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -172,8 +172,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test06CastilloNoPuedeAtacarAldeanoSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -202,8 +202,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test07CastilloPuedeAtacarCastilloSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -234,8 +234,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test08CastilloNoPuedeAtacarCastilloSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -266,8 +266,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test09CastilloPuedeAtacarPlazaCentralSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -302,8 +302,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test10CastilloNoPuedeAtacarPlazaCentralSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
 
@@ -338,8 +338,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test11CastilloPuedeAtacarCuartelSiEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
 
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
@@ -374,8 +374,8 @@ public class CastilloAtacaTest {
 
     @Test
     public void test12CastilloNoPuedeAtacarCuartelSiNoEstaEnSuAlcance(){
-        Jugador jugador1 = new Jugador(100);
-        Jugador jugador2 = new Jugador(100);
+        Jugador jugador1 = new Jugador(100, "Mario");
+        Jugador jugador2 = new Jugador(100, "Luis");
 
         jugador1.setearJugadorOponente(jugador2);
         jugador2.setearJugadorOponente(jugador1);
@@ -411,7 +411,7 @@ public class CastilloAtacaTest {
 
     @Test
     public void test13CastilloAtacaVariasPiezasEnSuAlcance() {
-        Juego juego = new Juego();
+        Juego juego = new Juego("Mario", "Lucas");
 
         Jugador jugador1 = juego.obtenerJugador1();
         Jugador jugador2 = juego.obtenerJugador2();
@@ -455,7 +455,7 @@ public class CastilloAtacaTest {
 
     @Test
     public void test14CastilloNoAtacaVariasPiezasFueraDeSuAlcance() {
-        Juego juego = new Juego();
+        Juego juego = new Juego("Martin", "Lucas");
 
         Jugador jugador1 = juego.obtenerJugador1();
         Jugador jugador2 = juego.obtenerJugador2();
