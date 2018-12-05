@@ -19,7 +19,14 @@ public class ArmaDeAsedio extends Unidad implements AtacanteDeEdificios, UnidadA
 	}
 
 	public void atacar(EdificioAtacable edificioAtacable) {
-		this.estado.atacar(edificioAtacable,this,this.jugador,this.alcance);
+		if(!haAtacado){
+			this.estado.atacar(edificioAtacable,this,this.jugador,this.alcance);
+			this.inhabilitarAtaque();
+		}
+		else{
+			throw new UnidadYaAtacoException();
+		}
+	
 	}
 
 	public void moverArriba() {

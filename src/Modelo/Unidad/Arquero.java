@@ -13,13 +13,20 @@ public class Arquero extends Unidad implements AtacanteDeUnidades, AtacanteDeEdi
 	}
 
 	public void atacar(UnidadAtacable unidadAtacable){
-		if(((Pieza)unidadAtacable).esPiezaPropia(this.jugador)){
-			throw new NoEsPosibleAtacarPiezasPropias();
+		
+		if(!haAtacado){
+			if(((Pieza)unidadAtacable).esPiezaPropia(this.jugador)){
+				throw new NoEsPosibleAtacarPiezasPropias();
+			}
+			if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)unidadAtacable)){
+				throw new NoEsPosibleAtacarUnidadFueraDelAlcanceException();
+			}
+			unidadAtacable.recibirDanio(this);
+			this.inhabilitarAtaque();
 		}
-		if(!this.distanciaAPiezaEsMenorIgualA(this.alcance,(Pieza)unidadAtacable)){
-			throw new NoEsPosibleAtacarUnidadFueraDelAlcanceException();
+		else{
+			throw new UnidadYaAtacoException();
 		}
-		unidadAtacable.recibirDanio(this);
 	}
 
 	public void atacar(EdificioAtacable edificioAtacable){

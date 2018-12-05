@@ -71,4 +71,8 @@ public class Edificio extends Pieza {
 			Mapa.obtenerInstancia().eliminar(this.posicion);
 		}
 	}
+
+	public boolean celdaArribaIzquierda(Celda celda){
+		return celda.igualA(((Zona)this.posicion).getCeldaArribaIzquierda());
+	}
 }
