@@ -22,7 +22,7 @@ public class AldeanoConstruyeTest {
 	public void test01AldeanoConstruyeCuartelLoConstruyeEnZonaASuLado(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador1 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
 
 		Aldeano aldeano = new Aldeano(celda,jugador1);
 		Assert.assertTrue(aldeano.Libre());
@@ -58,7 +58,7 @@ public class AldeanoConstruyeTest {
 	public void test02AldeanoConstruyePlazaCentralLoConstruyeEnZonaASuLado(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador1 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
 
 
 		Aldeano aldeano = new Aldeano(celda,jugador1);
@@ -96,8 +96,8 @@ public class AldeanoConstruyeTest {
 		Celda celda1 = new Celda(20, 20);
 		Celda celda2 = new Celda(10, 10);
 
-		Jugador jugador1 = new Jugador(100);
-		Jugador jugador2 = new Jugador(100);
+		Jugador jugador1 = new Jugador(100, "Mario");
+		Jugador jugador2 = new Jugador(100, "Hernan");
 
 		Aldeano aldeano1 = new Aldeano(celda1,jugador1);
 		Aldeano aldeano2 = new Aldeano(celda2,jugador2);	
@@ -149,7 +149,7 @@ public class AldeanoConstruyeTest {
 	public void test04AldeanoConstruyeYElOroNoAumenta(){		
 		
 		Celda celda = new Celda(15, 15);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Lucas");
 
 		Aldeano aldeano = new Aldeano(celda,jugador);
 		Assert.assertTrue(aldeano.Libre());
@@ -173,7 +173,7 @@ public class AldeanoConstruyeTest {
 	public void test05AldeanoNoConstruyeYElOroAumenta(){		
 	
 		Celda celda = new Celda(20, 20);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Martin");
 		Mapa.obtenerInstancia().insertar(celda);
 
 		Aldeano aldeano = new Aldeano(celda,jugador);
@@ -207,7 +207,7 @@ public class AldeanoConstruyeTest {
 	public void test06AumentaElOroLuegoDeConstruir(){		
 		
 		Celda celda = new Celda(20, 20);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Martin");
 		Mapa.obtenerInstancia().insertar(celda);
 
 		Aldeano aldeano = new Aldeano(celda,jugador);	
@@ -241,7 +241,7 @@ public class AldeanoConstruyeTest {
 	public void test07NoSePuedeConstruirEnCualquierZona(){		
 		
 		Celda celda = new Celda(20, 20);
-		Jugador jugador = new Jugador(100);
+		Jugador jugador = new Jugador(100, "Tomas");
 		Mapa.obtenerInstancia().insertar(celda);
 
 		Aldeano aldeano = new Aldeano(celda,jugador);			
