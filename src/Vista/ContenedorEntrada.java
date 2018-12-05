@@ -31,7 +31,7 @@ public class ContenedorEntrada {
 
 		// Boton jugar
 		Button botonJugar = new Button();
-		botonJugar.setText("Jugar");
+		botonJugar.setText("Jugar");		
 		botonJugar.setPadding(new Insets(20));
 
 		// Contenedor nombres
@@ -42,10 +42,13 @@ public class ContenedorEntrada {
 		// Contenedor Labels
 		Label label1 = new Label("Nombre Jugador 1");
 		Label label2 = new Label("Nombre Jugador 2");
-		label1.setTextFill(Color.ANTIQUEWHITE);
-		label2.setTextFill(Color.ANTIQUEWHITE);
-		label1.setFont(Font.font("Arial", 32));
-		label2.setFont(Font.font("Arial", 32));
+		label1.setTextFill(Color.BLUE);
+		label2.setTextFill(Color.BLUE);
+		label1.setFont(Font.font("Arial", 28));
+		label2.setFont(Font.font("Arial", 28));		
+		label1.setTranslateY(30);
+		label2.setTranslateX(30);	
+		label2.setTranslateY(30);	
 
 		HBox contenedorLabels = new HBox(label1, label2);
 		contenedorLabels.setSpacing(950);
@@ -53,15 +56,19 @@ public class ContenedorEntrada {
 
 		//	Contenedor Boton
 		VBox contenedorBoton = new VBox(botonJugar);
-		contenedorBoton.setPadding(new Insets(30, 0, 0 , 800));
+		contenedorBoton.setPadding(new Insets(30, 0, 0 , 800));		
+		botonJugar.setTranslateX(600);
+		botonJugar.setTranslateY(-200);	
 
 		// Contenedor principal
-		this.contenedorPrincipal = new VBox(contenedorBoton, contenedorNombres, contenedorLabels);
-		this.contenedorPrincipal.setAlignment(Pos.CENTER);
+		this.contenedorPrincipal = new VBox(contenedorBoton, contenedorLabels);	
+		this.contenedorPrincipal.getChildren().add(contenedorNombres);	
+		this.contenedorPrincipal.setAlignment(Pos.CENTER);		
 		this.contenedorPrincipal.setStyle("-fx-background-image: url('file:src/imagenEntrada.jpg');");
 
 		BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, nombreJugador1, nombreJugador2);
 		botonJugar.setOnAction(botonJugarEventHandler);
+		
 
 		//nombreJugador1.setOnKeyPressed(new TextoEventHandler(botonJugar));
 		//nombreJugador2.setOnKeyPressed(new TextoEventHandler(botonJugar));

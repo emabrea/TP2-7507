@@ -20,8 +20,8 @@ public class Main extends Application  {
 
         Scene scene = new Scene(contenedorEntrada.getContenedor(), 1600, 800);
         stage.setTitle("Algo of Empires");
-        stage.setHeight(800);
-        stage.setWidth(1600);
+        stage.setMinHeight(800);
+        stage.setMinWidth(1600);
         stage.setScene(scene);
         stage.show();
 
