@@ -21,7 +21,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test01JugadoresTienen100DeOro(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();			
 		Assert.assertTrue(jugador1.cantidadDeOro() == 100);
@@ -33,7 +33,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test02JugadoresTienen3DePoblacionInicial(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();			
 		Assert.assertTrue(jugador1.poblacion()==3);
@@ -43,7 +43,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test03PoblacionVaCambiando(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();
 		
@@ -68,7 +68,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test04AldeanosEmpiezanLibres(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();
 		
@@ -88,7 +88,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test05JugadorPuedeMoverSusAldeanos(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();
 		Jugador jugador2 = juego.obtenerJugador2();
 		
@@ -121,7 +121,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test06JugadorPuedeHacerQueSusAldeanosConstruyan(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();		
 		
 		Celda celda1 = new Celda(0,0);
@@ -150,7 +150,7 @@ public class JuegoIniciaTest {
 	@Test
 	public void test07PoblacionLimiteEs50(){
 
-		Juego juego = new Juego();
+		Juego juego = new Juego("Juan", "Pedro");
 		Jugador jugador1 = juego.obtenerJugador1();		
 		
 		for(int i=0;i<47;i++){
@@ -167,4 +167,15 @@ public class JuegoIniciaTest {
 		Assert.assertTrue(jugador1.poblacion()==50);
 		Assert.assertTrue(jugador2.poblacion()==4);
 	}
+	
+	@Test
+	public void test08JugadoresInicializanBienElNombre(){
+
+		Juego juego = new Juego("Juan", "Pedro");
+		Jugador jugador1 = juego.obtenerJugador1();
+		Jugador jugador2 = juego.obtenerJugador2();			
+		Assert.assertTrue(jugador1.getNombre() == "Juan");
+		Assert.assertTrue(jugador2.getNombre() == "Pedro");		
+	}
+		
 }
