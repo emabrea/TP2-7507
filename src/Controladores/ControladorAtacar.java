@@ -20,7 +20,7 @@ public class ControladorAtacar implements EventHandler<ActionEvent>{
     public void handle(ActionEvent event) {
         System.out.println("Ataca");
         /*
-        ControladorDeTurno controlador = ControladorDeTurno.getInstance();        
+        ControladorDeTurno controlador = ControladorDeTurno.getInstance();
         Jugador jugador = controlador.jugador();
         PosicionActual posicion = PosicionActual.obtenerInstancia();
         Pieza piezaActual = PiezaActual.obtenerInstancia().obtenerPieza();
@@ -30,10 +30,9 @@ public class ControladorAtacar implements EventHandler<ActionEvent>{
             System.out.println("No es un objetivo para atacar");
             return;
         }
-        piezaActual.atacar(objetivo);        
+        piezaActual.atacar(objetivo);
         ContenedorPrincipal.actualizar();
         */
-    
     }
 
 }

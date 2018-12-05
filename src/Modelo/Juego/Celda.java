@@ -32,11 +32,11 @@ public class Celda implements Posicion{
 	}
 
 	private boolean xEnRango(int base) {
-		return (0 <= this.x && this.x <= base);
+		return (0 <= this.x && this.x < base);
 	}
 
 	private boolean yEnRango(int altura) {
-		return (0 <= this.y && this.y <= altura);
+		return (0 <= this.y && this.y < altura);
 	}
 
 	@Override

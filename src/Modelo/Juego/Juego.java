@@ -36,15 +36,14 @@ public class Juego {
 		Celda celdaInicial = new Celda(0, alturaMapa-1);		
 		Castillo castillo = new Castillo(celdaInicial, this.jugador1);
 		this.jugador1.setearCastillo(castillo);
-		
-		
+		Mapa.obtenerInstancia().insertar(new Zona(celdaInicial,baseCastillo,alturaCastillo));
+
 		// Primer aldeano
 		celdaInicial.desplazarVerticalmente(-alturaCastillo - 1);
 		celdaInicial.desplazarDerecha();
 		Celda celda1 = celdaInicial.crearCeldaIgual();	
 		Mapa.obtenerInstancia().insertar(celda1);
-		
-		
+
 		// Segundo aldeano
 		celdaInicial.desplazarHorizontalmente(baseCastillo);
 		Celda celda2 = celdaInicial.crearCeldaIgual();	
@@ -58,14 +57,12 @@ public class Juego {
 		//PlazaCentral
 		celdaInicial.desplazarHorizontalmente(2);
 		Celda celda4 = celdaInicial.crearCeldaIgual();
-		Mapa.obtenerInstancia().insertar(celda4);
+		Mapa.obtenerInstancia().insertar(new Zona(celda4,PlazaCentral.getTamanioBase(),PlazaCentral.getTamanioAltura()));
 		
 		this.jugador1.agregarPieza(new Aldeano(celda1, this.jugador1 ));
 		this.jugador1.agregarPieza(new Aldeano(celda2, this.jugador1 ));
 		this.jugador1.agregarPieza(new Aldeano(celda3, this.jugador1 ));
-		this.jugador1.agregarPieza(new PlazaCentral(celda4, this.jugador1 ));				
-		
-				
+		this.jugador1.agregarPieza(new PlazaCentral(celda4, this.jugador1 ));
 	}
 
 	private void inicializarJugador2() {
@@ -77,6 +74,7 @@ public class Juego {
 		Celda celdaInicial = new Celda(baseMapa - baseCastillo , alturaCastillo - 1);	
 		Castillo castillo = new Castillo(celdaInicial, this.jugador2);
 		this.jugador2.setearCastillo(castillo);
+		Mapa.obtenerInstancia().insertar(new Zona(celdaInicial,baseCastillo,alturaCastillo));
 		
 		// Primer aldeano
 		celdaInicial.desplazarHorizontalmente(baseCastillo - 2);
@@ -98,7 +96,7 @@ public class Juego {
 		celdaInicial.desplazarHorizontalmente(-3);
 		celdaInicial.desplazarVerticalmente(1);
 		Celda celda4 = celdaInicial.crearCeldaIgual();
-		Mapa.obtenerInstancia().insertar(celda4);
+		Mapa.obtenerInstancia().insertar(new Zona(celda4,PlazaCentral.getTamanioBase(),PlazaCentral.getTamanioAltura()));
 		
 		this.jugador2.agregarPieza(new Aldeano(celda1, this.jugador2 ));
 		this.jugador2.agregarPieza(new Aldeano(celda2, this.jugador2 ));

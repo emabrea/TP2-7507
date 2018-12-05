@@ -216,7 +216,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
+		Celda celdaInicial = new Celda(0, altura-1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -227,7 +227,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
@@ -311,7 +311,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int base = Mapa.obtenerInstancia().getTamanioBase();
-		Celda celdaInicial = new Celda(base, 0);
+		Celda celdaInicial = new Celda(base-1, 0);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -322,7 +322,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverDerecha();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
@@ -406,7 +406,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
+		Celda celdaInicial = new Celda(0, altura-1);
 		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -417,7 +417,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverArribaDerecha();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
@@ -454,7 +454,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int altura = Mapa.obtenerInstancia().getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
+		Celda celdaInicial = new Celda(0, altura-1);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -465,7 +465,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
@@ -502,7 +502,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int base = Mapa.obtenerInstancia().getTamanioAltura();
-		Celda celdaInicial = new Celda(base, 0);
+		Celda celdaInicial = new Celda(base-1, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -513,7 +513,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverAbajoDerecha();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
@@ -550,7 +550,7 @@ public class MovimientoYDireccionTest {
 		
 		Jugador jugador = new Jugador(100);
 		int base = Mapa.obtenerInstancia().getTamanioAltura();
-		Celda celdaInicial = new Celda(base, 0);
+		Celda celdaInicial = new Celda(base-1, 0);
 		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(celdaInicial);
@@ -561,7 +561,7 @@ public class MovimientoYDireccionTest {
 			unidad.moverAbajoIzquierda();
 		} catch (CeldaInvalidaException e) { }*/
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));

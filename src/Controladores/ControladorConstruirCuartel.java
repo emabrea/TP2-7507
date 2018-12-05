@@ -31,6 +31,5 @@ public class ControladorConstruirCuartel implements EventHandler<ActionEvent>{
             throw new NoEsPosibleConstruirException();
         }
     	this.contenedor.actualizar();
-
 	}
 }

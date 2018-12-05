@@ -36,17 +36,6 @@ public class ArmaDeAsedioTest{
 
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,16)));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,17)));
-
-		arma.moverAbajoDerecha();
-
-		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,17)));
-		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(15,16)));
-
-		arma.moverIzquierda();
-
-		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(15,16)));
-		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(new Celda(14,16)));
-
 	}
 
 	@Test
@@ -62,6 +51,7 @@ public class ArmaDeAsedioTest{
 		castillo.crearArmaDeAsedio(celdaACrear);
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
 		arma.actualizarEstado(new ArmaDeAsedioMontada());
+
 		/*
 		try{
 			arma.moverArriba();

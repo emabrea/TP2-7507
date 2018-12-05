@@ -21,6 +21,7 @@ public class TamanioTest {
 			
 			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioBase(), 50);
 			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioAltura(), 25);
+
 		}
 		
 		

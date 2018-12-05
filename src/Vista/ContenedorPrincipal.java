@@ -41,19 +41,20 @@ public class ContenedorPrincipal{
                 this.colorearMapa(button,c,Mapa.obtenerInstancia().getTamanioAltura()-r-1,juego);                   
 
                 button.setOnMouseClicked(new EventHandler<MouseEvent>() {
-			    @Override
+                @Override
 			    public void handle(MouseEvent event) {                    
 			    	int x = grid.getColumnIndex(button);
 			    	int y = grid.getRowIndex(button);			         
 
                     Jugador jugador = ControladorDeTurno.getInstance().jugador();
-                    PosicionActual posicion =PosicionActual.obtenerInstancia();
+                    PosicionActual posicion = PosicionActual.obtenerInstancia();
                     posicion.actualizar(x,alturaMapa-y-1); 
 
                     PiezaActual piezaActual = PiezaActual.obtenerInstancia();
                     piezaActual.actualizar(x,alturaMapa-y-1); 
                     UnidadActual unidadActual = UnidadActual.obtenerInstancia();
-                    unidadActual.actualizar(x,alturaMapa-y-1);                                                                                     	    			    	
+                    unidadActual.actualizar(x,alturaMapa-y-1);
+                    actualizar();
 			    }
 				}); 
 
@@ -94,11 +95,13 @@ public class ContenedorPrincipal{
 
         VBox vbox4 = new VBox(4); 
         Boton boton14 = new Boton("Posicion actual", new ControladorPosicionActual());
-        Boton boton15 = new Boton("Vida actual", new ControladorVidaActual());
-        Boton boton16 = new Boton("Oro actual", new ControladorOro());
-        vbox4.getChildren().addAll(boton14,boton15,boton16) ;
 
-        vbox.getChildren().addAll(hbox1,hbox2,hbox3,vbox4) ; 
+        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugador().cantidadDeOro());
+        Label labelVida = new Label("Vida: "+PiezaActual.obtenerInstancia().obtenerVida());
+
+        vbox4.getChildren().addAll(boton14,labelOro,labelVida) ;
+
+        vbox.getChildren().addAll(hbox1,hbox2,hbox3,vbox4) ;
         this.root.getChildren().add(vbox) ;     
         
     }	

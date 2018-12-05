@@ -12,6 +12,7 @@ public class ControladorDeTurno {
     public Jugador actual;    
     public ArrayList<Jugador> jugadores;    
     private static ControladorDeTurno instancia = new ControladorDeTurno();
+    private ContenedorPrincipal contenedorPrincipal;
     
 
     public void asignarJugadores(ArrayList<Jugador> unosJugadores){
@@ -33,7 +34,11 @@ public class ControladorDeTurno {
         }
         else{
             this.actual= this.jugadores.get(0);
-        }        
-    }   
+        }
+        this.contenedorPrincipal.actualizar();
+    }
 
+    public void setearContenedor(ContenedorPrincipal contenedorPrincipal) {
+        this.contenedorPrincipal = contenedorPrincipal;
+    }
 }

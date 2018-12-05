@@ -104,11 +104,19 @@ public class Jugador {
 	public int poblacion(){
 		return this.poblacion;
 	}
-	
+
+	public void habilitarMovimientoUnidades(){
+
+		for(Unidad unidad: unidades){
+			unidad.habilitarMovimiento();
+		}
+	}
+
 	public void realizarTareas(){
 		for(Aldeano aldeano : aldeanos){
 			aldeano.realizarTareas();
 		}
+		habilitarMovimientoUnidades();
 	}
 
 	public Edificio obtenerEdificio(Zona zona){
@@ -118,7 +126,6 @@ public class Jugador {
 			}
 		}
 		return null;
-		
 	}
 
 	public Unidad obtenerUnidad(Celda celda){
@@ -137,6 +144,7 @@ public class Jugador {
 	public ArrayList<Edificio> obtenerEdificios() {
 		return this.edificios;
 	}
+
 
 	
 }

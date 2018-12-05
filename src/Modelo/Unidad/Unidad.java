@@ -1,5 +1,4 @@
 package Modelo.Unidad;
-
 import Modelo.Edificio.*;
 import Modelo.Juego.*;
 import Modelo.Excepciones.*;
@@ -7,7 +6,8 @@ import Modelo.Excepciones.*;
 public class Unidad extends Pieza{
 	
 	Movimiento movimiento;
-	
+	Boolean seHaMovido = false;
+
 	public Unidad(Celda celda, int vida, int costo,Jugador jugador){
 		super(celda, vida, costo,jugador);
 		this.movimiento = new Movimiento();
@@ -17,36 +17,91 @@ public class Unidad extends Pieza{
 		return celda.igualA(this.posicion);
 	}
 
-	public void moverArriba(){
-		this.movimiento.moverArriba((Celda)this.posicion);
+	public void verificarMovimiento(Celda posicionAnterior){
+
+		if(!posicionAnterior.igualA(this.posicion)){
+			this.seHaMovido = true;
+			System.out.println("HOLA");
+		}	
 	}
-	
+
+	public void habilitarMovimiento(){
+		this.seHaMovido = false;
+	}
+
+
+	public void moverArriba(){
+		
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverArriba((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
+	}
+
 	public void moverAbajo(){
-		this.movimiento.moverAbajo((Celda)this.posicion);
+
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverAbajo((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
+
 	}
 	
 	public void moverDerecha(){
-		this.movimiento.moverDerecha((Celda)this.posicion);
+
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverDerecha((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
 	}
 	
 	public void moverIzquierda(){
-		this.movimiento.moverIzquierda((Celda)this.posicion);
+		
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverIzquierda((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
 	}
 	
 	public void moverArribaDerecha(){
-		this.movimiento.moverArribaDerecha((Celda)this.posicion);
+		
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverArribaDerecha((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
 	}
 	
 	public void moverArribaIzquierda(){
-		this.movimiento.moverArribaIzquierda((Celda)this.posicion);
+				
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverArribaIzquierda((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
+
 	}
 	
 	public void moverAbajoDerecha(){
-		this.movimiento.moverAbajoDerecha((Celda)this.posicion);
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverAbajoDerecha((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
 	}
 	
 	public void moverAbajoIzquierda(){
-		this.movimiento.moverAbajoIzquierda((Celda)this.posicion);
+		
+		if(!seHaMovido){
+			Celda posicionAnterior = ((Celda)this.posicion).crearCeldaIgual();
+			this.movimiento.moverAbajoIzquierda((Celda)this.posicion);
+			this.verificarMovimiento(posicionAnterior);
+		}
+
 	}
 
 	public void verificarVida(){

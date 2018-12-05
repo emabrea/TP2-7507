@@ -19,11 +19,11 @@ public class Main extends Application  {
     public void start(Stage stage) {
         
         Juego juego = new Juego();  
-        HBox root = new HBox(5);     
+        HBox root = new HBox(5);
         ControladorDeTurno.getInstance().asignarJugadores(juego.obtenerJugadores());
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(juego,root);     
-           
-    
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(juego,root);
+        ControladorDeTurno.getInstance().setearContenedor(contenedorPrincipal);
+
         Scene scene = new Scene(root, 500, 500); 
         stage.setScene(scene);         
         stage.setTitle("Age of Empires II");
@@ -32,8 +32,6 @@ public class Main extends Application  {
         stage.show();       
 
     }
-   
-
 
     public static void main(String[] args) {
         Application.launch(args);

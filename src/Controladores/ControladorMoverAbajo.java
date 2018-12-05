@@ -18,8 +18,10 @@ public class ControladorMoverAbajo implements EventHandler<ActionEvent>{
 
     @Override
     public void handle(ActionEvent event) {
-       System.out.println("Mueve abajo");       
-       UnidadActual.obtenerInstancia().unidad().moverAbajo();
+       System.out.println("Mueve abajo");
+        Jugador jugadorActual = ControladorDeTurno.getInstance().jugador();
+        Unidad unidadActual = UnidadActual.obtenerInstancia().unidad();
+        if(unidadActual.esPiezaPropia(jugadorActual)) unidadActual.moverAbajo();
        this.contenedor.actualizar();
 
   }
