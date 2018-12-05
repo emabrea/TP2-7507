@@ -44,16 +44,30 @@ public class Cuartel extends Edificio implements EdificioAtacable{
 		return celdasPosibles;
 	}
 	
-	public void crearArquero(Celda celda) {
-		Arquero arquero = new Arquero(celda, this.jugador);
-		this.jugador.agregarPieza(arquero);
-		Mapa.obtenerInstancia().insertar(celda);
+	public void crearArquero(Celda unaCelda) {
+		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearArquero();
+		for(Celda celda : celdasPosibles){
+			if(celda.igualA(unaCelda)){
+				Arquero arquero = new Arquero(celda, this.jugador);
+				this.jugador.agregarPieza(arquero);
+				Mapa.obtenerInstancia().insertar(celda);
+				return;
+			}
+		}
+		throw new NoEsPosibleCrearException();		
 	}
 	
-	public void crearEspadachin(Celda celda) {
-		Espadachin espadachin = new Espadachin(celda, this.jugador);
-		this.jugador.agregarPieza(espadachin);
-		Mapa.obtenerInstancia().insertar(celda);
+	public void crearEspadachin(Celda unaCelda) {
+		ArrayList<Celda> celdasPosibles = posiblesCeldasParaCrearEspadachin();
+		for(Celda celda : celdasPosibles){
+			if(celda.igualA(unaCelda)){
+				Espadachin espadachin = new Espadachin(celda, this.jugador);
+				this.jugador.agregarPieza(espadachin);
+				Mapa.obtenerInstancia().insertar(celda);
+				return;
+			}			
+		}
+		throw new NoEsPosibleCrearException();			
 	}
 
 	public void recibirDanio(Arquero arquero){
