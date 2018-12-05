@@ -19,7 +19,7 @@ public class TamanioTest {
 		@Test
 		public void test01TamanioDelMapa(){			
 			
-			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioBase(), 50);
+			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioBase(), 25);
 			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioAltura(), 25);
 
 		}

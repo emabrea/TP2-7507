@@ -142,7 +142,7 @@ public class JuegoIniciaTest {
 		Cuartel cuartel = (Cuartel)jugador1.obtenerPieza(new Celda(1,1));
 		Assert.assertTrue( cuartel.estaEnPosicion(zonaAconstruir) );
 		Assert.assertTrue(jugador1.poblacion()==4);
-
+		jugador1.aumentarOro(200);
 		cuartel.crearArquero(new Celda(1,2));
 		Assert.assertTrue(jugador1.poblacion()==5);
 	}

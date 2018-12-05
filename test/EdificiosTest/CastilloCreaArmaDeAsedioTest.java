@@ -41,7 +41,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		
 		// Elijo una (la primera que encontro)
 		Celda posibleCelda = posiblesCeldas.get(0);
-		
+		jugador.aumentarOro(200);
 		castillo.crearArmaDeAsedio(posibleCelda);
 		
 		// Es justo la celda donde se verifico que antes de crear el Arma de Asedio, la misma estaba libre
@@ -99,7 +99,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		// Elijo una (es la unica)
 		Assert.assertTrue(posiblesCeldas.size() == 1);			
 		Celda posibleCelda = posiblesCeldas.get(0);
-		
+		jugador.aumentarOro(200);
 		castillo.crearArmaDeAsedio(posibleCelda);
 		
 		// Siguen ocupadas la zona del castillo y las celdas de la periferia
@@ -152,7 +152,7 @@ public class CastilloCreaArmaDeAsedioTest {
 		// Busca las celdas posibles donde puede respawnear el Arma de Asedio
 		try{
 			castillo.posiblesCeldasParaCrearArmaDeAsedio();
-		} catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){ }
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del castillo y las celdas de la periferia
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));

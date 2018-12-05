@@ -21,7 +21,7 @@ public class PlazaCentralCreaAldeanoTest {
 	@Test
 	public void test01PlazaCentralCreaAldeanoAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Jugador jugadorEnTurno = new Jugador(100);
+		Jugador jugador = new Jugador(100);
 		int baseMapa = Mapa.obtenerInstancia().getTamanioBase();
 		int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
 		
@@ -31,7 +31,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(celda,jugadorEnTurno);
+		PlazaCentral plazaCentral = new PlazaCentral(celda,jugador);
 		
 		Mapa.obtenerInstancia().insertar(zona);
 		
@@ -58,7 +58,7 @@ public class PlazaCentralCreaAldeanoTest {
 	@Test
 	public void test02PlazaCentralCreaAldeanoEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Jugador jugadorEnTurno = new Jugador(100);
+		Jugador jugador = new Jugador(100);
 		int baseMapa = Mapa.obtenerInstancia().getTamanioBase();
 		int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
 		
@@ -77,7 +77,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial,jugadorEnTurno);
+		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona de la plaza central una vez insertada
@@ -114,7 +114,7 @@ public class PlazaCentralCreaAldeanoTest {
 	@Test
 	public void test03PlazaCentralNoCreaAldeanoYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Jugador jugadorEnTurno = new Jugador(100);
+		Jugador jugador = new Jugador(100);
 		int baseMapa = Mapa.obtenerInstancia().getTamanioBase();
 		int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
 		
@@ -132,7 +132,7 @@ public class PlazaCentralCreaAldeanoTest {
 		int altura = PlazaCentral.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial,jugadorEnTurno);
+		PlazaCentral plazaCentral = new PlazaCentral(celdaInicial,jugador);
 		
 		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona de la plaza central una vez insertada

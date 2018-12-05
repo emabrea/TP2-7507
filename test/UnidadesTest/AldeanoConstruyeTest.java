@@ -113,17 +113,17 @@ public class AldeanoConstruyeTest {
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 1 jugadorEnTurno 1
+		//turno 1 jugador 1
 		aldeano1.realizarTareas();
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 2 jugadorEnTurno 1
+		//turno 2 jugador 1
 		aldeano1.realizarTareas();
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 3 jugadorEnTurno 1
+		//turno 3 jugador 1
 		aldeano1.realizarTareas();
 		Assert.assertTrue(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
@@ -134,7 +134,7 @@ public class AldeanoConstruyeTest {
 
 		aldeano2.construirPlazaCentralEnZona(zonaAConstruir2);
 
-		//turno 1 jugadorEnTurno 2
+		//turno 1 jugador 2
 		aldeano2.realizarTareas();
 		Assert.assertTrue(aldeano1.Libre());
 		Assert.assertFalse(aldeano2.Libre());
@@ -159,13 +159,13 @@ public class AldeanoConstruyeTest {
 		Zona zonaAConstruir = zonasPosibles.get(0);
 		aldeano.construirPlazaCentralEnZona(zonaAConstruir);
 		
-		Assert.assertTrue(jugador.cantidadDeOro()==100);
+		Assert.assertTrue(jugador.cantidadDeOro()==0);
 
 		//turno 1
 		aldeano.realizarTareas();
 		Assert.assertFalse(aldeano.Libre());
 
-		Assert.assertTrue(jugador.cantidadDeOro()==100);
+		Assert.assertTrue(jugador.cantidadDeOro()==0);
 		
 	}
 	
@@ -199,7 +199,7 @@ public class AldeanoConstruyeTest {
 
 		//turno 3
 		aldeano.realizarTareas();
-		Assert.assertTrue(jugador.cantidadDeOro()==140);
+		Assert.assertTrue(jugador.cantidadDeOro()==40);
 		
 	}
 	
@@ -214,26 +214,26 @@ public class AldeanoConstruyeTest {
 
 		ArrayList<Zona> zonasPosibles = aldeano.posiblesZonasAConstruirPlazaCentral();		
 		Zona zonaAConstruir = zonasPosibles.get(0);
-		aldeano.construirPlazaCentralEnZona(zonaAConstruir );			
+		aldeano.construirPlazaCentralEnZona(zonaAConstruir);			
 
 		//turno 1
 		aldeano.realizarTareas();
 		Assert.assertFalse(aldeano.Libre());
-		Assert.assertTrue(jugador.cantidadDeOro()==100);
+		Assert.assertTrue(jugador.cantidadDeOro()==0);
 
 		//turno 2
 		aldeano.realizarTareas();
 		Assert.assertFalse(aldeano.Libre());
-		Assert.assertTrue(jugador.cantidadDeOro()==100);
+		Assert.assertTrue(jugador.cantidadDeOro()==0);
 
 		//turno 3
 		aldeano.realizarTareas();
 		Assert.assertTrue(aldeano.Libre());
-		Assert.assertTrue(jugador.cantidadDeOro()==100);
+		Assert.assertTrue(jugador.cantidadDeOro()==0);
 
 		//turno 4
 		aldeano.realizarTareas();		
-		Assert.assertTrue(jugador.cantidadDeOro()==120);		
+		Assert.assertTrue(jugador.cantidadDeOro()==20);		
 		
 	}	
 

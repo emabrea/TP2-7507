@@ -24,7 +24,7 @@ public class ArmaDeAsedioTest{
 		Celda celda = new Celda(15, 15);
 		Jugador jugador = new Jugador(100);
 		Castillo castillo = new Castillo(celda, jugador);
-
+		jugador.aumentarOro(200);
 		ArrayList<Celda> celdasPosibles = castillo.posiblesCeldasParaCrearArmaDeAsedio();
 		Celda celdaACrear = celdasPosibles.get(0); // celda = (14,16)
 		castillo.crearArmaDeAsedio(celdaACrear);
@@ -47,7 +47,7 @@ public class ArmaDeAsedioTest{
 
 		ArrayList<Celda> celdasPosibles = castillo.posiblesCeldasParaCrearArmaDeAsedio();
 		Celda celdaACrear = celdasPosibles.get(0); //celda=(14,16)
-
+		jugador.aumentarOro(200);
 		castillo.crearArmaDeAsedio(celdaACrear);
 		ArmaDeAsedio arma = (ArmaDeAsedio)jugador.obtenerUnidad(celdaACrear);
 		arma.actualizarEstado(new ArmaDeAsedioMontada());

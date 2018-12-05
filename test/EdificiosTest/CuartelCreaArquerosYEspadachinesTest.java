@@ -138,7 +138,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		try{
 			// Busca las celdas posibles donde puede respawnear el Arquero
 			cuartel.posiblesCeldasParaCrearArquero();
-		} catch(NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException e){ }
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
@@ -284,7 +284,7 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		try{
 			// Busca las celdas posibles donde puede respawnear el Espadachin
 			castillo.posiblesCeldasParaCrearEspadachin();
-		} catch(NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException e){ }
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
