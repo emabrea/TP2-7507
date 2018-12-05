@@ -7,18 +7,29 @@ import java.util.ArrayList;
 
 public class AldeanoReparando implements EstadoAldeano{
 
+	private Boolean haReparado;
 	private Edificio edificio ;
 
 	public AldeanoReparando(Edificio unEdificio){
 		this.edificio = unEdificio;
+		this.haReparado = false;
 	}
 
 	@Override
 	public void repararEdificio(Edificio edificio, Aldeano aldeano) {
+
+		if(this.haReparado){
+			return;
+		}
+
 		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
 			throw new NoEsPosibleRepararException();
 		}
-		aldeano.comienzaAReparar(edificio);	
+		if(this.edificio != edificio){
+			this.edificio.reparando(false);
+			edificio.reparando(true);
+			aldeano.comienzaAReparar(edificio);
+		}
 	}	
 	
 	@Override
@@ -47,7 +58,9 @@ public class AldeanoReparando implements EstadoAldeano{
 	}
 
 	public void realizarTareas(Aldeano aldeano,Jugador jugador){
+
 		this.edificio.aumentarVida();
+		aldeano.deshabilitarReparacionEdificio();
 		if(!this.edificio.esPosibleAumentarVida()){
 			aldeano.desocuparse();
 			this.edificio.reparando(false);

@@ -12,6 +12,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;	
+
 public class ContenedorEntrada {
 
 	VBox contenedorPrincipal;
@@ -50,6 +54,13 @@ public class ContenedorEntrada {
 		label2.setTranslateX(30);	
 		label2.setTranslateY(30);	
 
+
+		//Reproductor
+		String path = "src/Vista/Recursos/intro.wav";
+		Media media = new Media(new File(path).toURI().toString());
+		MediaPlayer reproductor = new MediaPlayer(media);
+
+		//ContenedorLabels
 		HBox contenedorLabels = new HBox(label1, label2);
 		contenedorLabels.setSpacing(950);
 		contenedorLabels.setPadding(new Insets(0, 0, 0, 55));
@@ -66,12 +77,17 @@ public class ContenedorEntrada {
 		this.contenedorPrincipal.setAlignment(Pos.CENTER);		
 		this.contenedorPrincipal.setStyle("-fx-background-image: url('file:src/imagenEntrada.jpg');");
 
-		BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, nombreJugador1, nombreJugador2);
+		BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, nombreJugador1, nombreJugador2 , reproductor);
+		
+		reproductor.play();
+
 		botonJugar.setOnAction(botonJugarEventHandler);
 		
 
 		//nombreJugador1.setOnKeyPressed(new TextoEventHandler(botonJugar));
 		//nombreJugador2.setOnKeyPressed(new TextoEventHandler(botonJugar));
+
+		
 
 	}
 

@@ -119,7 +119,7 @@ public class ContenedorPrincipal{
         Boton boton2 = new Boton("Atacar", new ControladorAtacar(this));
         Boton boton3 = new Boton("Construir Cuartel (50 oro)", new ControladorConstruirCuartel(this));
         Boton boton4 = new Boton("Construir Plaza Central (100 oro)", new ControladorConstruirPlazaCentral(this));
-        Boton boton5 = new Boton("Reparar", new ControladorReparar());
+        Boton boton5 = new Boton("Reparar", new ControladorReparar(this));
         Boton boton15 = new Boton("Crear aldeano (25 oro)",new ControladorCrearAldeano(this));
         Boton boton16 = new Boton("Crear arquero (75 oro)",new ControladorCrearArquero(this));
         Boton boton17 = new Boton("Crear espadachin (50 oro)",new ControladorCrearEspadachin(this));

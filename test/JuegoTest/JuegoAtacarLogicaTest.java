@@ -40,19 +40,29 @@ public class JuegoAtacarLogicaTest {
 
 		Juego juego = new Juego("Juan", "Luis");
 		Jugador jugador1 = juego.obtenerJugador1();
-		Jugador jugador2 = juego.obtenerJugador2();		
+		Jugador jugador2 = juego.obtenerJugador2();
 
-		Espadachin espadachin1 = new Espadachin(new Celda(4,4), jugador1);
+		Espadachin espadachin1a = new Espadachin(new Celda(4,4), jugador1);
+		Espadachin espadachin1b = new Espadachin(new Celda(5,5), jugador1);
+		Espadachin espadachin1c = new Espadachin(new Celda(4,6), jugador1);
+		Espadachin espadachin1d = new Espadachin(new Celda(3,5), jugador1);
+
 		Espadachin espadachin2 = new Espadachin(new Celda(4,5), jugador2);
 
-		jugador1.agregarPieza(espadachin1);
+		jugador1.agregarPieza(espadachin1a);
+		jugador1.agregarPieza(espadachin1b);
+		jugador1.agregarPieza(espadachin1c);
+		jugador1.agregarPieza(espadachin1d);
+
 		jugador2.agregarPieza(espadachin2);
 
 		Assert.assertEquals(jugador2.poblacion(),4);
 
-		for(int i=0;i<4;i++){
-			espadachin1.atacar(espadachin2); //75,50,25,0
-		}
+		espadachin1a.atacar(espadachin2); //75
+		espadachin1b.atacar(espadachin2); //50
+		espadachin1c.atacar(espadachin2); //23
+		espadachin1d.atacar(espadachin2); //0
+
 
 		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(new Celda(4,5)));
 		Assert.assertEquals(jugador2.poblacion(),3);

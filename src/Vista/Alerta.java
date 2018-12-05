@@ -74,4 +74,9 @@ public class Alerta{
 	}
 
 
+    public void AldeanoDebeEstarAlLadoDelEdificioAReparar() {
+		this.alerta.setTitle("Accion no valida");
+		this.alerta.setContentText("El Aldeano debe estar al lado del edificio a reparar");
+		this.alerta.showAndWait();
+	}
 }

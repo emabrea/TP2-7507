@@ -42,7 +42,6 @@ public class AldeanoReparaTest {
 		cuartel.recibirDanio(100);
 		Assert.assertTrue(cuartel.vidaActual()==150);
 		aldeano.repararEdificio(cuartel);
-		aldeano.realizarTareas();
 		Assert.assertTrue(cuartel.vidaActual()==200);
 		aldeano.realizarTareas();
 		Assert.assertTrue(cuartel.vidaActual()==250);		
@@ -74,7 +73,6 @@ public class AldeanoReparaTest {
 		plaza.recibirDanio(70);
 		Assert.assertTrue(plaza.vidaActual()==380);
 		aldeano.repararEdificio(plaza);
-		aldeano.realizarTareas();
 		Assert.assertTrue(plaza.vidaActual()==405);
 		aldeano.realizarTareas();
 		Assert.assertTrue(plaza.vidaActual()==430);		
@@ -107,7 +105,6 @@ public class AldeanoReparaTest {
 		cuartel.recibirDanio(70);
 		
 		aldeano.repararEdificio(cuartel);
-		aldeano.realizarTareas();
 		
 		Aldeano aldeano2= new Aldeano(new Celda(14, 15),jugador1);
 		
@@ -127,7 +124,7 @@ public class AldeanoReparaTest {
 		
 
 		aldeano2.repararEdificio(cuartel);				//ya no lo esta reparando otro
-		aldeano2.realizarTareas();						//se libera al no tener nada que reparar
+														//se libera al no tener nada que reparar
 		cuartel.recibirDanio(170);
 		Assert.assertTrue(aldeano2.Libre());
 		

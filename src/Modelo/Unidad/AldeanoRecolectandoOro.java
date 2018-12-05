@@ -13,6 +13,7 @@ public class AldeanoRecolectandoOro implements EstadoAldeano{
 		if(!aldeano.posicionValidaParaRepararEdificio(edificio)){
 			throw new NoEsPosibleRepararException();
 		}
+		edificio.reparando(true);
 		aldeano.comienzaAReparar(edificio);		
 	}	
 

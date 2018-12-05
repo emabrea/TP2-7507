@@ -9,10 +9,12 @@ import java.util.ArrayList;
 public class Aldeano extends Unidad implements UnidadAtacable{
 	
 	EstadoAldeano estado;
+	private Boolean haReparado;
 	
 	public Aldeano(Celda celda, Jugador jugador){
 		super(celda, 50, 25, jugador);
 		this.estado = new AldeanoRecolectandoOro();
+		this.haReparado = false;
 	}
 
 	public void actualizarEstado(EstadoAldeano estadoNuevo) {
@@ -58,7 +60,6 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 	}
 	
 	public void repararEdificio(Edificio edificio){
-		edificio.reparando(true);
 		this.estado.repararEdificio(edificio,this);		
 	}	
 	
@@ -96,6 +97,7 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 
 	public void comienzaAReparar(Edificio edificio){
 		this.actualizarEstado(new AldeanoReparando(edificio));
+		this.realizarTareas();
 	}
 
 	public void comienzaAConstruirUnCuartelEnZona(Zona zona){
@@ -143,5 +145,12 @@ public class Aldeano extends Unidad implements UnidadAtacable{
 		this.reducirVidaEn(20);
 		this.verificarVida();
 	}
-	
+
+	public void deshabilitarReparacionEdificio() {
+		this.haReparado = true;
+	}
+
+	public void habilitarReparacionEdificio() {
+		this.haReparado = false;
+	}
 }

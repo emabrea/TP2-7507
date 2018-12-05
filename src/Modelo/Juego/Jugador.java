@@ -122,11 +122,20 @@ public class Jugador {
 		}
 	}
 
+	public void habilitarAtaqueUnidades(){
+
+		for(Unidad unidad: unidades){
+			unidad.habilitarAtaque();
+		}
+	}
+
 	public void realizarTareas(){
 		for(Aldeano aldeano : aldeanos){
+			aldeano.habilitarReparacionEdificio();
 			aldeano.realizarTareas();
 		}
-		habilitarMovimientoUnidades();
+		this.habilitarMovimientoUnidades();
+		this.habilitarAtaqueUnidades();
 		this.castillo.atacar();
 	}
 
