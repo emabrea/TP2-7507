@@ -61,6 +61,12 @@ public class Alerta{
 	    this.alerta.showAndWait(); 
 	}
 
+	public void unidadYaAtaco(){
+		this.alerta.setTitle("Accion no valida"); 
+		this.alerta.setContentText("Esta unidad ya ataco");
+	    this.alerta.showAndWait(); 
+	}
+
 	public void juegoTerminado(){
 		this.alerta.setTitle("FELICITACIONES!"); 
 		this.alerta.setContentText("Ha destruido el castillo rival y ha ganado!");

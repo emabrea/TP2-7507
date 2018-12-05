@@ -8,13 +8,7 @@ public class Main extends Application  {
 
 
     @Override
-    public void start(Stage stage) {
-
-        /*Juego juego = new Juego();
-        HBox root = new HBox(5);
-        ControladorDeTurno.getInstance().asignarJugadores(juego.obtenerJugadores());
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(juego,root);
-        ControladorDeTurno.getInstance().setearContenedor(contenedorPrincipal);*/
+    public void start(Stage stage) {       
 
     	ContenedorEntrada contenedorEntrada = new ContenedorEntrada(stage);
 
