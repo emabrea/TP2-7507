@@ -3,11 +3,13 @@ package Vista;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
 import Modelo.Juego.*;
+import Modelo.Excepciones.*;
 import Modelo.Edificio.*;
 import Modelo.Unidad.*;
 import javafx.geometry.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.*;
+import javafx.scene.image.*;
 import Controladores.*;
 
 
@@ -44,7 +46,7 @@ public class ContenedorPrincipal{
 			    	int x = grid.getColumnIndex(button);
 			    	int y = grid.getRowIndex(button);			         
 
-                    Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
+                    Jugador jugador = ControladorDeTurno.getInstance().jugador();
                     PosicionActual posicion = PosicionActual.obtenerInstancia();
                     posicion.actualizar(x,alturaMapa-y-1); 
 
@@ -103,7 +105,7 @@ public class ContenedorPrincipal{
         VBox vbox4 = new VBox(4); 
         Boton boton14 = new Boton("Posicion actual", new ControladorPosicionActual());
 
-        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugadorEnTurno().cantidadDeOro());
+        Label labelOro = new Label("Oro: "+ControladorDeTurno.getInstance().jugador().cantidadDeOro());
         Label labelVida = new Label("Vida: "+PiezaActual.obtenerInstancia().obtenerVida());
 
         vbox4.getChildren().addAll(boton14,labelOro,labelVida) ;

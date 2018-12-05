@@ -10,7 +10,7 @@ public class UnidadActual{
 	private static UnidadActual instancia = new UnidadActual();
 	
 	public void actualizar(int x,int y){
-		Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
+		Jugador jugador = ControladorDeTurno.getInstance().jugador();		
 		Unidad unidad = jugador.obtenerUnidad(new Celda(x,y));
 		if( unidad == null || !unidad.esPiezaPropia(jugador)){
 			return;
