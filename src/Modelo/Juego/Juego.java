@@ -10,14 +10,14 @@ public class Juego {
 	int cantidadDeOroInicial;
 	ArrayList<Jugador> jugadores;	
 	
-	public Juego(){		
+	public Juego(String nombreJugador1, String nombreJugador2){		
 		this.cantidadDeOroInicial = 100;
-		this.inicializarJugadores();
+		this.inicializarJugadores(nombreJugador1, nombreJugador2);
 	}
 
-	private void inicializarJugadores() {
-		this.inicializarJugador1();
-		this.inicializarJugador2();
+	private void inicializarJugadores(String nombreJugador1, String nombreJugador2) {
+		this.inicializarJugador1(nombreJugador1);
+		this.inicializarJugador2(nombreJugador2);
 
 		jugador1.setearJugadorOponente(jugador2);
 		jugador2.setearJugadorOponente(jugador1);
@@ -27,8 +27,8 @@ public class Juego {
 		this.jugadores.add(this.jugador2);	
 	}
 
-	private void inicializarJugador1() {
-		this.jugador1 = new Jugador(this.cantidadDeOroInicial);
+	private void inicializarJugador1(String nombreJugador) {
+		this.jugador1 = new Jugador(this.cantidadDeOroInicial, nombreJugador);
 		int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
 		int baseCastillo = Castillo.getTamanioBase();
 		int alturaCastillo = Castillo.getTamanioAltura();
@@ -65,8 +65,8 @@ public class Juego {
 		this.jugador1.agregarPieza(new PlazaCentral(celda4, this.jugador1 ));
 	}
 
-	private void inicializarJugador2() {
-		this.jugador2 = new Jugador(this.cantidadDeOroInicial);
+	private void inicializarJugador2(String nombreJugador) {
+		this.jugador2 = new Jugador(this.cantidadDeOroInicial, nombreJugador);
 		int baseCastillo = Castillo.getTamanioBase();
 		int alturaCastillo = Castillo.getTamanioAltura();
 		int baseMapa = Mapa.obtenerInstancia().getTamanioBase();		
