@@ -198,10 +198,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArriba();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(0, 0);
@@ -222,10 +222,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArriba();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura-1);
 		
@@ -246,10 +246,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajo();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(0, 1);
@@ -269,10 +269,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajo();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
 		
@@ -293,10 +293,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverDerecha();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 0);
@@ -317,10 +317,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverDerecha();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base-1, 0);
 		
@@ -341,10 +341,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverIzquierda();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 0);
@@ -364,10 +364,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverIzquierda();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
 		
@@ -388,10 +388,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArribaDerecha();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 1);
 		Celda celdaVieja = new Celda(0, 0);
@@ -412,10 +412,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArribaDerecha();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura-1);
 		
@@ -436,10 +436,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArribaIzquierda();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(1, 0);
@@ -460,10 +460,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverArriba();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, altura-1);
 		
@@ -484,10 +484,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajoDerecha();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 1);
@@ -508,10 +508,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajoDerecha();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base-1, 0);
 		
@@ -532,10 +532,10 @@ public class MovimientoYDireccionTest {
 		
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajoIzquierda();
-		} catch (CeldaOcupadaException e) { }*/
+		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 1);
@@ -556,10 +556,10 @@ public class MovimientoYDireccionTest {
 		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
 		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
-		/*
+		
 		try{
 			unidad.moverAbajoIzquierda();
-		} catch (CeldaInvalidaException e) { }*/
+		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(base-1, 0);
 		
