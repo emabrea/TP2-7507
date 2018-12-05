@@ -29,6 +29,9 @@ public class ControladorCrearAldeano implements EventHandler<ActionEvent>{
                 PlazaCentral plaza = (PlazaCentral)EdificioActual.obtenerInstancia().edificio();
                 plaza.crearAldeano(celda);          
             }
+            else{
+                throw new NoEsPosibleCrearException();
+            }
         }    	       
         catch(NoEsPosibleCrearException e){
             new Alerta().noSePuedeCrearAhi();

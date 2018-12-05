@@ -19,7 +19,7 @@ public class ControladorMoverIzquierda implements EventHandler<ActionEvent>{
     @Override
     public void handle(ActionEvent event) {
         System.out.println("Mueve izquierda");
-        Jugador jugadorActual = ControladorDeTurno.getInstance().jugador();
+        Jugador jugadorActual = ControladorDeTurno.getInstance().jugadorEnTurno();
         Unidad unidadActual = UnidadActual.obtenerInstancia().unidad();
         try{
         unidadActual.moverIzquierda();

@@ -23,7 +23,7 @@ public class ControladorCrearArmaAsedio implements EventHandler<ActionEvent>{
     public void handle(ActionEvent event) {
     	System.out.println("Crea arma de asedio");   
     	Celda celda = PosicionActual.obtenerInstancia().celda();  
-    	Jugador jugador = ControladorDeTurno.getInstance().jugador();
+    	Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
         Castillo castillo = jugador.obtenerCastillo();
         try{
             castillo.crearArmaDeAsedio(celda);    

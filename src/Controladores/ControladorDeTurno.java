@@ -24,9 +24,16 @@ public class ControladorDeTurno {
         return ControladorDeTurno.instancia;
     }    
 
-    public Jugador jugador(){
+    public Jugador jugadorEnTurno(){
         return this.actual;
     } 
+
+    public Jugador jugadorFueraDeTurno(){
+        if(this.actual == this.jugadores.get(0)){
+            return this.jugadores.get(1);
+        }
+        return this.jugadores.get(0);
+    }
 
     public void cambiarJugador(){
         if(this.actual == this.jugadores.get(0)){

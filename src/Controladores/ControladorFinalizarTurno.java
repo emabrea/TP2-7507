@@ -20,7 +20,7 @@ public class ControladorFinalizarTurno implements EventHandler<ActionEvent>{
     public void handle(ActionEvent event) {
         System.out.println("Finaliza su turno");
         ControladorDeTurno.getInstance().cambiarJugador();
-        ControladorDeTurno.getInstance().jugador().realizarTareas();
+        ControladorDeTurno.getInstance().jugadorEnTurno().realizarTareas();
         this.contenedor.actualizar();
     }
 }
