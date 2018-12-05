@@ -113,17 +113,17 @@ public class AldeanoConstruyeTest {
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 1 jugador 1
+		//turno 1 jugadorEnTurno 1
 		aldeano1.realizarTareas();
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 2 jugador 1
+		//turno 2 jugadorEnTurno 1
 		aldeano1.realizarTareas();
 		Assert.assertFalse(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
 
-		//turno 3 jugador 1
+		//turno 3 jugadorEnTurno 1
 		aldeano1.realizarTareas();
 		Assert.assertTrue(aldeano1.Libre());
 		Assert.assertTrue(aldeano2.Libre());
@@ -134,7 +134,7 @@ public class AldeanoConstruyeTest {
 
 		aldeano2.construirPlazaCentralEnZona(zonaAConstruir2);
 
-		//turno 1 jugador 2
+		//turno 1 jugadorEnTurno 2
 		aldeano2.realizarTareas();
 		Assert.assertTrue(aldeano1.Libre());
 		Assert.assertFalse(aldeano2.Libre());

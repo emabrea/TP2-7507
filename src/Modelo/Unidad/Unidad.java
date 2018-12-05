@@ -21,7 +21,6 @@ public class Unidad extends Pieza{
 
 		if(!posicionAnterior.igualA(this.posicion)){
 			this.seHaMovido = true;
-			System.out.println("HOLA");
 		}	
 	}
 
