@@ -12,6 +12,7 @@ import javafx.scene.shape.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.*;
 import javafx.scene.image.*;
+import javafx.scene.text.*;
 import Controladores.*;
 
 
@@ -46,8 +47,7 @@ public class ContenedorPrincipal{
             	Jugador jugador1 = juego.obtenerJugador1();
             	Jugador jugador2 = juego.obtenerJugador2();
             	Pieza pieza1 = jugador1.obtenerPieza(celda) ;
-            	Pieza pieza2 = jugador2.obtenerPieza(celda) ;
-            	Boolean insertar = true;
+            	Pieza pieza2 = jugador2.obtenerPieza(celda) ;            	
 
             	if(pieza1 instanceof Aldeano  ){                	
                 	button.setOnAction(new BotonAldeano());                	
@@ -72,7 +72,16 @@ public class ContenedorPrincipal{
             	else if(pieza2 instanceof Espadachin){                	
                 	button.setOnAction(new BotonEspadachin());                	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/espadachin2.jpg');");	        	
-            	}            	           	           	         	
+            	}
+            	else if(pieza1 instanceof PlazaCentral){ 
+            		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/cuartel1.jpg');");       		           		           	   		        	
+            	} 
+            	else if(pieza1 instanceof ArmaDeAsedio){ 
+            		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/armaAsedioDesmonatada1.jpg');");       		           		           	   		        	
+            	}
+            	else if(pieza2 instanceof ArmaDeAsedio){ 
+            		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/armaAsedioDesmonatada2.jpg');");       		           		           	   		        	
+            	}
             	else{
             		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/grass.jpg');"); 
             	}                    
@@ -91,7 +100,7 @@ public class ContenedorPrincipal{
                     posicion.actualizar(x,alturaMapa-y-1);
 
                     PiezaActual piezaActual = PiezaActual.obtenerInstancia();
-                    piezaActual.actualizar(x,alturaMapa-y-1);
+                    piezaActual.actualizar(x,alturaMapa-y-1,juego);
 
                     UnidadActual unidadActual = UnidadActual.obtenerInstancia();
                     unidadActual.actualizar(x,alturaMapa-y-1);
@@ -114,7 +123,7 @@ public class ContenedorPrincipal{
 	}
 
     public void agregarBotones(){
-        VBox vbox = new VBox(4);
+        VBox vbox = new VBox(4);        
         Boton boton1 = new Boton("Finalizar Turno", new ControladorFinalizarTurno(this));
         Boton boton2 = new Boton("Atacar", new ControladorAtacar(this));
         Boton boton3 = new Boton("Construir Cuartel (50 oro)", new ControladorConstruirCuartel(this));
@@ -127,38 +136,63 @@ public class ContenedorPrincipal{
         vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton15,boton16,boton17,boton18) ;
 
         HBox hbox1 = new HBox(4);
-        Boton boton6 = new Boton("Mover arriba izquieda", new ControladorMoverArribaIzquierda(this));
-        Boton boton7 = new Boton("Mover arriba", new ControladorMoverArriba(this));
-        Boton boton8 = new Boton("Mover arriba derecha", new ControladorMoverArribaDerecha(this));
-        hbox1.getChildren().addAll(boton6,boton7,boton8) ;
+        Image imagenArriba = new Image("file:src/Vista/Recursos/flechaArriba.png");
+        Image imagenAbajo = new Image("file:src/Vista/Recursos/flechaAbajo.png");
+        Image imagenIzq = new Image("file:src/Vista/Recursos/flechaIzq.png");
+        Image imagenDer = new Image("file:src/Vista/Recursos/flechaDer.png");
+        Image imagenArribaIzq = new Image("file:src/Vista/Recursos/flechaArribaIzq.png");
+        Image imagenAbajoIzq = new Image("file:src/Vista/Recursos/flechaAbajoIzq.png");
+        Image imagenArribaDer = new Image("file:src/Vista/Recursos/flechaArribaDer.png");
+        Image imagenAbajoDer = new Image("file:src/Vista/Recursos/flechaAbajoDer.png");        
 
-        HBox hbox2 = new HBox(4);
-        Boton boton9 = new Boton("Mover izquieda", new ControladorMoverIzquierda(this));
-        Boton boton10 = new Boton("Mover derecha", new ControladorMoverDerecha(this));
-        hbox2.getChildren().addAll(boton9,boton10) ;
+        ImageView imagenViewArriba = new ImageView(imagenArriba);   
+        ImageView imagenViewAbajo = new ImageView(imagenAbajo);  
+        ImageView imagenViewIzq = new ImageView(imagenIzq);  
+        ImageView imagenViewDer = new ImageView(imagenDer); 
+        ImageView imagenViewArribaIzq = new ImageView(imagenArribaIzq);   
+        ImageView imagenViewAbajoIzq = new ImageView(imagenAbajoIzq);  
+        ImageView imagenViewArribaDer = new ImageView(imagenArribaDer);  
+        ImageView imagenViewAbajoDer = new ImageView(imagenAbajoDer);
+
+        BotonImagen arribaIzquierda = new BotonImagen(imagenViewArribaIzq,new ControladorMoverArribaIzquierda(this));
+        BotonImagen arriba = new BotonImagen(imagenViewArriba, new ControladorMoverArriba(this));
+        BotonImagen arribaDerecha = new BotonImagen(imagenViewArribaDer, new ControladorMoverArribaDerecha(this));
+        hbox1.getChildren().addAll(arribaIzquierda,arriba,arribaDerecha) ;
+
+        HBox hbox2 = new HBox(65);
+        BotonImagen izquierda = new BotonImagen(imagenViewIzq, new ControladorMoverIzquierda(this));        
+        BotonImagen derecha = new BotonImagen(imagenViewDer, new ControladorMoverDerecha(this));
+        hbox2.getChildren().addAll(izquierda,derecha) ;
 
         HBox hbox3 = new HBox(4);
-        Boton boton11 = new Boton("Mover abajo izquieda", new ControladorMoverAbajoIzquierda(this));
-        Boton boton12 = new Boton("Mover abajo", new ControladorMoverAbajo(this));
-        Boton boton13 = new Boton("Mover abajo derecha", new ControladorMoverAbajoDerecha(this));
-        hbox3.getChildren().addAll(boton11,boton12,boton13) ;
+        BotonImagen abajoIzquierda = new BotonImagen(imagenViewAbajoIzq, new ControladorMoverAbajoIzquierda(this));        
+        BotonImagen abajo = new BotonImagen(imagenViewAbajo, new ControladorMoverAbajo(this));
+        BotonImagen abajoDerecha = new BotonImagen(imagenViewAbajoDer, new ControladorMoverAbajoDerecha(this));
+        hbox3.getChildren().addAll(abajoIzquierda,abajo,abajoDerecha) ;
 
-        VBox vbox4 = new VBox(4);
-        Boton boton14 = new Boton("Posicion actual", new ControladorPosicionActual());
+        VBox vbox4 = new VBox(15);        
         Label labelVida = new Label("Vida: "+PiezaActual.obtenerInstancia().obtenerVida());
+        labelVida.setFont(Font.font("Castellar", 24));    
+
         Label labelOro1 = new Label("Oro jugador 1: "+ juego.obtenerJugador1().cantidadDeOro());
+        labelOro1.setFont(Font.font("Castellar", 24));
         Label labelOro2 = new Label("Oro jugador 2: "+ juego.obtenerJugador2().cantidadDeOro());
+        labelOro2.setFont(Font.font("Castellar", 24));
+
         Label labelPob1 = new Label("Poblacion jugador 1: "+ juego.obtenerJugador1().poblacion());
         Label labelPob2 = new Label("Poblacion jugador 2: "+ juego.obtenerJugador2().poblacion());
+        labelPob1.setFont(Font.font("Castellar", 24));
+        labelPob2.setFont(Font.font("Castellar", 24));
         Label labelturno = new Label("Es el turno de " + ControladorDeTurno.getInstance().jugadorEnTurno().getNombre());
-
-        vbox4.getChildren().addAll(boton14,labelVida,labelOro1,labelOro2,labelPob1,labelPob2,labelturno) ;
+        labelturno.setFont(Font.font("Castellar", 24));
+        vbox4.getChildren().addAll(labelVida,labelOro1,labelOro2,labelPob1,labelPob2,labelturno) ;        
 
         vbox.getChildren().addAll(hbox1,hbox2,hbox3,vbox4) ;
         this.root.getChildren().addAll(vbox) ;
 
-    }
-    
+    }    
+
+
     public void colorearMapa(Button button,int x,int y,Juego juego){
         for(Jugador jugador : juego.obtenerJugadores()){
             Pieza pieza = jugador.obtenerPieza(new Celda(x,y)) ;
@@ -171,10 +205,8 @@ public class ContenedorPrincipal{
             }
             else if(pieza instanceof Cuartel){
                 button.setStyle("-fx-background-color: #2EFEF7; ");
-            }           
-            else if(pieza instanceof ArmaDeAsedio){
-                button.setStyle("-fx-background-color: #40FF00; ");
-            }            
+            }          
+                       
         }
     }
 

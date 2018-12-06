@@ -27,7 +27,7 @@ public class ContenedorEntrada {
 		TextField nombreJugador1 = new TextField();
 		TextField nombreJugador2 = new TextField();
 		nombreJugador1.setPromptText("Ingrese el nombre del jugador");
-		nombreJugador2.setPromptText("Ingrese el nombre del jugador");
+		nombreJugador2.setPromptText("Ingrese el nombre del jugador");		
 		nombreJugador1.setMinWidth(250);
 		nombreJugador2.setMinWidth(250);
 		nombreJugador1.setPadding(new Insets(10));
@@ -48,11 +48,11 @@ public class ContenedorEntrada {
 		Label label2 = new Label("Nombre Jugador 2");
 		label1.setTextFill(Color.BLUE);
 		label2.setTextFill(Color.BLUE);
-		label1.setFont(Font.font("Arial", 28));
-		label2.setFont(Font.font("Arial", 28));		
-		label1.setTranslateY(30);
-		label2.setTranslateX(30);	
-		label2.setTranslateY(30);	
+		label1.setFont(Font.font("Castellar", 24));
+		label2.setFont(Font.font("Castellar", 24));		
+		label1.setTranslateY(50);
+		label2.setTranslateX(-30);	
+		label2.setTranslateY(50);	
 
 
 		//Reproductor
