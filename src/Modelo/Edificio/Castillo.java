@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDeUnidades, EdificioAtacable{
 
-	private int alcance = 5;
+	private int alcance = 3;
 
 	public Castillo(Celda celdaInicial, Jugador jugador) {
 		super(new Zona(celdaInicial, base, altura), 1000, 0,jugador, 15, 0);
