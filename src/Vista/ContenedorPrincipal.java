@@ -23,6 +23,7 @@ public class ContenedorPrincipal{
     Juego juego;    
     int alturaMapa = Mapa.obtenerInstancia().getTamanioAltura();
     int baseMapa = Mapa.obtenerInstancia().getTamanioBase();
+    
 
 	public ContenedorPrincipal(Juego juego,HBox root){
         this.root = root;
@@ -37,40 +38,34 @@ public class ContenedorPrincipal{
         grid.setHgap(0.5);
         grid.setVgap(0.5);
 
-        for (int r = 0; r < filas; r++) {
-            for (int c = 0; c < columnas; c++) {
+        for (int fila = 0; fila < filas; fila++) {
+            for (int col = 0; col < columnas; col++) {
 
             	Button button = new Button();  
             	button.setMinHeight(40);
                 button.setMinWidth(40);
-                Celda celda = new Celda(c,Mapa.obtenerInstancia().getTamanioAltura()-r-1);
+                Celda celda = new Celda(col,Mapa.obtenerInstancia().getTamanioAltura()-fila-1);
             	Jugador jugador1 = juego.obtenerJugador1();
             	Jugador jugador2 = juego.obtenerJugador2();
             	Pieza pieza1 = jugador1.obtenerPieza(celda) ;
             	Pieza pieza2 = jugador2.obtenerPieza(celda) ;            	
 
-            	if(pieza1 instanceof Aldeano  ){                	
-                	button.setOnAction(new BotonAldeano());                	
+            	if(pieza1 instanceof Aldeano  ){              	              	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/aldeano1.jpg');");	        	
             	}
-            	else if(pieza2 instanceof Aldeano ){                	
-                	button.setOnAction(new BotonAldeano());                	
+            	else if(pieza2 instanceof Aldeano ){                	    	              	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/aldeano2.jpg');");	        	
             	}      	
-            	else if(pieza1 instanceof Arquero ){                	
-                	button.setOnAction(new BotonArquero());                	
+            	else if(pieza1 instanceof Arquero ){                	         	                	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/arquero1.jpg');");	        	
             	}
-            	else if(pieza2 instanceof Arquero ){                	
-                	button.setOnAction(new BotonArquero());                	
+            	else if(pieza2 instanceof Arquero ){               	     	                	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/arquero2.jpg');");	        	
             	}
-            	else if(pieza1 instanceof Espadachin){                	
-                	button.setOnAction(new BotonEspadachin());                	
+            	else if(pieza1 instanceof Espadachin){                	               	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/espadachin1.jpg');");	        	
             	}
-            	else if(pieza2 instanceof Espadachin){                	
-                	button.setOnAction(new BotonEspadachin());                	
+            	else if(pieza2 instanceof Espadachin){                	               	
                 	button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/espadachin2.jpg');");	        	
             	}
             	else if(pieza1 instanceof PlazaCentral){ 
@@ -84,36 +79,65 @@ public class ContenedorPrincipal{
             	}
             	else{
             		button.setStyle("-fx-background-image: url('file:src/Vista/Recursos/grass.jpg');"); 
-            	}                    
-                              
-                
-                this.colorearMapa(button,c,Mapa.obtenerInstancia().getTamanioAltura()-r-1,juego);
+            	}                 
+                                          
+                this.colorearMapa(button,col,Mapa.obtenerInstancia().getTamanioAltura()-fila-1,juego);
+                Menu menu = new Menu();
+                ContextMenu contextMenu = menu.crearMenu(this); 
 
-                button.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-			    public void handle(MouseEvent event) {
-			    	int x = grid.getColumnIndex(button);
-			    	int y = grid.getRowIndex(button);
+                button.setOnMousePressed(new EventHandler<MouseEvent>() {  	
+	                @Override
+	                public void handle(MouseEvent event) {
+	                	int x = grid.getColumnIndex(button);
+			    		int y = grid.getRowIndex(button);	                	   
+	                    if(event.isSecondaryButtonDown()) {                   	
+	                    	
+			    			Pieza piezaActual = PiezaActual.obtenerInstancia().obtenerPieza();
+	                    	PosicionActual posicion = PosicionActual.obtenerInstancia();
+                    		posicion.actualizar(x,alturaMapa-y-1);
+                    		if(piezaActual instanceof Aldeano){
+                    			menu.crearMenuAldeano();
+                    			contextMenu.show(button, event.getScreenX(), event.getScreenY());
+                    		}
+                    		if(piezaActual instanceof Arquero || piezaActual instanceof Espadachin){
+                    			menu.crearMenuAtacante();
+                    			contextMenu.show(button, event.getScreenX(), event.getScreenY());
+                    		}
+                    		if(piezaActual instanceof PlazaCentral){
+                    			menu.crearMenuPlazaCentral();
+                    			contextMenu.show(button, event.getScreenX(), event.getScreenY());
+                    		}
+                    		if(piezaActual instanceof Cuartel){
+                    			menu.crearMenuCuartel();
+                    			contextMenu.show(button, event.getScreenX(), event.getScreenY());
+                    		}
+                    		if(piezaActual instanceof Castillo){
+                    			menu.crearMenuCastillo();
+                    			contextMenu.show(button, event.getScreenX(), event.getScreenY());
+                    		}
+		      		 	}
+		      		 	else{      		 		
 
-                    Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
-                    PosicionActual posicion = PosicionActual.obtenerInstancia();
-                    posicion.actualizar(x,alturaMapa-y-1);
+		                    Jugador jugador = ControladorDeTurno.getInstance().jugadorEnTurno();
+		                    PosicionActual posicion = PosicionActual.obtenerInstancia();
+		                    posicion.actualizar(x,alturaMapa-y-1);
 
-                    PiezaActual piezaActual = PiezaActual.obtenerInstancia();
-                    piezaActual.actualizar(x,alturaMapa-y-1,juego);
+		                    PiezaActual piezaActual = PiezaActual.obtenerInstancia();
+		                    piezaActual.actualizar(x,alturaMapa-y-1,juego);
 
-                    UnidadActual unidadActual = UnidadActual.obtenerInstancia();
-                    unidadActual.actualizar(x,alturaMapa-y-1);
+		                    UnidadActual unidadActual = UnidadActual.obtenerInstancia();
+		                    unidadActual.actualizar(x,alturaMapa-y-1);
 
-                    EdificioActual edificioActual = EdificioActual.obtenerInstancia();
-                    edificioActual.actualizar(x,alturaMapa-y-1);
+		                    EdificioActual edificioActual = EdificioActual.obtenerInstancia();
+		                    edificioActual.actualizar(x,alturaMapa-y-1);
 
-                    actualizar();
-			    }
-				});
+		                    actualizar();
+		      		 	}
+	                }
+                });                 
 
-                grid.setRowIndex(button,r);
-                grid.setColumnIndex(button,c);               
+                grid.setRowIndex(button,fila);
+                grid.setColumnIndex(button,col);               
                 grid.getChildren().add(button);	 
                 
             }
@@ -124,16 +148,8 @@ public class ContenedorPrincipal{
 
     public void agregarBotones(){
         VBox vbox = new VBox(4);        
-        Boton boton1 = new Boton("Finalizar Turno", new ControladorFinalizarTurno(this));
-        Boton boton2 = new Boton("Atacar", new ControladorAtacar(this));
-        Boton boton3 = new Boton("Construir Cuartel (50 oro)", new ControladorConstruirCuartel(this));
-        Boton boton4 = new Boton("Construir Plaza Central (100 oro)", new ControladorConstruirPlazaCentral(this));
-        Boton boton5 = new Boton("Reparar", new ControladorReparar(this));
-        Boton boton15 = new Boton("Crear aldeano (25 oro)",new ControladorCrearAldeano(this));
-        Boton boton16 = new Boton("Crear arquero (75 oro)",new ControladorCrearArquero(this));
-        Boton boton17 = new Boton("Crear espadachin (50 oro)",new ControladorCrearEspadachin(this));
-        Boton boton18 = new Boton("Crear arma de asedio (200 oro)",new ControladorCrearArmaAsedio(this));
-        vbox.getChildren().addAll(boton1,boton2,boton3,boton4,boton5,boton15,boton16,boton17,boton18) ;
+        Boton boton1 = new Boton("Finalizar Turno", new ControladorFinalizarTurno(this));        
+        vbox.getChildren().addAll(boton1) ;
 
         HBox hbox1 = new HBox(4);
         Image imagenArriba = new Image("file:src/Vista/Recursos/flechaArriba.png");
@@ -211,7 +227,7 @@ public class ContenedorPrincipal{
     }
 
     public void actualizar(){
-    	this.root.getChildren().clear();    	
+    	this.root.getChildren().clear();  	  	
     	this.crearGrilla(baseMapa,alturaMapa,this.juego);
         this.agregarBotones();
     }

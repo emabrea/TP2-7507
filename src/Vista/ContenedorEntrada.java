@@ -75,7 +75,7 @@ public class ContenedorEntrada {
 		this.contenedorPrincipal = new VBox(contenedorBoton, contenedorLabels);	
 		this.contenedorPrincipal.getChildren().add(contenedorNombres);	
 		this.contenedorPrincipal.setAlignment(Pos.CENTER);		
-		this.contenedorPrincipal.setStyle("-fx-background-image: url('file:src/imagenEntrada.jpg');");
+		this.contenedorPrincipal.setStyle("-fx-background-image: url('file:src/Vista/Recursos/imagenEntrada.jpg');");
 
 		BotonJugarEventHandler botonJugarEventHandler = new BotonJugarEventHandler(stage, nombreJugador1, nombreJugador2 , reproductor);
 		

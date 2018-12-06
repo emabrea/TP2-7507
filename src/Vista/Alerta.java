@@ -74,9 +74,9 @@ public class Alerta{
 	}
 
 
-    public void AldeanoDebeEstarAlLadoDelEdificioAReparar() {
+    public void noEsPosibleReparar() {
 		this.alerta.setTitle("Accion no valida");
-		this.alerta.setContentText("El Aldeano debe estar al lado del edificio a reparar");
+		this.alerta.setContentText("No es posible reparar.");
 		this.alerta.showAndWait();
 	}
 }
