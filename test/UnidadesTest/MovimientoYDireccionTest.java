@@ -2,566 +2,569 @@ package UnidadesTest;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
 
-import Modelo.Aldeano;
-import Modelo.ArmaDeAsedio;
-import Modelo.Celda;
-import Modelo.CeldaInvalidaException;
-import Modelo.CeldaOcupadaException;
-import Modelo.Espadachin;
-import Modelo.Mapa;
-import Modelo.Arquero;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class MovimientoYDireccionTest {
 
+	@Before
+	public void reset(){
+		Mapa.reset();
+	}	
+
 	@Test
-	public void test01MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){
+	public void test01MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArriba(mapa);
+		unidad.moverArriba();
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test02MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsValidoEsTrue(){
+	public void test02MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
-		Aldeano unidad = new Aldeano(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajo(mapa);
+		unidad.moverAbajo();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(0, 1);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 		
 	}
 	
 	@Test
-	public void test03MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsValidoEsTrue(){
+	public void test03MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverDerecha(mapa);
+		unidad.moverDerecha();
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test04MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){
-		
-		Mapa mapa = new Mapa();
+	public void test04MoverUnidadUnCasilleroHaciaArribaYCasilleroEsValidoEsTrue(){		
+	
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverIzquierda(mapa);
+		unidad.moverIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 0);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test05MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsValidoEsTrue(){
+	public void test05MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArribaIzquierda(mapa);
+		unidad.moverArribaIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(1, 0);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test06MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsValidoEsTrue(){
+	public void test06MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
-		Espadachin unidad = new Espadachin(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverArribaDerecha(mapa);
+		unidad.moverArribaDerecha();
 		
 		Celda celdaNueva = new Celda(1, 1);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test07MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEsValidoEsTrue(){
+	public void test07MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 1);
-		ArmaDeAsedio unidad = new ArmaDeAsedio(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajoIzquierda(mapa);
+		unidad.moverAbajoIzquierda();
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 1);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test08MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsValidoEsTrue(){
+	public void test08MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsValidoEsTrue(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
-		unidad.moverAbajoDerecha(mapa);
+		unidad.moverAbajoDerecha();
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 1);
 		
-		Assert.assertFalse(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaNueva));
 	}
 	
 	@Test
-	public void test09MoverUnidadUnCasilleroHaciaArribaYCasilleroEstaOcupadoEsFalse(){
+	public void test09MoverUnidadUnCasilleroHaciaArribaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(0, 1);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(mapa);
+			unidad.moverArriba();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test10MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){
+	public void test10MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int altura = mapa.getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int altura = Mapa.obtenerInstancia().getTamanioAltura();
+		Celda celdaInicial = new Celda(0, altura-1);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(mapa);
+			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test11MoverUnidadUnCasilleroHaciaAbajoYCasilleroEstaOcupadoEsFalse(){
+	public void test11MoverUnidadUnCasilleroHaciaAbajoYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaOcupar = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajo(mapa);
+			unidad.moverAbajo();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(0, 1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test12MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsInvalidoEsFalse(){
-		
-		Mapa mapa = new Mapa();
-		Celda celdaInicial = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
-		
-		mapa.insertar(celdaInicial);
+	public void test12MoverUnidadUnCasilleroHaciaAbajoYCasilleroEsInvalidoEsFalse(){		
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Jugador jugador = new Jugador(100, "Juan");
+		Celda celdaInicial = new Celda(0, 0);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
+		
+		Mapa.obtenerInstancia().insertar(celdaInicial);
+	
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajo(mapa);
+			unidad.moverAbajo();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test13MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEstaOcupadoEsFalse(){
+	public void test13MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(1, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverDerecha(mapa);
+			unidad.moverDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test14MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsInvalidoEsFalse(){
+	public void test14MoverUnidadUnCasilleroHaciaLaDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int base = mapa.getTamanioBase();
-		Celda celdaInicial = new Celda(base, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int base = Mapa.obtenerInstancia().getTamanioBase();
+		Celda celdaInicial = new Celda(base-1, 0);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverDerecha(mapa);
+			unidad.moverDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test15MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEstaOcupadoEsFalse(){
+	public void test15MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Celda celdaOcupar = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverIzquierda(mapa);
+			unidad.moverIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test16MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEsInvalidoEsFalse(){
+	public void test16MoverUnidadUnCasilleroHaciaLaIzquierdaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverIzquierda(mapa);
+			unidad.moverIzquierda();
 		} catch (CeldaInvalidaException e) { }
 		
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test17MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEstaOcupadoEsFalse(){
+	public void test17MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 0);
 		Celda celdaOcupar = new Celda(1, 1);
-		Arquero unidad = new Arquero(celdaInicial);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaDerecha(mapa);
+			unidad.moverArribaDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 1);
 		Celda celdaVieja = new Celda(0, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test18MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsInvalidoEsFalse(){
+	public void test18MoverUnidadUnCasilleroHaciaArribaDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int altura = mapa.getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int altura = Mapa.obtenerInstancia().getTamanioAltura();
+		Celda celdaInicial = new Celda(0, altura-1);
+		Aldeano unidad = new Aldeano(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaDerecha(mapa);
+			unidad.moverArribaDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test19MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEstaOcupadoEsFalse(){
+	public void test19MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 0);
 		Celda celdaOcupar = new Celda(0, 1);
-		Arquero unidad = new Arquero(celdaInicial);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArribaIzquierda(mapa);
+			unidad.moverArribaIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 1);
 		Celda celdaVieja = new Celda(1, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test20MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsInvalidoEsFalse(){
+	public void test20MoverUnidadUnCasilleroHaciaArribaIzquierdaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int altura = mapa.getTamanioAltura();
-		Celda celdaInicial = new Celda(0, altura);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int altura = Mapa.obtenerInstancia().getTamanioAltura();
+		Celda celdaInicial = new Celda(0, altura-1);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverArriba(mapa);
+			unidad.moverArriba();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(0, altura);
+		Celda celdaVieja = new Celda(0, altura-1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test21MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEstaOcupadoEsFalse(){
+	public void test21MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaOcupar = new Celda(1, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoDerecha(mapa);
+			unidad.moverAbajoDerecha();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(1, 0);
 		Celda celdaVieja = new Celda(0, 1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test22MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsInvalidoEsFalse(){
+	public void test22MoverUnidadUnCasilleroHaciaAbajoDerechaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int base = mapa.getTamanioAltura();
-		Celda celdaInicial = new Celda(base, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int base = Mapa.obtenerInstancia().getTamanioAltura();
+		Celda celdaInicial = new Celda(base-1, 0);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoDerecha(mapa);
+			unidad.moverAbajoDerecha();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test23MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEstaOcupadoEsFalse(){
+	public void test23MoverUnidadUnCasilleroHaciaAbajoIzquierdaYCasilleroEstaOcupadoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
+		Jugador jugador = new Jugador(100, "Juan");
 		Celda celdaInicial = new Celda(1, 1);
 		Celda celdaOcupar = new Celda(0, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaOcupar);
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaOcupar);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaOcupar));
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaOcupar));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoIzquierda(mapa);
+			unidad.moverAbajoIzquierda();
 		} catch (CeldaOcupadaException e) { }
 		
 		Celda celdaNueva = new Celda(0, 0);
 		Celda celdaVieja = new Celda(1, 1);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
-		Assert.assertTrue(mapa.posicionOcupada(celdaNueva));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaNueva));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
 	
 	@Test
-	public void test24MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){
+	public void test24MoverUnidadUnCasilleroHaciaArribaYCasilleroEsInvalidoEsFalse(){		
 		
-		Mapa mapa = new Mapa();
-		int base = mapa.getTamanioAltura();
-		Celda celdaInicial = new Celda(base, 0);
-		Arquero unidad = new Arquero(celdaInicial);
+		Jugador jugador = new Jugador(100, "Juan");
+		int base = Mapa.obtenerInstancia().getTamanioAltura();
+		Celda celdaInicial = new Celda(base-1, 0);
+		Arquero unidad = new Arquero(celdaInicial,jugador);
 		
-		mapa.insertar(celdaInicial);
+		Mapa.obtenerInstancia().insertar(celdaInicial);
 	
-		Assert.assertTrue(mapa.posicionOcupada(celdaInicial));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaInicial));
 		
 		try{
-			unidad.moverAbajoIzquierda(mapa);
+			unidad.moverAbajoIzquierda();
 		} catch (CeldaInvalidaException e) { }
 		
-		Celda celdaVieja = new Celda(base, 0);
+		Celda celdaVieja = new Celda(base-1, 0);
 		
-		Assert.assertTrue(mapa.posicionOcupada(celdaVieja));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celdaVieja));
 		Assert.assertTrue(unidad.estaEnPosicion(celdaVieja));
 	}
+	
 }

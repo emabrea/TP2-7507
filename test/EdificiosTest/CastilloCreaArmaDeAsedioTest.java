@@ -4,55 +4,57 @@ import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
 
-import Modelo.Castillo;
-import Modelo.Celda;
-import Modelo.Mapa;
-import Modelo.NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException;
-import Modelo.Zona;
+import Modelo.Edificio.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class CastilloCreaArmaDeAsedioTest {
+
+	@Before
+	public void reset(){
+		Mapa.reset();
+	}
 	
 	@Test
-	public void test01CastilloCreaArmaDeAsedioAlLadoSuyoSiEstanVaciasLasCeldas(){
+	public void test01CastilloCreaArmaDeAsedioAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celda = new Celda(8, 5);
 		
 		int base = Castillo.getTamanioBase();
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Castillo castillo = new Castillo(celda);
+		Castillo castillo = new Castillo(celda,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		// Busca las celdas posibles donde puede respawnear el Arma de Asedio
-		ArrayList<Celda> posiblesCeldas = castillo.posiblesCeldasParaCrearArmaDeAsedio(mapa);
+		ArrayList<Celda> posiblesCeldas = castillo.posiblesCeldasParaCrearArmaDeAsedio();
 		
 		celda.desplazarArribaIzquierda();
-		Assert.assertFalse(mapa.posicionOcupada(celda));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celda));
 		
 		// Elijo una (la primera que encontro)
 		Celda posibleCelda = posiblesCeldas.get(0);
-		
-		castillo.crearArmaDeAsedio(mapa, posibleCelda);
+		jugador.aumentarOro(200);
+		castillo.crearArmaDeAsedio(posibleCelda);
 		
 		// Es justo la celda donde se verifico que antes de crear el Arma de Asedio, la misma estaba libre
 		Assert.assertTrue(celda.igualA(posibleCelda));
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
-	}
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda)); 
+	}	
 	
-	@Test
-	public void test02CastilloCreaArmaDeAsedioEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){
+	@Test 
+	public void test02CastilloCreaArmaDeAsedioEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(8, 5);
 		Celda celdaDondeIriaElArmaDeAsedio = new Celda(10, 1);
 		
@@ -76,45 +78,45 @@ public class CastilloCreaArmaDeAsedioTest {
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Castillo castillo = new Castillo(celdaInicial);
+		Castillo castillo = new Castillo(celdaInicial,jugador);
 		
-		mapa.insertaorgr(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del castillo una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		
 		// Desocupada la celda donde tendria que ir
-		Assert.assertFalse(mapa.posicionOcupada(celdaDondeIriaElArmaDeAsedio));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaDondeIriaElArmaDeAsedio));
 		
 		// Busca las celdas posibles donde puede respawnear el Arma de Asedio
-		ArrayList<Celda> posiblesCeldas = castillo.posiblesCeldasParaCrearArmaDeAsedio(mapa);
+		ArrayList<Celda> posiblesCeldas = castillo.posiblesCeldasParaCrearArmaDeAsedio();
 		
 		// Elijo una (es la unica)
-		Assert.assertTrue(posiblesCeldas.size() == 1);
+		Assert.assertTrue(posiblesCeldas.size() == 1);			
 		Celda posibleCelda = posiblesCeldas.get(0);
-		
-		castillo.crearArmaDeAsedio(mapa, posibleCelda);
+		jugador.aumentarOro(200);
+		castillo.crearArmaDeAsedio(posibleCelda);
 		
 		// Siguen ocupadas la zona del castillo y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		// Ahora queda ocupada la celda donde tendria que ir el ArmaDeAsedio y Es la misma que se obtuvo
 		Assert.assertTrue(celdaDondeIriaElArmaDeAsedio.igualA(posibleCelda));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda));
 	}
 	
+	
 	@Test
-	public void test03CastilloNoCreaArmaDeAsedioYaQueSusCeldasPerifericasEstanOcupadas(){
+	public void test03CastilloNoCreaArmaDeAsedioYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia
@@ -135,27 +137,27 @@ public class CastilloCreaArmaDeAsedioTest {
 		int altura = Castillo.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Castillo castillo = new Castillo(celdaInicial);
+		Castillo castillo = new Castillo(celdaInicial,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del castillo una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		
 		// Busca las celdas posibles donde puede respawnear el Arma de Asedio
 		try{
-			castillo.posiblesCeldasParaCrearArmaDeAsedio(mapa);
-		} catch(NoSePuedeCrearElArmaDeAsedioCeldasPerifericasOcupadasException e){ }
+			castillo.posiblesCeldasParaCrearArmaDeAsedio();
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del castillo y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 	}
 }

@@ -4,56 +4,57 @@ import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
 
-import Modelo.Celda;
-import Modelo.Cuartel;
-import Modelo.Mapa;
-import Modelo.NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException;
-import Modelo.NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException;
-import Modelo.Zona;
+import Modelo.Edificio.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class CuartelCreaArquerosYEspadachinesTest {
+
+	@Before
+	public void reset(){
+		Mapa.reset();
+	}
 	
 	@Test
-	public void test01CuartelCreaArqueroAlLadoSuyoSiEstanVaciasLasCeldas(){
+	public void test01CuartelCreaArqueroAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celda = new Celda(17, 8);
 		
 		int base = Cuartel.getTamanioBase();
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Cuartel cuartel = new Cuartel(celda);
+		Cuartel cuartel = new Cuartel(celda,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		// Busca las celdas posibles donde puede respawnear el Arquero
-		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearArquero(mapa);
+		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearArquero();
 		
 		celda.desplazarArribaIzquierda();
-		Assert.assertFalse(mapa.posicionOcupada(celda));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celda));
 		
 		// Elijo una (la primera que encontro)
 		Celda posibleCelda = posiblesCeldas.get(0);
 		
-		cuartel.crearArquero(mapa, posibleCelda);
+		cuartel.crearArquero(posibleCelda);
 		
 		// Es justo la celda donde se verifico que antes de crear el Arquero, la misma estaba libre
 		Assert.assertTrue(celda.igualA(posibleCelda));
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda)); 
 	}
 	
 	@Test
-	public void test02CuartelCreaArqueroEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){
+	public void test02CuartelCreaArqueroEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(0, 1);
 		Celda celdaDondeIriaElArquero = new Celda(2, 1);
 		
@@ -69,45 +70,44 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(celdaInicial);
+		Cuartel cuartel = new Cuartel(celdaInicial,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		
 		// Desocupada la celda donde tendria que ir
-		Assert.assertFalse(mapa.posicionOcupada(celdaDondeIriaElArquero));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaDondeIriaElArquero));
 		
 		// Busca las celdas posibles donde puede respawnear el Arquero
-		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearArquero(mapa);
+		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearArquero();
 		
 		// Elijo una (es la unica)
 		Assert.assertTrue(posiblesCeldas.size() == 1);
 		Celda posibleCelda = posiblesCeldas.get(0);
 		
-		cuartel.crearArquero(mapa, posibleCelda);
+		cuartel.crearArquero(posibleCelda);
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		// Ahora queda ocupada la celda donde tendria que ir el Arquero y Es la misma que se obtuvo
 		Assert.assertTrue(celdaDondeIriaElArquero.igualA(posibleCelda));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda));
 	}
 	
 	@Test
-	public void test03CuartelNoCreaArqueroYaQueSusCeldasPerifericasEstanOcupadas(){
+	public void test03CuartelNoCreaArqueroYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia
@@ -122,70 +122,70 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(celdaInicial);
+		Cuartel cuartel = new Cuartel(celdaInicial,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
+
 		
 		try{
 			// Busca las celdas posibles donde puede respawnear el Arquero
-			cuartel.posiblesCeldasParaCrearArquero(mapa);
-		} catch(NoSePuedeCrearElArqueroCeldasPerifericasOcupadasException e){ }
+			cuartel.posiblesCeldasParaCrearArquero();
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 	}
 	
 	@Test
-	public void test04CuartelCreaEspadachinAlLadoSuyoSiEstanVaciasLasCeldas(){
+	public void test04CuartelCreaEspadachinAlLadoSuyoSiEstanVaciasLasCeldas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celda = new Celda(17, 8);
 		
 		int base = Cuartel.getTamanioBase();
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celda, base, altura);
 		
-		Cuartel cuartel = new Cuartel(celda);
+		Cuartel cuartel = new Cuartel(celda,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		// Busca las celdas posibles donde puede respawnear el Espadachin
-		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearEspadachin(mapa);
+		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearEspadachin();
 		
 		celda.desplazarArribaIzquierda();
-		Assert.assertFalse(mapa.posicionOcupada(celda));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celda));
 		
 		// Elijo una (la primera que encontro)
 		Celda posibleCelda = posiblesCeldas.get(0);
 		
-		cuartel.crearEspadachin(mapa, posibleCelda);
+		cuartel.crearEspadachin(posibleCelda);
 		
 		// Es justo la celda donde se verifico que antes de crear el Espadachin, la misma estaba libre
-		Assert.assertTrue(celda.igualA(posibleCelda));
+
+		Assert.assertTrue(celda.igualA(posibleCelda)); 							
 		
-		Assert.assertTrue(mapa.posicionOcupada(zona));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda)); 					
 	}
 	
 	@Test
-	public void test05CuartelCreaEspadachinEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){
+	public void test05CuartelCreaEspadachinEnLaUnicaCeldaQueNoEstaOcupadaDeLasPerifericas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(17, 8);
 		Celda celdaDondeIriaElEspadachin = new Celda(16, 6);
 		
@@ -210,45 +210,44 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel cuartel = new Cuartel(celdaInicial);
+		Cuartel cuartel = new Cuartel(celdaInicial,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		
 		// Desocupada la celda donde tendria que ir
-		Assert.assertFalse(mapa.posicionOcupada(celdaDondeIriaElEspadachin));
+		Assert.assertFalse(Mapa.obtenerInstancia().posicionOcupada(celdaDondeIriaElEspadachin));
 		
 		// Busca las celdas posibles donde puede respawnear el Espadachin
-		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearEspadachin(mapa);
+		ArrayList<Celda> posiblesCeldas = cuartel.posiblesCeldasParaCrearEspadachin();
 		
 		// Elijo una (es la unica)
 		Assert.assertTrue(posiblesCeldas.size() == 1);
 		Celda posibleCelda = posiblesCeldas.get(0);
 		
-		cuartel.crearEspadachin(mapa, posibleCelda);
+		cuartel.crearEspadachin(posibleCelda);
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		// Ahora queda ocupada la celda donde tendria que ir el Espadachin y Es la misma que se obtuvo
 		Assert.assertTrue(celdaDondeIriaElEspadachin.igualA(posibleCelda));
-		Assert.assertTrue(mapa.posicionOcupada(posibleCelda));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(posibleCelda));
 	}
 	
 	@Test
-	public void test06CuartelNoCreaEspadachinYaQueSusCeldasPerifericasEstanOcupadas(){
+	public void test06CuartelNoCreaEspadachinYaQueSusCeldasPerifericasEstanOcupadas(){		
 		
-		Mapa mapa = new Mapa();
-		
+		Jugador jugador = new Jugador(100, "Lucas");
 		Celda celdaInicial = new Celda(8, 5);
 		
 		// Celdas de la periferia
@@ -269,28 +268,29 @@ public class CuartelCreaArquerosYEspadachinesTest {
 		int altura = Cuartel.getTamanioAltura();
 		Zona zona = new Zona(celdaInicial, base, altura);
 		
-		Cuartel castillo = new Cuartel(celdaInicial);
+		Cuartel castillo = new Cuartel(celdaInicial,jugador);
 		
-		mapa.insertar(zona);
+		Mapa.obtenerInstancia().insertar(zona);
 		// Ocupada la zona del cuartel una vez insertada
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		
 		for(Celda celda: celdasPeriferia){
-			mapa.insertar(celda);
+			Mapa.obtenerInstancia().insertar(celda);
 			// Celdas de la periferia de la zona ocupadas luego de insertarlas
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 		
 		
 		try{
 			// Busca las celdas posibles donde puede respawnear el Espadachin
-			castillo.posiblesCeldasParaCrearEspadachin(mapa);
-		} catch(NoSePuedeCrearElEspadachinCeldasPerifericasOcupadasException e){ }
+			castillo.posiblesCeldasParaCrearEspadachin();
+		} catch(NoEsPosibleCrearException e){ }
 		
 		// Siguen ocupadas la zona del cuartel y las celdas de la periferia
-		Assert.assertTrue(mapa.posicionOcupada(zona));
+		Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(zona));
 		for(Celda celda: celdasPeriferia){
-			Assert.assertTrue(mapa.posicionOcupada(celda));
+			Assert.assertTrue(Mapa.obtenerInstancia().posicionOcupada(celda));
 		}
 	}
+	
 }

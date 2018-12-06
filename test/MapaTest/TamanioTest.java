@@ -2,17 +2,26 @@ package MapaTest;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Before;
 
-import Modelo.Mapa;
+import Modelo.Edificio.*;
+import Modelo.Unidad.*;
+import Modelo.Excepciones.*;
+import Modelo.Juego.*;
 
 public class TamanioTest {
 
+		@Before
+		public void reset(){
+			Mapa.reset();
+		}
+
 		@Test
-		public void test01TamanioDelMapa(){
-			Mapa mapa = new Mapa();
+		public void test01TamanioDelMapa(){			
 			
-			Assert.assertEquals(mapa.getTamanioBase(), 50);
-			Assert.assertEquals(mapa.getTamanioAltura(), 25);
+			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioBase(), 25);
+			Assert.assertEquals(Mapa.obtenerInstancia().getTamanioAltura(), 25);
+
 		}
 		
 		
