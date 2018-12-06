@@ -11,6 +11,11 @@ import Modelo.Edificio.*;
 import Modelo.Unidad.*;
 import Controladores.*;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
+
+
 public class Menu{    
 
     MenuItem item1;
@@ -168,7 +173,15 @@ public class Menu{
             try{
                 if(edificioActual instanceof PlazaCentral){
                     PlazaCentral plaza = (PlazaCentral)EdificioActual.obtenerInstancia().edificio();
-                    plaza.crearAldeano(celda);          
+                    
+                    //Reproductor
+                    String path = "src/Vista/Recursos/sounds/creacion_unidad.wav";
+                    Media media = new Media(new File(path).toURI().toString());
+                    MediaPlayer reproductorCrear = new MediaPlayer(media);
+                    
+                    plaza.crearAldeano(celda);  
+                    reproductorCrear.play();       
+          
                 }
                 else{
                     throw new NoEsPosibleCrearException();
@@ -199,7 +212,16 @@ public class Menu{
             try{
                 if(edificioActual instanceof Cuartel){
                     Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
+                   
+                    //Reproductor
+                    String path = "src/Vista/Recursos/sounds/creacion_unidad.wav";
+                    Media media = new Media(new File(path).toURI().toString());
+                    MediaPlayer reproductorCrear = new MediaPlayer(media);
+                    
                     cuartel.crearArquero(celda);            
+                    reproductorCrear.play();        
+                }
+
                 }
                 else{
                     throw new NoEsPosibleCrearException();
@@ -230,7 +252,14 @@ public class Menu{
             try{
                 if(edificioActual instanceof Cuartel){
                     Cuartel cuartel = (Cuartel)EdificioActual.obtenerInstancia().edificio();
-                    cuartel.crearEspadachin(celda);         
+
+                    //Reproductor
+                    String path = "src/Vista/Recursos/sounds/creacion_unidad.wav";
+                    Media media = new Media(new File(path).toURI().toString());
+                    MediaPlayer reproductorCrear = new MediaPlayer(media);
+                    
+                    cuartel.crearEspadachin(celda);   
+                    reproductorCrear.play();        
                 }
                 else{
                     throw new NoEsPosibleCrearException();   
