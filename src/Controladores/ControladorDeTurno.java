@@ -42,6 +42,8 @@ public class ControladorDeTurno {
         else{
             this.actual= this.jugadores.get(0);
         }
+        PiezaActual.obtenerInstancia().reset();
+        UnidadActual.obtenerInstancia().reset();
         this.contenedorPrincipal.actualizar();
     }
 
