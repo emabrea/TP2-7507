@@ -66,10 +66,7 @@ public class Edificio extends Pieza {
 	}
 
 	public void verificarVida(){
-		if(this.vida < 1 ){
-			this.jugador.eliminarPieza(this);
-			Mapa.obtenerInstancia().eliminar(this.posicion);
-		}
+		this.verificarVida();
 	}
 
 	public boolean celdaArribaIzquierda(Celda celda){

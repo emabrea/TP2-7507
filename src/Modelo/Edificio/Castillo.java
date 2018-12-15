@@ -103,4 +103,10 @@ public class Castillo extends Edificio implements AtacanteDeEdificios,AtacanteDe
 		this.verificarVida();
 	}
 
+	public void verificarVida(){
+		if(this.vida < 1 ){
+			throw new JuegoTerminado();
+		}
+	}
+
 }

@@ -68,4 +68,11 @@ public class PlazaCentral extends Edificio implements EdificioAtacable {
 		this.verificarVida();
 	}
 
+	public void verificarVida(){
+		if(this.vida < 1 ){
+			this.jugador.eliminarPieza(this);
+			Mapa.obtenerInstancia().eliminar(this.posicion);
+		}
+	}
+
 }
