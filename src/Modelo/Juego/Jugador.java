@@ -79,19 +79,10 @@ public class Jugador {
 	}
 
 	public void eliminarPieza(Pieza pieza){
-		if(pieza instanceof Aldeano){
-			aldeanos.remove(pieza);
-			unidades.remove(pieza);
-		}
-		else if(pieza instanceof Unidad){
-			unidades.remove(pieza);
-		}
-		if(pieza instanceof Castillo){
-			throw new JuegoTerminado();
-		}
-		if(pieza instanceof Edificio){
-			edificios.remove(pieza);
-		}
+		
+		aldeanos.remove(pieza);
+		unidades.remove(pieza);			
+		edificios.remove(pieza);		
 	}
 
 	public void aumentarOro(int monto){
