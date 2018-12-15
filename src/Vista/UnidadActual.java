@@ -22,6 +22,10 @@ public class UnidadActual{
 		return instancia;
 	}
 
+	public void reset(){
+		this.instancia = new UnidadActual();
+	}
+
 	public Unidad unidad(){
 		return this.unidad;
 	}

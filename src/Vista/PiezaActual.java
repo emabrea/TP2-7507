@@ -27,6 +27,10 @@ public class PiezaActual{
 		return instancia;
 	}
 
+	public void reset(){
+		this.instancia = new PiezaActual();
+	}
+
 	public Pieza obtenerPieza(){
 		return this.pieza;
 	}
